@@ -94,6 +94,30 @@
   h3 { font-family: Georgia, serif; font-size: 26px; color: var(--navy); margin: 32px 0 12px; }
   .lead { font-size: 20px; color: var(--slate); font-style: italic; max-width: 760px; margin-bottom: 32px; }
 
+  /* AUDIO */
+  .audio-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-top: 24px; }
+  .audio-card {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 20px 22px; border-left: 5px solid var(--coral);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .audio-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,76,92,0.10); }
+  .audio-card .badge {
+    display: inline-block; font-family: Georgia, serif;
+    font-size: 11px; font-weight: 700; color: var(--coral); letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .audio-card h4 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 19px;
+    margin-bottom: 6px; line-height: 1.3;
+  }
+  .audio-card p { color: var(--slate); font-size: 14px; margin-bottom: 12px; line-height: 1.5; }
+  .audio-card audio { width: 100%; height: 38px; border-radius: 4px; }
+  .audio-empty {
+    text-align: center; color: var(--muted); font-style: italic;
+    font-size: 15px; padding: 32px 0;
+  }
+
   /* MODULE CARDS */
   .modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 32px; }
   .module-card {
@@ -180,19 +204,29 @@
   .resource a:hover { color: var(--navy); border-color: var(--navy); }
 
   /* STEPS */
-  .steps { counter-reset: step; margin: 24px 0; }
+  .steps {
+    counter-reset: step; margin: 32px 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;
+  }
   .step {
     counter-increment: step;
-    display: grid; grid-template-columns: 60px 1fr; gap: 20px;
-    padding: 20px 0; border-bottom: 1px solid var(--rule);
+    background: var(--white);
+    border: 1px solid var(--rule); border-radius: 6px;
+    padding: 28px 24px 24px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    min-width: 0;
   }
+  .step:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(15,76,92,0.10); border-color: var(--gold); }
   .step::before {
     content: counter(step);
-    font-family: Georgia, serif; font-size: 36px; font-weight: 700;
+    font-family: Georgia, serif; font-size: 56px; font-weight: 700;
     color: var(--gold); line-height: 1;
+    display: block; margin-bottom: 10px;
   }
-  .step h4 { font-family: Georgia, serif; color: var(--navy); font-size: 22px; margin-bottom: 6px; }
-  .step p { color: var(--slate); font-size: 15px; }
+  .step h4 { font-family: Georgia, serif; color: var(--navy); font-size: 22px; margin-bottom: 8px; line-height: 1.25; }
+  .step p { color: var(--slate); font-size: 15px; line-height: 1.55; }
+  section.alt .step { background: var(--white); }
 
   /* CTA */
   .cta {
@@ -238,6 +272,7 @@
     <a href="#module-1" data-en="Module 1" data-es="Módulo 1" data-fr="Module 1">Module 1</a>
     <a href="#module-2" data-en="Module 2" data-es="Módulo 2" data-fr="Module 2">Module 2</a>
     <a href="#module-3" data-en="Module 3" data-es="Módulo 3" data-fr="Module 3">Module 3</a>
+    <a href="#listen" data-en="Listen" data-es="Escuchar" data-fr="Écouter">Listen</a>
     <a href="#resources" data-en="Resources" data-es="Recursos" data-fr="Ressources">Resources</a>
     <a href="#plan" data-en="90-Day Plan" data-es="Plan de 90 días" data-fr="Plan 90 jours">90-Day Plan</a>
     <div class="lang-toggle" role="tablist" aria-label="Language">
@@ -388,40 +423,28 @@
 
     <div class="steps">
       <div class="step">
-        <div></div>
-        <div>
-          <h4 data-en="Find your real reason" data-es="Encuentra tu razón real" data-fr="Trouvez votre vraie raison">Find your real reason</h4>
+        <h4 data-en="Find your real reason" data-es="Encuentra tu razón real" data-fr="Trouvez votre vraie raison">Find your real reason</h4>
           <p data-en="Vague reasons fade. Specific reasons stick. Finish this sentence: &quot;In 90 days, I want to be able to ____________.&quot;"
              data-es="Las razones vagas se desvanecen. Las específicas pegan. Termina esta oración: \"En 90 días quiero poder ____________.\""
              data-fr="Les raisons vagues s'effacent. Les raisons précises tiennent. Terminez cette phrase : « Dans 90 jours, je veux pouvoir ____________. »">Vague reasons fade. Specific reasons stick. Finish this sentence: "In 90 days, I want to be able to ____________."</p>
-        </div>
       </div>
       <div class="step">
-        <div></div>
-        <div>
-          <h4 data-en="Match English to your life" data-es="Adapta el inglés a tu vida" data-fr="Adapter l'anglais à votre vie">Match English to your life</h4>
+        <h4 data-en="Match English to your life" data-es="Adapta el inglés a tu vida" data-fr="Adapter l'anglais à votre vie">Match English to your life</h4>
           <p data-en="Don't try to learn all of English. Learn the 10% you actually use — work, errands, family, fun."
              data-es="No intentes aprender todo el inglés. Aprende el 10% que de verdad usas — trabajo, mandados, familia, diversión."
              data-fr="N'essayez pas d'apprendre tout l'anglais. Apprenez les 10 % que vous utilisez vraiment — travail, courses, famille, loisirs.">Don't try to learn all of English. Learn the 10% you actually use — work, errands, family, fun.</p>
-        </div>
       </div>
       <div class="step">
-        <div></div>
-        <div>
-          <h4 data-en="Pick your 15-minute slot" data-es="Elige tu espacio de 15 minutos" data-fr="Choisissez votre créneau de 15 minutes">Pick your 15-minute slot</h4>
+        <h4 data-en="Pick your 15-minute slot" data-es="Elige tu espacio de 15 minutos" data-fr="Choisissez votre créneau de 15 minutes">Pick your 15-minute slot</h4>
           <p data-en="Pick the time you can repeat 5–7 days a week. After morning coffee. During the commute. After dinner."
              data-es="Elige una hora que puedas repetir 5–7 días por semana. Después del café. Durante el transporte. Después de cenar."
              data-fr="Choisissez le moment que vous pouvez répéter 5–7 jours par semaine. Après le café du matin. Pendant les trajets. Après le dîner.">Pick the time you can repeat 5–7 days a week. After morning coffee. During the commute. After dinner.</p>
-        </div>
       </div>
       <div class="step">
-        <div></div>
-        <div>
-          <h4 data-en="Build your backup plan" data-es="Crea tu plan B" data-fr="Bâtissez votre plan de secours">Build your backup plan</h4>
+        <h4 data-en="Build your backup plan" data-es="Crea tu plan B" data-fr="Bâtissez votre plan de secours">Build your backup plan</h4>
           <p data-en="Decide today what you'll do on a missed day. The floor is 5 minutes — never zero."
              data-es="Decide hoy qué harás en un día que pierdas. El mínimo es 5 minutos — nunca cero."
              data-fr="Décidez aujourd'hui ce que vous ferez un jour raté. Le minimum est 5 minutes — jamais zéro.">Decide today what you'll do on a missed day. The floor is 5 minutes — never zero.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -546,35 +569,57 @@
         data-es="Tu primera grabación de 30 segundos"
         data-fr="Votre premier enregistrement de 30 secondes">Your first 30-second recording</h3>
     <div class="steps">
-      <div class="step"><div></div><div>
+      <div class="step">
         <h4 data-en="Open Voice Memos" data-es="Abre Voice Memos" data-fr="Ouvrez Mémos vocaux">Open Voice Memos</h4>
         <p data-en="iPhone or Android Recorder app. No special software needed."
            data-es="App Voice Memos del iPhone o Recorder en Android. No necesitas software especial."
            data-fr="Application Mémos vocaux iPhone ou Enregistreur Android. Aucun logiciel spécial requis.">iPhone or Android Recorder app. No special software needed.</p>
-      </div></div>
-      <div class="step"><div></div><div>
+      </div>
+      <div class="step">
         <h4 data-en="Press record. Don't write a script."
             data-es="Presiona grabar. No escribas un guion."
             data-fr="Appuyez sur enregistrer. N'écrivez pas de script.">Press record. Don't write a script.</h4>
         <p data-en="Just talk. About your day. About anything. 30 seconds."
            data-es="Solo habla. Sobre tu día. Sobre lo que sea. 30 segundos."
            data-fr="Parlez tout simplement. De votre journée. De n'importe quoi. 30 secondes.">Just talk. About your day. About anything. 30 seconds.</p>
-      </div></div>
-      <div class="step"><div></div><div>
+      </div>
+      <div class="step">
         <h4 data-en="Listen back once." data-es="Escúchala una vez." data-fr="Réécoutez-la une fois.">Listen back once.</h4>
         <p data-en="One time. You'll cringe. That's normal. Save the file."
            data-es="Una sola vez. Vas a sentir vergüenza. Es normal. Guarda el archivo."
            data-fr="Une seule fois. Vous aurez honte. C'est normal. Enregistrez le fichier.">One time. You'll cringe. That's normal. Save the file.</p>
-      </div></div>
-      <div class="step"><div></div><div>
+      </div>
+      <div class="step">
         <h4 data-en="Upload to Assignment 3."
             data-es="Sube la tarea 3."
             data-fr="Envoyez le devoir 3.">Upload to Assignment 3.</h4>
         <p data-en="And then do another one next week. By recording number 10, you'll sound different."
            data-es="Y luego haz otra la próxima semana. Para la grabación número 10, sonarás distinto."
            data-fr="Puis faites-en une autre la semaine prochaine. Au 10e enregistrement, vous aurez une voix différente.">And then do another one next week. By recording number 10, you'll sound different.</p>
-      </div></div>
+      </div>
     </div>
+  </div>
+</section>
+
+<section id="listen">
+  <div class="container">
+    <p class="eyebrow"
+       data-en="Listen and shadow"
+       data-es="Escucha y repite"
+       data-fr="Écoutez et répétez">Listen and shadow</p>
+    <h2 data-en="Audio drills, podcasts, and pronunciation."
+        data-es="Audios, podcasts, y pronunciación."
+        data-fr="Exercices audio, podcasts, et prononciation.">Audio drills, podcasts, and pronunciation.</h2>
+    <p class="lead"
+       data-en="Press play. Repeat out loud. The fastest way to make English stick is to put it in your mouth, not just in your eyes."
+       data-es="Presiona play. Repite en voz alta. La forma más rápida de fijar el inglés es ponerlo en tu boca, no solo en tus ojos."
+       data-fr="Appuyez sur lecture. Répétez à voix haute. Le moyen le plus rapide de fixer l'anglais, c'est de le mettre dans votre bouche, pas seulement dans vos yeux.">Press play. Repeat out loud. The fastest way to make English stick is to put it in your mouth, not just in your eyes.</p>
+
+    <div id="audio-list" class="audio-list"></div>
+    <div id="audio-empty" class="audio-empty" hidden
+         data-en="Audio is being recorded — check back soon."
+         data-es="Estamos grabando los audios — vuelve pronto."
+         data-fr="Les audios sont en cours d'enregistrement — revenez bientôt.">Audio is being recorded — check back soon.</div>
   </div>
 </section>
 
@@ -591,12 +636,65 @@
        data-es="Todo gratis. Todo amigable para principiantes. Todo usado por aprendices profesionales. Elige uno y quédate con él."
        data-fr="Tout est gratuit. Tout est adapté aux débutants. Tout est utilisé par les apprenants professionnels. Choisissez-en un et tenez-vous-y.">All free. All beginner-friendly. All used by professional language learners. Pick one and stick with it.</p>
 
+    <h3 style="margin-top:32px"
+        data-en="American English (recommended for US-based learners)"
+        data-es="Inglés americano (recomendado para estudiantes en EE. UU.)"
+        data-fr="Anglais américain (recommandé pour les apprenants aux États-Unis)">American English (recommended for US-based learners)</h3>
+    <div class="resources">
+      <div class="resource">
+        <h4>VOA Learning English</h4>
+        <p data-en="Slow American news for learners. Short articles with audio + transcript. Voiced by US journalists."
+           data-es="Noticias americanas lentas para estudiantes. Artículos cortos con audio y transcripción. Locutores de EE. UU."
+           data-fr="Actualités américaines lentes pour apprenants. Articles courts avec audio + transcription. Voix de journalistes US.">Slow American news for learners. Short articles with audio + transcript. Voiced by US journalists.</p>
+        <a href="https://learningenglish.voanews.com/" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
+      </div>
+      <div class="resource">
+        <h4>NPR Up First</h4>
+        <p data-en="Free 12-minute daily American news podcast. Standard US accent. Use the NPR transcripts to read along."
+           data-es="Podcast diario gratuito de noticias americanas de 12 minutos. Acento estándar de EE. UU. Lee la transcripción mientras escuchas."
+           data-fr="Podcast quotidien gratuit d'actualités américaines de 12 minutes. Accent standard US. Suivez la transcription en lisant.">Free 12-minute daily American news podcast. Standard US accent. Use the NPR transcripts to read along.</p>
+        <a href="https://www.npr.org/podcasts/510318/up-first" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
+      </div>
+      <div class="resource">
+        <h4>Rachel's English (YouTube)</h4>
+        <p data-en="The most-used American pronunciation channel for adult learners. Vowel reductions, linking, the &quot;American R.&quot; Free."
+           data-es="El canal de pronunciación americana más usado por adultos. Reducciones, enlaces, la \"R americana.\" Gratis."
+           data-fr="La chaîne de prononciation américaine la plus utilisée. Réductions, liaisons, le « R américain ». Gratuit.">The most-used American pronunciation channel for adult learners. Vowel reductions, linking, the "American R." Free.</p>
+        <a href="https://www.youtube.com/@rachelsenglish" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
+      </div>
+      <div class="resource">
+        <h4>ESL Pod (Jeff McQuillan)</h4>
+        <p data-en="Slow-spoken American English podcast designed for adult ESL learners. Each episode explains every idiom and phrase."
+           data-es="Podcast en inglés americano hablado lentamente, diseñado para adultos. Cada episodio explica modismos y frases."
+           data-fr="Podcast en anglais américain parlé lentement, conçu pour adultes apprenant l'ESL. Chaque épisode explique idiomes et expressions.">Slow-spoken American English podcast designed for adult ESL learners. Each episode explains every idiom and phrase.</p>
+        <a href="https://www.eslpod.com/" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
+      </div>
+      <div class="resource">
+        <h4>All Ears English</h4>
+        <p data-en="American conversational English podcast. Two American hosts. Real US idioms, casual speech, and phrasal verbs."
+           data-es="Podcast de inglés americano conversacional. Dos presentadores estadounidenses. Modismos, habla casual, verbos compuestos."
+           data-fr="Podcast d'anglais américain conversationnel. Deux animatrices américaines. Idiomes US, parler décontracté, verbes à particule.">American conversational English podcast. Two American hosts. Real US idioms, casual speech, and phrasal verbs.</p>
+        <a href="https://www.allearsenglish.com/episodes/" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
+      </div>
+      <div class="resource">
+        <h4 data-en="USA Learns (free US gov resource)" data-es="USA Learns (recurso gratuito del gobierno de EE. UU.)" data-fr="USA Learns (ressource gratuite du gouvernement US)">USA Learns (free US gov resource)</h4>
+        <p data-en="Free, full beginner-to-advanced curriculum funded by the US Department of Education. Designed for adult immigrants."
+           data-es="Currículo gratuito de principiante a avanzado, financiado por el Departamento de Educación de EE. UU. Hecho para adultos inmigrantes."
+           data-fr="Cursus complet gratuit (débutant à avancé) financé par le Département de l'Éducation des États-Unis. Conçu pour adultes immigrants.">Free, full beginner-to-advanced curriculum funded by the US Department of Education. Designed for adult immigrants.</p>
+        <a href="https://www.usalearns.org/" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px"
+        data-en="British English (for variety)"
+        data-es="Inglés británico (para variedad)"
+        data-fr="Anglais britannique (pour la variété)">British English (for variety)</h3>
     <div class="resources">
       <div class="resource">
         <h4>BBC 6 Minute English</h4>
-        <p data-en="Short paced episodes. Full transcript. Best place to start listening."
-           data-es="Episodios cortos. Transcripción completa. El mejor lugar para empezar a escuchar."
-           data-fr="Épisodes courts au rythme posé. Transcription complète. Idéal pour débuter l'écoute.">Short paced episodes. Full transcript. Best place to start listening.</p>
+        <p data-en="Short paced episodes. Full transcript. Excellent for British accent exposure."
+           data-es="Episodios cortos. Transcripción completa. Excelente para exponerse al acento británico."
+           data-fr="Épisodes courts au rythme posé. Transcription complète. Excellent pour s'habituer à l'accent britannique.">Short paced episodes. Full transcript. Excellent for British accent exposure.</p>
         <a href="https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
       </div>
       <div class="resource">
@@ -607,19 +705,19 @@
         <a href="https://www.bbc.co.uk/learningenglish/english/features/news-review" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
       </div>
       <div class="resource">
-        <h4>VOA Learning English</h4>
-        <p data-en="Slow news for learners. Short articles with audio + transcript."
-           data-es="Noticias lentas para estudiantes. Artículos cortos con audio + transcripción."
-           data-fr="Actus lentes pour apprenants. Articles courts avec audio et transcription.">Slow news for learners. Short articles with audio + transcript.</p>
-        <a href="https://learningenglish.voanews.com/" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
-      </div>
-      <div class="resource">
         <h4 data-en="BBC Pronunciation" data-es="BBC Pronunciación" data-fr="BBC Prononciation">BBC Pronunciation</h4>
-        <p data-en="Free video pronunciation lessons covering every English sound."
-           data-es="Lecciones gratuitas en video de pronunciación cubriendo cada sonido del inglés."
-           data-fr="Leçons gratuites en vidéo couvrant chaque son de l'anglais.">Free video pronunciation lessons covering every English sound.</p>
+        <p data-en="Free video pronunciation lessons. Useful but British-leaning — pair with Rachel's English for US sounds."
+           data-es="Lecciones gratuitas en video. Útiles pero con énfasis británico — combínalas con Rachel's English para sonidos de EE. UU."
+           data-fr="Leçons gratuites en vidéo. Utile mais accent britannique — à combiner avec Rachel's English pour les sons US.">Free video pronunciation lessons. Useful but British-leaning — pair with Rachel's English for US sounds.</p>
         <a href="https://www.bbc.co.uk/learningenglish/english/features/pronunciation" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
       </div>
+    </div>
+
+    <h3 style="margin-top:48px"
+        data-en="Universal tools (every learner needs these)"
+        data-es="Herramientas universales (todo estudiante las necesita)"
+        data-fr="Outils universels (essentiels pour tout apprenant)">Universal tools (every learner needs these)</h3>
+    <div class="resources">
       <div class="resource">
         <h4>Anki (apps.ankiweb.net)</h4>
         <p data-en="Free flashcard app with spaced repetition. Single most powerful tool in this course."
@@ -629,10 +727,19 @@
       </div>
       <div class="resource">
         <h4>Forvo.com</h4>
-        <p data-en="Native-speaker pronunciations of any word. Free. Use it for every Anki card."
-           data-es="Pronunciaciones de cualquier palabra por nativos. Gratis. Úsala para cada tarjeta de Anki."
-           data-fr="Prononciations par des natifs de n'importe quel mot. Gratuit. À utiliser pour chaque carte Anki.">Native-speaker pronunciations of any word. Free. Use it for every Anki card.</p>
+        <p data-en="Native-speaker pronunciations of any word. Filter to en_US for American audio. Free. Use for every Anki card."
+           data-es="Pronunciaciones de hablantes nativos. Filtra por en_US para audio americano. Gratis. Úsala para cada tarjeta de Anki."
+           data-fr="Prononciations par des natifs. Filtre en_US pour de l'audio américain. Gratuit. À utiliser pour chaque carte Anki.">Native-speaker pronunciations of any word. Filter to en_US for American audio. Free. Use for every Anki card.</p>
         <a href="https://forvo.com/" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
+      </div>
+      <div class="resource">
+        <h4 data-en="YouGlish (US filter)"
+            data-es="YouGlish (filtro EE. UU.)"
+            data-fr="YouGlish (filtre US)">YouGlish (US filter)</h4>
+        <p data-en="Hear any English word spoken in real YouTube clips. Click the &quot;US&quot; filter to get only American speakers."
+           data-es="Escucha cualquier palabra en clips reales de YouTube. Filtra \"US\" para oír solo hablantes americanos."
+           data-fr="Écoutez n'importe quel mot anglais dans de vrais clips YouTube. Filtre « US » pour n'avoir que des locuteurs américains.">Hear any English word spoken in real YouTube clips. Click the "US" filter to get only American speakers.</p>
+        <a href="https://youglish.com/pronounce/word/english/us" target="_blank" rel="noopener" data-en="Visit →" data-es="Visitar →" data-fr="Visiter →">Visit →</a>
       </div>
     </div>
   </div>
@@ -717,18 +824,335 @@
 </footer>
 
 <script>
+  // ============== AUDIO MANIFEST ==============
+  // Each entry maps to an mp3 file expected at audio/<file>. If the file is missing
+  // (HEAD request returns non-200), the entry is silently hidden — push files in any
+  // order. Add new entries by appending here and uploading the file to /audio/.
+  var AUDIO_INDEX = [
+    // ---- NotebookLM podcasts ----
+    { file: "the_method_overview.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+      titleEn: "The Method — full course overview",
+      titleEs: "El Método — vista completa del curso",
+      titleFr: "La Méthode — vue d'ensemble du cours",
+      descEn: "Two-host AI discussion of the science behind the whole system. ~8 minutes.",
+      descEs: "Discusión entre dos presentadores IA sobre la ciencia detrás del sistema. ~8 min.",
+      descFr: "Discussion entre deux animateurs IA sur la science derrière tout le système. ~8 min." },
+    { file: "module1_podcast.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+      titleEn: "Module 1 — Goals & routine",
+      titleEs: "Módulo 1 — Metas y rutina",
+      titleFr: "Module 1 — Objectifs et routine",
+      descEn: "Why most learners quit, and the planning frame that keeps you going.",
+      descEs: "Por qué la mayoría abandona, y el marco de planeación que te mantiene.",
+      descFr: "Pourquoi la plupart abandonnent, et le cadre de planification qui vous fait tenir." },
+    { file: "module2_podcast.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+      titleEn: "Module 2 — Vocabulary that sticks",
+      titleEs: "Módulo 2 — Vocabulario que se queda",
+      titleFr: "Module 2 — Vocabulaire qui s'ancre",
+      descEn: "Multimodal encoding, cognates, and sentence frames in plain language.",
+      descEs: "Codificación multimodal, cognados, y plantillas — en lenguaje simple.",
+      descFr: "Encodage multimodal, cognats et structures — en langage simple." },
+    { file: "module3_podcast.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+      titleEn: "Module 3 — Use English for real",
+      titleEs: "Módulo 3 — Usa el inglés de verdad",
+      titleFr: "Module 3 — Utiliser l'anglais pour de vrai",
+      descEn: "Comprehensible input, output, and the 90-day plan that turns this into a habit.",
+      descEs: "Input comprensible, producción, y el plan de 90 días que lo convierte en hábito.",
+      descFr: "Input compréhensible, production, et le plan 90 jours qui en fait une habitude." },
+    { file: "why_anki_works.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+      titleEn: "Why Anki works",
+      titleEs: "Por qué funciona Anki",
+      titleFr: "Pourquoi Anki fonctionne",
+      descEn: "The testing effect, spaced retrieval, and what to do when cards keep failing.",
+      descEs: "El efecto de prueba, la recuperación espaciada, y qué hacer cuando las tarjetas fallan.",
+      descFr: "L'effet de test, la récupération espacée, et que faire quand les cartes échouent." },
+    { file: "how_to_use_ai.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+      titleEn: "How to use AI for language learning",
+      titleEs: "Cómo usar la IA para aprender idiomas",
+      titleFr: "Comment utiliser l'IA pour apprendre une langue",
+      descEn: "Generate decks and drills — not endless chat. The 5 high-leverage prompts.",
+      descEs: "Genera mazos y ejercicios — no plática infinita. Los 5 prompts de mayor impacto.",
+      descFr: "Générez des decks et exercices — pas de discussion infinie. Les 5 prompts les plus utiles." },
+
+    // ---- ElevenLabs drills ----
+    { file: "pron_th_drill.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The 'th' sound — listen and repeat",
+      titleEs: "El sonido 'th' — escucha y repite",
+      titleFr: "Le son « th » — écoutez et répétez",
+      descEn: "Tongue tip between teeth. Think, three, this, that.",
+      descEs: "Punta de la lengua entre los dientes. Think, three, this, that.",
+      descFr: "Bout de la langue entre les dents. Think, three, this, that." },
+    { file: "pron_v_drill.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The 'v' sound — listen and repeat",
+      titleEs: "El sonido 'v' — escucha y repite",
+      titleFr: "Le son « v » — écoutez et répétez",
+      descEn: "Top teeth on bottom lip. Very, vote, have, love.",
+      descEs: "Dientes de arriba en el labio de abajo. Very, vote, have, love.",
+      descFr: "Dents du haut sur la lèvre inférieure. Very, vote, have, love." },
+    { file: "pron_sh_drill.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The 'sh' sound — listen and repeat",
+      titleEs: "El sonido 'sh' — escucha y repite",
+      titleFr: "Le son « sh » — écoutez et répétez",
+      descEn: "Round your lips. Shhh. She, shoe, wash, sure.",
+      descEs: "Redondea los labios. Shhh. She, shoe, wash, sure.",
+      descFr: "Arrondissez les lèvres. Shhh. She, shoe, wash, sure." },
+    { file: "pron_minimal_pairs.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "Minimal pairs",
+      titleEs: "Pares mínimos",
+      titleFr: "Paires minimales",
+      descEn: "Sheep / ship · ban / van · think / sink. Hear the contrast, then say it.",
+      descEs: "Sheep / ship · ban / van · think / sink. Oye el contraste, luego dilo.",
+      descFr: "Sheep / ship · ban / van · think / sink. Entendez le contraste, puis dites-le." },
+    { file: "vocab_starter_20.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      titleEn: "20 starter words",
+      titleEs: "20 palabras iniciales",
+      titleFr: "20 mots de départ",
+      descEn: "Each word spoken twice, then in an example sentence. Listen and repeat.",
+      descEs: "Cada palabra dicha dos veces, luego en una oración. Escucha y repite.",
+      descFr: "Chaque mot prononcé deux fois, puis dans une phrase. Écoutez et répétez." },
+    { file: "vocab_cognates.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      titleEn: "Cognates — free vocabulary",
+      titleEs: "Cognados — vocabulario gratis",
+      titleFr: "Cognats — vocabulaire gratuit",
+      descEn: "10 words you almost already know, with example sentences.",
+      descEs: "10 palabras que casi ya sabes, con oraciones de ejemplo.",
+      descFr: "10 mots que vous connaissez presque, avec phrases d'exemple." },
+    { file: "frames_10.mp3", badgeEn: "Sentence frames", badgeEs: "Plantillas", badgeFr: "Structures",
+      titleEn: "10 reusable sentence frames",
+      titleEs: "10 plantillas reutilizables",
+      titleFr: "10 structures réutilisables",
+      descEn: "Memorize the frame, swap the word. Three example variations per frame.",
+      descEs: "Memoriza la plantilla, cambia la palabra. Tres variaciones por plantilla.",
+      descFr: "Mémorisez la structure, changez le mot. Trois variations par structure." },
+    { file: "speaking_starters.mp3", badgeEn: "Speaking", badgeEs: "Habla", badgeFr: "Parole",
+      titleEn: "Speaking starters for your 30-second recording",
+      titleEs: "Arranques para tu grabación de 30 segundos",
+      titleFr: "Amorces pour votre enregistrement de 30 secondes",
+      descEn: "Use these to begin. Today is… This morning I… Tonight I…",
+      descEs: "Úsalos para empezar. Today is… This morning I… Tonight I…",
+      descFr: "Utilisez-les pour commencer. Today is… This morning I… Tonight I…" },
+    { file: "module1_intro.mp3", badgeEn: "Module intro", badgeEs: "Intro de módulo", badgeFr: "Intro du module",
+      titleEn: "Module 1 welcome",
+      titleEs: "Bienvenida al Módulo 1",
+      titleFr: "Bienvenue au Module 1",
+      descEn: "30-second audio overview of Module 1.",
+      descEs: "Resumen en audio de 30 segundos del Módulo 1.",
+      descFr: "Aperçu audio de 30 secondes du Module 1." },
+    { file: "module2_intro.mp3", badgeEn: "Module intro", badgeEs: "Intro de módulo", badgeFr: "Intro du module",
+      titleEn: "Module 2 welcome",
+      titleEs: "Bienvenida al Módulo 2",
+      titleFr: "Bienvenue au Module 2",
+      descEn: "30-second audio overview of Module 2.",
+      descEs: "Resumen en audio de 30 segundos del Módulo 2.",
+      descFr: "Aperçu audio de 30 secondes du Module 2." },
+    { file: "module3_intro.mp3", badgeEn: "Module intro", badgeEs: "Intro de módulo", badgeFr: "Intro du module",
+      titleEn: "Module 3 welcome",
+      titleEs: "Bienvenida al Módulo 3",
+      titleFr: "Bienvenue au Module 3",
+      descEn: "30-second audio overview of Module 3.",
+      descEs: "Resumen en audio de 30 segundos del Módulo 3.",
+      descFr: "Aperçu audio de 30 secondes du Module 3." },
+
+    // ---- Expanded pronunciation drills ----
+    { file: "pron_short_i_vs_long_e.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "Short 'i' vs long 'e' — sheep / ship",
+      titleEs: "'i' corta vs 'e' larga — sheep / ship",
+      titleFr: "« i » court vs « e » long — sheep / ship",
+      descEn: "The most common Spanish-speaker confusion. Train your ear.",
+      descEs: "La confusión más común de los hispanohablantes. Entrena tu oído.",
+      descFr: "La confusion la plus fréquente chez les hispanophones. Entraînez votre oreille." },
+    { file: "pron_american_r.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The American R",
+      titleEs: "La R americana",
+      titleFr: "Le R américain",
+      descEn: "Curl your tongue back. Don't trill it. Red, right, run, around.",
+      descEs: "Curva la lengua hacia atrás. No la vibres. Red, right, run, around.",
+      descFr: "Recourbez la langue en arrière. Ne la roulez pas. Red, right, run, around." },
+    { file: "pron_schwa.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The schwa — most common English vowel",
+      titleEs: "La schwa — la vocal más común del inglés",
+      titleFr: "Le schwa — la voyelle la plus courante de l'anglais",
+      descEn: "About, banana, sofa. Most unstressed vowels reduce to 'uh.'",
+      descEs: "About, banana, sofa. La mayoría de las vocales débiles se reducen a 'uh.'",
+      descFr: "About, banana, sofa. La plupart des voyelles non accentuées deviennent « uh »." },
+    { file: "pron_z_vs_s.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "Z vs S — voiced and voiceless",
+      titleEs: "Z vs S — con voz y sin voz",
+      titleFr: "Z vs S — voisé et non voisé",
+      descEn: "Zoo / Sue. Buzz / bus. Feel the vibration in your throat.",
+      descEs: "Zoo / Sue. Buzz / bus. Siente la vibración en tu garganta.",
+      descFr: "Zoo / Sue. Buzz / bus. Sentez la vibration dans la gorge." },
+    { file: "pron_silent_letters.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "Silent letters",
+      titleEs: "Letras mudas",
+      titleFr: "Lettres muettes",
+      descEn: "Know, write, hour, listen — the letters are written but not spoken.",
+      descEs: "Know, write, hour, listen — las letras se escriben pero no se pronuncian.",
+      descFr: "Know, write, hour, listen — les lettres s'écrivent mais ne se prononcent pas." },
+
+    // ---- Themed vocabulary ----
+    { file: "vocab_work.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      titleEn: "Workplace vocabulary",
+      titleEs: "Vocabulario del trabajo",
+      titleFr: "Vocabulaire du travail",
+      descEn: "Boss, schedule, shift, break, paycheck, coworker, meeting…",
+      descEs: "Jefe, horario, turno, descanso, cheque, compañero, reunión…",
+      descFr: "Patron, horaire, équipe, pause, paie, collègue, réunion…" },
+    { file: "vocab_doctor.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      titleEn: "Doctor's office vocabulary",
+      titleEs: "Vocabulario del consultorio médico",
+      titleFr: "Vocabulaire du cabinet médical",
+      descEn: "Appointment, insurance, pain, prescription, allergic, emergency…",
+      descEs: "Cita, seguro, dolor, receta, alérgico, emergencia…",
+      descFr: "Rendez-vous, assurance, douleur, ordonnance, allergique, urgence…" },
+    { file: "vocab_grocery.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      titleEn: "Grocery store vocabulary",
+      titleEs: "Vocabulario del supermercado",
+      titleFr: "Vocabulaire du supermarché",
+      descEn: "Cart, aisle, coupon, sale, receipt, refund, express lane…",
+      descEs: "Carrito, pasillo, cupón, oferta, recibo, reembolso, fila rápida…",
+      descFr: "Caddie, allée, coupon, soldes, reçu, remboursement, caisse rapide…" },
+    { file: "vocab_restaurant.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      titleEn: "Restaurant vocabulary",
+      titleEs: "Vocabulario del restaurante",
+      titleFr: "Vocabulaire du restaurant",
+      descEn: "Menu, waiter, order, appetizer, allergy, check, tip, refill…",
+      descEs: "Menú, mesero, pedido, entrada, alergia, cuenta, propina, refill…",
+      descFr: "Menu, serveur, commande, entrée, allergie, addition, pourboire…" },
+    { file: "vocab_school.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      titleEn: "School & parent vocabulary",
+      titleEs: "Vocabulario escolar y para padres",
+      titleFr: "Vocabulaire scolaire et pour parents",
+      descEn: "Teacher, homework, grade, report card, conference, field trip…",
+      descEs: "Maestro, tarea, grado, reporte, conferencia, excursión…",
+      descFr: "Enseignant, devoirs, classe, bulletin, conférence, sortie scolaire…" },
+
+    // ---- Expanded sentence frames ----
+    { file: "frames_past.mp3", badgeEn: "Sentence frames", badgeEs: "Plantillas", badgeFr: "Structures",
+      titleEn: "Past-tense frames",
+      titleEs: "Plantillas en pasado",
+      titleFr: "Structures au passé",
+      descEn: "I went, I had, I did, I saw, I made, I spoke, I forgot.",
+      descEs: "I went, I had, I did, I saw, I made, I spoke, I forgot.",
+      descFr: "I went, I had, I did, I saw, I made, I spoke, I forgot." },
+    { file: "frames_questions.mp3", badgeEn: "Sentence frames", badgeEs: "Plantillas", badgeFr: "Structures",
+      titleEn: "Question frames",
+      titleEs: "Plantillas de preguntas",
+      titleFr: "Structures de questions",
+      descEn: "Do you have…? Can you…? Could you…? What…? Where…? How much…?",
+      descEs: "Do you have…? Can you…? Could you…? What…? Where…? How much…?",
+      descFr: "Do you have…? Can you…? Could you…? What…? Where…? How much…?" },
+    { file: "frames_polite.mp3", badgeEn: "Sentence frames", badgeEs: "Plantillas", badgeFr: "Structures",
+      titleEn: "Polite frames for stores, offices, strangers",
+      titleEs: "Plantillas educadas para tiendas, oficinas, desconocidos",
+      titleFr: "Structures polies pour magasins, bureaux, inconnus",
+      descEn: "Excuse me… Could I please… Would you mind… May I… Thank you so much.",
+      descEs: "Excuse me… Could I please… Would you mind… May I… Thank you so much.",
+      descFr: "Excuse me… Could I please… Would you mind… May I… Thank you so much." },
+
+    // ---- Real-life chunk dialogues ----
+    { file: "chunks_doctor_visit.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+      titleEn: "Doctor's visit — full dialogue",
+      titleEs: "Visita al doctor — diálogo completo",
+      titleFr: "Visite chez le médecin — dialogue complet",
+      descEn: "Receptionist + patient back-and-forth. Shadow it line by line.",
+      descEs: "Conversación entre recepcionista y paciente. Repítela línea por línea.",
+      descFr: "Échange entre la réceptionniste et le patient. Répétez ligne par ligne." },
+    { file: "chunks_ordering_food.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+      titleEn: "Ordering food at a restaurant",
+      titleEs: "Pedir comida en un restaurante",
+      titleFr: "Commander au restaurant",
+      descEn: "Server greets you, you order, you ask for the check.",
+      descEs: "El mesero saluda, pides, pides la cuenta.",
+      descFr: "Le serveur vous accueille, vous commandez, vous demandez l'addition." },
+    { file: "chunks_grocery_checkout.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+      titleEn: "Grocery store checkout",
+      titleEs: "Caja del supermercado",
+      titleFr: "Caisse du supermarché",
+      descEn: "Cashier greets, asks paper or plastic, gives total. Standard US script.",
+      descEs: "El cajero saluda, pregunta papel o plástico, da el total. Guion estándar de EE. UU.",
+      descFr: "Le caissier accueille, demande papier ou plastique, donne le total. Standard US." },
+    { file: "chunks_work_morning.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+      titleEn: "Morning small talk at work",
+      titleEs: "Conversación matutina en el trabajo",
+      titleFr: "Petits mots du matin au travail",
+      descEn: "How was your weekend? See you at the meeting.",
+      descEs: "¿Cómo estuvo tu fin de semana? Nos vemos en la reunión.",
+      descFr: "Comment s'est passé ton weekend ? On se voit à la réunion." },
+    { file: "chunks_phone_call.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+      titleEn: "Phone call to make an appointment",
+      titleEs: "Llamada para hacer una cita",
+      titleFr: "Appel pour prendre rendez-vous",
+      descEn: "Booking a dental appointment over the phone, step by step.",
+      descEs: "Agendar una cita dental por teléfono, paso a paso.",
+      descFr: "Prendre rendez-vous chez le dentiste au téléphone, étape par étape." },
+
+    // ---- Course close ----
+    { file: "course_close.mp3", badgeEn: "Course close", badgeEs: "Cierre del curso", badgeFr: "Fin du cours",
+      titleEn: "You finished the course",
+      titleEs: "Terminaste el curso",
+      titleFr: "Vous avez terminé le cours",
+      descEn: "30-second send-off. Save this one for the day you finish.",
+      descEs: "Despedida de 30 segundos. Guarda esta para el día que termines.",
+      descFr: "Au revoir de 30 secondes. Gardez celui-ci pour le jour où vous finissez." },
+  ];
+
   (function () {
     var BTNS = document.querySelectorAll('.lang-toggle button');
-    var ALL = document.querySelectorAll('[data-en]');
     var KEY = 'iel-lang';
+    var currentLang = 'en';
 
+    // ---- Build audio cards (hidden until file is verified to exist) ----
+    var listEl = document.getElementById('audio-list');
+    var emptyEl = document.getElementById('audio-empty');
+    var visibleAudioCount = 0;
+    if (listEl) {
+      AUDIO_INDEX.forEach(function (item) {
+        var card = document.createElement('div');
+        card.className = 'audio-card';
+        card.style.display = 'none'; // hidden until HEAD check passes
+        card.dataset.file = item.file;
+        card.innerHTML = ''
+          + '<span class="badge"'
+          + ' data-en="' + item.badgeEn + '"'
+          + ' data-es="' + item.badgeEs + '"'
+          + ' data-fr="' + item.badgeFr + '">' + item.badgeEn + '</span>'
+          + '<h4'
+          + ' data-en="' + item.titleEn.replace(/"/g, '&quot;') + '"'
+          + ' data-es="' + item.titleEs.replace(/"/g, '&quot;') + '"'
+          + ' data-fr="' + item.titleFr.replace(/"/g, '&quot;') + '">' + item.titleEn + '</h4>'
+          + '<p'
+          + ' data-en="' + item.descEn.replace(/"/g, '&quot;') + '"'
+          + ' data-es="' + item.descEs.replace(/"/g, '&quot;') + '"'
+          + ' data-fr="' + item.descFr.replace(/"/g, '&quot;') + '">' + item.descEn + '</p>'
+          + '<audio controls preload="none" src="audio/' + item.file + '"></audio>';
+        listEl.appendChild(card);
+
+        // HEAD check — show only if file exists
+        fetch('audio/' + item.file, { method: 'HEAD' })
+          .then(function (r) {
+            if (r.ok) {
+              card.style.display = '';
+              visibleAudioCount++;
+              if (emptyEl) emptyEl.hidden = true;
+              // Re-apply language to the newly inserted nodes
+              setLang(currentLang);
+            }
+          })
+          .catch(function () { /* offline / 404 — leave hidden */ });
+      });
+      // Show "audio coming soon" message after a short delay if nothing loaded
+      setTimeout(function () {
+        if (emptyEl && visibleAudioCount === 0) emptyEl.hidden = false;
+      }, 1500);
+    }
+
+    // ---- Language toggle ----
     function setLang(lang) {
+      currentLang = lang;
       document.documentElement.setAttribute('lang', lang);
-      ALL.forEach(function (el) {
+      document.querySelectorAll('[data-en]').forEach(function (el) {
         var v = el.getAttribute('data-' + lang);
-        if (v) {
-          el.innerHTML = v;
-        }
+        if (v) { el.innerHTML = v; }
       });
       BTNS.forEach(function (b) {
         b.classList.toggle('active', b.getAttribute('data-lang') === lang);
