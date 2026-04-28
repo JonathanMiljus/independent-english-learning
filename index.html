@@ -228,6 +228,115 @@
   }
   .strategy .body strong { color: var(--navy); }
 
+  /* Spaced-repetition deep dive */
+  .sr-curve-wrap {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 24px 26px; margin: 28px 0;
+  }
+  .sr-curve-wrap h4 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 19px; margin: 0 0 6px;
+  }
+  .sr-curve-wrap .sub { color: var(--slate); font-size: 14px; font-style: italic; margin: 0 0 18px; }
+  .sr-curve-svg { width: 100%; height: auto; max-width: 720px; display: block; margin: 0 auto; }
+  .sr-tiers {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px; margin: 32px 0 12px;
+  }
+  .sr-tier {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+    border-top: 6px solid var(--navy); padding: 24px 22px;
+    display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .sr-tier:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(15,76,92,0.10); }
+  .sr-tier.basic { border-top-color: var(--gold); }
+  .sr-tier.intermediate { border-top-color: var(--coral); }
+  .sr-tier.advanced { border-top-color: var(--navy); }
+  .sr-tier .level-badge {
+    display: inline-block; font-family: Georgia, serif; font-size: 11px;
+    font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 6px; color: var(--coral);
+  }
+  .sr-tier.basic .level-badge { color: #A57014; }
+  .sr-tier.advanced .level-badge { color: var(--navy); }
+  .sr-tier h4 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 22px;
+    margin: 0 0 4px; line-height: 1.25;
+  }
+  .sr-tier .tagline { color: var(--slate); font-style: italic; font-size: 14px; margin-bottom: 14px; }
+  .sr-tier .what {
+    font-size: 15px; color: var(--charcoal); line-height: 1.55; margin-bottom: 12px;
+  }
+  .sr-tier .how-block {
+    background: var(--soft); border-left: 3px solid var(--gold);
+    padding: 12px 14px; border-radius: 0 4px 4px 0; margin-bottom: 12px;
+  }
+  .sr-tier .how-block strong {
+    display: block; font-family: Georgia, serif; color: var(--navy);
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .sr-tier .how-block p { font-size: 14px; color: var(--charcoal); margin: 0; line-height: 1.5; }
+  .sr-tier .worth {
+    background: var(--research); border-left: 3px solid var(--coral);
+    padding: 12px 14px; border-radius: 0 4px 4px 0; margin-top: auto;
+  }
+  .sr-tier .worth strong {
+    display: block; font-family: Georgia, serif; color: var(--coral);
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .sr-tier .worth p { font-size: 14px; color: var(--charcoal); margin: 0; line-height: 1.5; }
+
+  /* Capture flow */
+  .capture-flow {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px; margin: 28px 0;
+  }
+  .capture-step {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 18px 18px; position: relative;
+  }
+  .capture-step .num {
+    font-family: Georgia, serif; color: var(--coral); font-weight: 700;
+    font-size: 28px; line-height: 1; margin-bottom: 6px;
+  }
+  .capture-step h5 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 16px;
+    margin: 0 0 6px; line-height: 1.25;
+  }
+  .capture-step p { color: var(--charcoal); font-size: 14px; line-height: 1.5; margin: 0; }
+  .capture-step .when { font-size: 12px; color: var(--slate); font-style: italic; margin-top: 6px; }
+
+  /* AI helper prompts */
+  .ai-prompt-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px; margin: 24px 0 12px;
+  }
+  .ai-prompt {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+    border-left: 4px solid var(--coral); padding: 18px 20px;
+  }
+  .ai-prompt h5 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 17px;
+    margin: 0 0 8px; line-height: 1.3;
+  }
+  .ai-prompt .use-when { color: var(--slate); font-size: 13px; font-style: italic; margin-bottom: 10px; }
+  .ai-prompt pre {
+    background: #FAF6E8; border-radius: 4px; padding: 12px 14px;
+    font-family: 'Courier New', monospace; font-size: 13px;
+    color: var(--charcoal); white-space: pre-wrap; word-wrap: break-word;
+    border: 1px dashed var(--gold); line-height: 1.5; margin: 0;
+  }
+  .why-extra-step {
+    background: var(--research); border-left: 6px solid var(--coral);
+    padding: 22px 26px; margin: 28px 0; border-radius: 0 6px 6px 0;
+  }
+  .why-extra-step h4 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 21px;
+    margin: 0 0 10px; line-height: 1.3;
+  }
+  .why-extra-step p { color: var(--charcoal); font-size: 15px; line-height: 1.65; margin: 0 0 8px; }
+  .why-extra-step p:last-child { margin-bottom: 0; }
+  .why-extra-step em { color: var(--coral); font-style: italic; font-weight: 700; }
+
   /* Vocabulary flashcard player */
   .flashcard-widget {
     background: var(--soft); padding: 28px; border-radius: 8px; margin: 24px 0;
@@ -529,6 +638,7 @@
     <a href="#module-2" data-en="Module 2" data-es="Módulo 2" data-fr="Module 2">Module 2</a>
     <a href="#module-3" data-en="Module 3" data-es="Módulo 3" data-fr="Module 3">Module 3</a>
     <a href="#listen" data-en="Listen" data-es="Escuchar" data-fr="Écouter">Listen</a>
+    <a href="#spaced-repetition" data-en="The System" data-es="El Sistema" data-fr="Le Système">The System</a>
     <a href="#downloads" data-en="Downloads" data-es="Descargas" data-fr="Téléchargements">Downloads</a>
     <a href="#resources" data-en="Resources" data-es="Recursos" data-fr="Ressources">Resources</a>
     <a href="#plan" data-en="90-Day Plan" data-es="Plan de 90 días" data-fr="Plan 90 jours">90-Day Plan</a>
@@ -873,6 +983,381 @@
       </details>
 
     </div>
+  </div>
+</section>
+
+<section class="alt" id="spaced-repetition">
+  <div class="container">
+    <p class="eyebrow"
+       data-en="The system · basic to advanced"
+       data-es="El sistema · de básico a avanzado"
+       data-fr="Le système · du basique à l'avancé">The system · basic to advanced</p>
+    <h2 data-en="Spaced repetition — start where you are, grow at your pace."
+        data-es="Repetición espaciada — empieza donde estés, avanza a tu ritmo."
+        data-fr="Répétition espacée — commencez où vous êtes, avancez à votre rythme.">Spaced repetition — start where you are, grow at your pace.</h2>
+    <p class="lead"
+       data-en="If words won't stick, you don't need a better memory — you need a better schedule. Spaced repetition is the schedule. Below: the science (one paragraph), three ways to do it (paper, phone, computer), and why every step up is worth the effort."
+       data-es="Si las palabras no se te quedan, no necesitas mejor memoria — necesitas un mejor horario. La repetición espaciada es ese horario. Abajo: la ciencia (un párrafo), tres formas de hacerlo (papel, celular, computadora), y por qué cada nivel vale la pena."
+       data-fr="Si les mots ne tiennent pas, ce n'est pas la mémoire qui manque — c'est l'horaire. Voici la science (un paragraphe), trois manières de pratiquer (papier, téléphone, ordinateur), et pourquoi chaque montée en gamme en vaut la peine.">If words won't stick, you don't need a better memory — you need a better schedule. Spaced repetition is the schedule. Below: the science (one paragraph), three ways to do it (paper, phone, computer), and why every step up is worth the effort.</p>
+
+    <div class="sr-curve-wrap">
+      <h4 data-en="The forgetting curve — why we lose what we learned"
+          data-es="La curva del olvido — por qué perdemos lo aprendido"
+          data-fr="La courbe de l'oubli — pourquoi nous perdons ce que nous avons appris">The forgetting curve — why we lose what we learned</h4>
+      <p class="sub"
+         data-en="Hermann Ebbinghaus, 1885 — replicated dozens of times since."
+         data-es="Hermann Ebbinghaus, 1885 — replicado decenas de veces desde entonces."
+         data-fr="Hermann Ebbinghaus, 1885 — répliqué des dizaines de fois depuis.">Hermann Ebbinghaus, 1885 — replicated dozens of times since.</p>
+      <svg class="sr-curve-svg" viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Forgetting curve">
+        <defs>
+          <linearGradient id="grad-no" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#C75146" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#C75146" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="grad-yes" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#0F4C5C" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#0F4C5C" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- Grid -->
+        <g stroke="#E5E5E5" stroke-width="1">
+          <line x1="60" y1="50"  x2="690" y2="50"/>
+          <line x1="60" y1="110" x2="690" y2="110"/>
+          <line x1="60" y1="170" x2="690" y2="170"/>
+          <line x1="60" y1="230" x2="690" y2="230"/>
+        </g>
+        <!-- Axes -->
+        <line x1="60" y1="270" x2="690" y2="270" stroke="#2D2D2D" stroke-width="2"/>
+        <line x1="60" y1="40"  x2="60"  y2="270" stroke="#2D2D2D" stroke-width="2"/>
+        <!-- Y labels -->
+        <text x="50" y="55"  text-anchor="end" font-family="Georgia" font-size="11" fill="#6F6F6F">100%</text>
+        <text x="50" y="115" text-anchor="end" font-family="Georgia" font-size="11" fill="#6F6F6F">75%</text>
+        <text x="50" y="175" text-anchor="end" font-family="Georgia" font-size="11" fill="#6F6F6F">50%</text>
+        <text x="50" y="235" text-anchor="end" font-family="Georgia" font-size="11" fill="#6F6F6F">25%</text>
+        <!-- X labels -->
+        <text x="60"  y="288" text-anchor="middle" font-family="Georgia" font-size="11" fill="#6F6F6F">Day 0</text>
+        <text x="200" y="288" text-anchor="middle" font-family="Georgia" font-size="11" fill="#6F6F6F">Day 1</text>
+        <text x="370" y="288" text-anchor="middle" font-family="Georgia" font-size="11" fill="#6F6F6F">Day 7</text>
+        <text x="540" y="288" text-anchor="middle" font-family="Georgia" font-size="11" fill="#6F6F6F">Day 14</text>
+        <text x="680" y="288" text-anchor="middle" font-family="Georgia" font-size="11" fill="#6F6F6F">Day 30</text>
+        <text x="375" y="312" text-anchor="middle" font-family="Georgia" font-size="12" fill="#2D2D2D" font-style="italic">Time after first exposure</text>
+        <!-- "No review" curve - decays fast -->
+        <path d="M 60 50 Q 130 200, 200 230 T 370 250 T 540 258 T 690 262 L 690 270 L 60 270 Z" fill="url(#grad-no)"/>
+        <path d="M 60 50 Q 130 200, 200 230 T 370 250 T 540 258 T 690 262" stroke="#C75146" stroke-width="2.5" fill="none"/>
+        <!-- "With spaced reviews" curve - stays high, with bumps -->
+        <path d="M 60 50 L 200 110 L 200 60 L 370 130 L 370 70 L 540 140 L 540 80 L 690 110 L 690 270 L 60 270 Z" fill="url(#grad-yes)"/>
+        <path d="M 60 50 L 200 110 L 200 60 L 370 130 L 370 70 L 540 140 L 540 80 L 690 110" stroke="#0F4C5C" stroke-width="2.5" fill="none"/>
+        <!-- Review markers -->
+        <g fill="#F7B538" stroke="#0F4C5C" stroke-width="2">
+          <circle cx="200" cy="60" r="6"/>
+          <circle cx="370" cy="70" r="6"/>
+          <circle cx="540" cy="80" r="6"/>
+        </g>
+        <!-- Legend -->
+        <g font-family="Georgia" font-size="13">
+          <rect x="430" y="30" width="14" height="3" fill="#C75146"/>
+          <text x="450" y="34" fill="#2D2D2D">No review — gone in days</text>
+          <rect x="430" y="50" width="14" height="3" fill="#0F4C5C"/>
+          <text x="450" y="54" fill="#2D2D2D">Spaced review — stays</text>
+        </g>
+      </svg>
+      <p style="margin-top:18px; font-size:14px; color:var(--charcoal); line-height:1.65;"
+         data-en="Without review, you lose roughly 60% of new vocabulary within 24 hours and 80% within a week. With three timed reviews — at the right gaps — that same word stays at near 90% retention for months. The reviews don't take more time. They take less time, scheduled differently."
+         data-es="Sin repaso, pierdes alrededor del 60% del vocabulario nuevo en 24 horas y el 80% en una semana. Con tres repasos cronometrados — en los intervalos correctos — esa misma palabra se queda cerca del 90% de retención durante meses. Los repasos no toman más tiempo. Toman menos, programado de otra forma."
+         data-fr="Sans révision, vous perdez environ 60 % du vocabulaire nouveau en 24 heures et 80 % en une semaine. Avec trois révisions chronométrées — aux bons intervalles — ce même mot reste à près de 90 % de rétention pendant des mois. Les révisions ne prennent pas plus de temps. Elles en prennent moins, simplement réparti autrement.">Without review, you lose roughly 60% of new vocabulary within 24 hours and 80% within a week. With three timed reviews — at the right gaps — that same word stays at near 90% retention for months. The reviews don't take more time. They take less time, scheduled differently.</p>
+    </div>
+
+    <h3 style="margin-top:40px; font-family:Georgia, serif; color:var(--navy); font-size:24px;"
+        data-en="Three ways to do spaced repetition — pick the one you'll actually do."
+        data-es="Tres formas de hacer repetición espaciada — elige la que de verdad vayas a hacer."
+        data-fr="Trois façons de pratiquer la répétition espacée — choisissez celle que vous ferez vraiment.">Three ways to do spaced repetition — pick the one you'll actually do.</h3>
+
+    <div class="sr-tiers">
+      <div class="sr-tier basic">
+        <span class="level-badge"
+              data-en="Basic · paper only"
+              data-es="Básico · solo papel"
+              data-fr="Basique · papier uniquement">Basic · paper only</span>
+        <h4 data-en="The Leitner Box (1972)"
+            data-es="La Caja de Leitner (1972)"
+            data-fr="La boîte de Leitner (1972)">The Leitner Box (1972)</h4>
+        <p class="tagline"
+           data-en="No app. No screen. No password. Index cards and a shoe box."
+           data-es="Sin app. Sin pantalla. Sin contraseña. Tarjetas de papel y una caja de zapatos."
+           data-fr="Aucune appli. Aucun écran. Aucun mot de passe. Des fiches et une boîte à chaussures.">No app. No screen. No password. Index cards and a shoe box.</p>
+        <p class="what"
+           data-en="Get a shoe box and divide it into 5 sections with cardboard. Each new word goes on an index card — English on one side, Spanish on the back. New cards start in Box 1."
+           data-es="Consigue una caja de zapatos y divídela en 5 secciones con cartón. Cada palabra nueva va en una tarjeta — inglés de un lado, español del otro. Las tarjetas nuevas empiezan en la Caja 1."
+           data-fr="Prenez une boîte à chaussures, divisez-la en 5 compartiments. Chaque mot nouveau va sur une fiche — anglais d'un côté, espagnol de l'autre. Les nouvelles cartes commencent dans la boîte 1.">Get a shoe box and divide it into 5 sections with cardboard. Each new word goes on an index card — English on one side, Spanish on the back. New cards start in Box 1.</p>
+        <div class="how-block">
+          <strong data-en="The schedule" data-es="El horario" data-fr="Le calendrier">The schedule</strong>
+          <p data-en="Box 1 = every day. Box 2 = every 2 days. Box 3 = every 4 days. Box 4 = every week. Box 5 = every 2 weeks. If you got a card right, move it forward one box. If you got it wrong, send it back to Box 1."
+             data-es="Caja 1 = todos los días. Caja 2 = cada 2 días. Caja 3 = cada 4 días. Caja 4 = cada semana. Caja 5 = cada 2 semanas. Si la sacaste bien, súbela una caja. Si la sacaste mal, regresa a la Caja 1."
+             data-fr="Boîte 1 = chaque jour. Boîte 2 = tous les 2 jours. Boîte 3 = tous les 4 jours. Boîte 4 = chaque semaine. Boîte 5 = toutes les 2 semaines. Bonne réponse, on monte d'une boîte. Mauvaise réponse, retour à la 1.">Box 1 = every day. Box 2 = every 2 days. Box 3 = every 4 days. Box 4 = every week. Box 5 = every 2 weeks. If you got a card right, move it forward one box. If you got it wrong, send it back to Box 1.</p>
+        </div>
+        <div class="worth">
+          <strong data-en="Why it's enough" data-es="Por qué es suficiente" data-fr="Pourquoi ça suffit">Why it's enough</strong>
+          <p data-en="The Leitner Box is the original spaced-repetition system — the same math that powers Anki. If you write each card by hand, you've already begun memorizing it. For an adult who hates phones, this is the whole curriculum."
+             data-es="La Caja de Leitner es el sistema original de repetición espaciada — la misma matemática que usa Anki. Si escribes cada tarjeta a mano, ya empezaste a memorizarla. Para un adulto que odia los celulares, esto es el plan completo."
+             data-fr="La boîte de Leitner est le système original de répétition espacée — les mêmes maths qu'Anki. Si vous écrivez chaque carte à la main, vous commencez déjà à la mémoriser. Pour un adulte allergique au téléphone, c'est tout le programme.">The Leitner Box is the original spaced-repetition system — the same math that powers Anki. If you write each card by hand, you've already begun memorizing it. For an adult who hates phones, this is the whole curriculum.</p>
+        </div>
+      </div>
+
+      <div class="sr-tier intermediate">
+        <span class="level-badge"
+              data-en="Intermediate · phone only"
+              data-es="Intermedio · solo celular"
+              data-fr="Intermédiaire · téléphone seulement">Intermediate · phone only</span>
+        <h4 data-en="The Phone Notes Loop"
+            data-es="El bucle de Notas en el celular"
+            data-fr="La boucle Notes sur téléphone">The Phone Notes Loop</h4>
+        <p class="tagline"
+           data-en="Use the Notes app you already have. No new account, no new app to learn."
+           data-es="Usa la app de Notas que ya tienes. Sin nueva cuenta, sin nueva app que aprender."
+           data-fr="Utilisez l'app Notes que vous avez déjà. Pas de nouveau compte, pas de nouvelle appli à apprendre.">Use the Notes app you already have. No new account, no new app to learn.</p>
+        <p class="what"
+           data-en="One note for each day of the week — &quot;Monday Words,&quot; &quot;Tuesday Words,&quot; etc. Whenever you hear a new English word, type it in today's note with a quick example sentence. That night, read the note out loud. Once a week (Sunday), read all seven."
+           data-es="Una nota por cada día de la semana — 'Palabras del lunes', 'Palabras del martes', etc. Cuando oigas una palabra nueva, escríbela en la nota de hoy con un ejemplo. Esa noche, lee la nota en voz alta. Una vez por semana (domingo), lee las siete."
+           data-fr="Une note par jour de la semaine — « Mots du lundi », « Mots du mardi », etc. Dès que vous entendez un nouveau mot, notez-le avec un exemple. Le soir, lisez la note à voix haute. Une fois par semaine (dimanche), relisez les sept.">One note for each day of the week — "Monday Words," "Tuesday Words," etc. Whenever you hear a new English word, type it in today's note with a quick example sentence. That night, read the note out loud. Once a week (Sunday), read all seven.</p>
+        <div class="how-block">
+          <strong data-en="The schedule" data-es="El horario" data-fr="Le calendrier">The schedule</strong>
+          <p data-en="Capture all day. Read tonight (1×). Read again tomorrow morning (1×). Read with the rest of the week on Sunday (1×). Voice-record yourself reading the Sunday list — listen to it during a commute the next week. That's four exposures, perfectly spaced, with zero new tools."
+             data-es="Captura todo el día. Lee esta noche (1×). Lee otra vez mañana en la mañana (1×). Lee con el resto de la semana el domingo (1×). Grábate en voz leyendo la lista del domingo — escúchala en el transporte la siguiente semana. Cuatro exposiciones, perfectamente espaciadas, sin ninguna herramienta nueva."
+             data-fr="Captez toute la journée. Relisez le soir (1×). Relisez le matin (1×). Relisez avec le reste de la semaine le dimanche (1×). Enregistrez-vous en lisant la liste du dimanche — écoutez-la en trajet la semaine suivante. Quatre expositions, parfaitement espacées, sans aucun outil nouveau.">Capture all day. Read tonight (1×). Read again tomorrow morning (1×). Read with the rest of the week on Sunday (1×). Voice-record yourself reading the Sunday list — listen to it during a commute the next week. That's four exposures, perfectly spaced, with zero new tools.</p>
+        </div>
+        <div class="worth">
+          <strong data-en="Why it's worth the upgrade" data-es="Por qué vale la pena subir" data-fr="Pourquoi monter d'un cran">Why it's worth the upgrade</strong>
+          <p data-en="Your phone is already in your hand. You add zero friction — no shoe box, no cards to lose. The voice memo step adds dual coding: hearing yourself say the word burns it in deeper than reading alone (Paivio, 1990)."
+             data-es="Tu celular ya está en tu mano. No agregas fricción — ni caja, ni tarjetas que perder. El paso del memo de voz añade codificación dual: oírte decir la palabra la graba más profundo que solo leerla (Paivio, 1990)."
+             data-fr="Votre téléphone est déjà dans votre main. Aucune friction ajoutée — pas de boîte, pas de fiches à perdre. L'étape du mémo vocal ajoute le double codage : s'entendre dire le mot grave plus profondément que la lecture seule (Paivio, 1990).">Your phone is already in your hand. You add zero friction — no shoe box, no cards to lose. The voice memo step adds dual coding: hearing yourself say the word burns it in deeper than reading alone (Paivio, 1990).</p>
+        </div>
+      </div>
+
+      <div class="sr-tier advanced">
+        <span class="level-badge"
+              data-en="Advanced · automated"
+              data-es="Avanzado · automatizado"
+              data-fr="Avancé · automatisé">Advanced · automated</span>
+        <h4 data-en="Anki — the algorithm decides"
+            data-es="Anki — el algoritmo decide"
+            data-fr="Anki — l'algorithme décide">Anki — the algorithm decides</h4>
+        <p class="tagline"
+           data-en="The same logic as the box — but it picks the timing for you, every day."
+           data-es="La misma lógica que la caja — pero el horario lo decide la app, todos los días."
+           data-fr="La même logique que la boîte — mais le calendrier est décidé pour vous, chaque jour.">The same logic as the box — but it picks the timing for you, every day.</p>
+        <p class="what"
+           data-en="Free desktop, $25 one-time iPhone (Android free). Make cards once. Anki shows you each card right before you'd forget it — using the SM-2 algorithm refined since 1985. Easy cards drift to once a year. Hard ones come back tomorrow."
+           data-es="Gratis en computadora, $25 una vez en iPhone (Android gratis). Haces las tarjetas una vez. Anki te las muestra justo antes de que las olvides — con el algoritmo SM-2 refinado desde 1985. Las fáciles llegan a una vez al año. Las difíciles vuelven mañana."
+           data-fr="Gratuit sur ordi, 25 $ à vie sur iPhone (Android gratuit). Vous créez les cartes une fois. Anki vous les présente juste avant l'oubli — algorithme SM-2 affiné depuis 1985. Les faciles glissent à une fois par an. Les dures reviennent demain.">Free desktop, $25 one-time iPhone (Android free). Make cards once. Anki shows you each card right before you'd forget it — using the SM-2 algorithm refined since 1985. Easy cards drift to once a year. Hard ones come back tomorrow.</p>
+        <div class="how-block">
+          <strong data-en="The schedule" data-es="El horario" data-fr="Le calendrier">The schedule</strong>
+          <p data-en="Open the app once a day. Tap &quot;Again,&quot; &quot;Hard,&quot; &quot;Good,&quot; or &quot;Easy.&quot; That's it. After 90 days you'll have ~600 cards in rotation, taking ~15 minutes a day, with retention measured at 88–92%."
+             data-es="Abre la app una vez al día. Toca 'Otra vez', 'Difícil', 'Bien' o 'Fácil'. Eso es todo. A los 90 días tendrás ~600 tarjetas en rotación, ~15 minutos diarios, retención medida en 88–92%."
+             data-fr="Ouvrez l'app une fois par jour. Appuyez sur « Encore », « Difficile », « Bien » ou « Facile ». C'est tout. À 90 jours, ~600 cartes en rotation, ~15 min/jour, rétention mesurée à 88–92 %.">Open the app once a day. Tap "Again," "Hard," "Good," or "Easy." That's it. After 90 days you'll have ~600 cards in rotation, taking ~15 minutes a day, with retention measured at 88–92%.</p>
+        </div>
+        <div class="worth">
+          <strong data-en="Why the extra step pays off" data-es="Por qué vale la pena el paso extra" data-fr="Pourquoi cette étape de plus paie">Why the extra step pays off</strong>
+          <p data-en="The box and the phone loop both work — but they cap out around 200 active cards before they get unwieldy. Anki scales to thousands without you doing the bookkeeping. Past month two, this is what lets your vocabulary actually keep growing."
+             data-es="La caja y el bucle del celular funcionan — pero se desbordan cerca de las 200 tarjetas activas. Anki escala a miles sin que lleves la cuenta. Pasado el segundo mes, esto es lo que permite que tu vocabulario siga creciendo de verdad."
+             data-fr="La boîte et la boucle Notes fonctionnent — mais elles plafonnent vers 200 cartes actives. Anki monte à des milliers sans tenir les comptes. Au-delà du deuxième mois, c'est ce qui permet à votre vocabulaire de continuer à croître pour de vrai.">The box and the phone loop both work — but they cap out around 200 active cards before they get unwieldy. Anki scales to thousands without you doing the bookkeeping. Past month two, this is what lets your vocabulary actually keep growing.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-extra-step">
+      <h4 data-en="The honest truth about &quot;the extra step.&quot;"
+          data-es="La verdad honesta sobre 'el paso extra.'"
+          data-fr="La vérité honnête sur « l'étape supplémentaire ».">The honest truth about "the extra step."</h4>
+      <p data-en="Every level above paper costs you 10 minutes of setup. Every level above paper saves you about 30 hours over six months. The math is in the upgrade — but only if you actually do the upgrade. Adults who jump straight to Anki without first learning to capture words on paper or in Notes tend to abandon the app within two weeks. The flow matters more than the tool."
+         data-es="Cada nivel arriba del papel te cuesta 10 minutos de configuración. Cada nivel arriba del papel te ahorra unas 30 horas en seis meses. La matemática está a favor de subir — pero solo si realmente subes. Los adultos que van directo a Anki sin antes aprender a capturar palabras en papel o en Notas suelen abandonar la app en dos semanas. El flujo importa más que la herramienta."
+         data-fr="Chaque niveau au-dessus du papier coûte 10 minutes de configuration. Chaque niveau au-dessus du papier vous économise environ 30 heures sur six mois. Le calcul penche pour la montée — mais seulement si vous montez vraiment. Les adultes qui sautent direct à Anki sans avoir appris à capturer sur papier ou dans Notes abandonnent généralement l'app en deux semaines. Le flux compte plus que l'outil.">Every level above paper costs you 10 minutes of setup. Every level above paper saves you about 30 hours over six months. The math is in the upgrade — but only if you actually do the upgrade. Adults who jump straight to Anki without first learning to capture words on paper or in Notes tend to abandon the app within two weeks. The flow matters more than the tool.</p>
+      <p data-en="So here's the rule: <em>start at the level you'll actually use today.</em> If that's the shoe box, the shoe box is right. Upgrade when the current level feels too small for your life — not because someone said you should."
+         data-es="Así que la regla: <em>empieza en el nivel que de verdad vayas a usar hoy.</em> Si es la caja de zapatos, la caja es lo correcto. Sube cuando el nivel actual te quede chico — no porque alguien te haya dicho que debes hacerlo."
+         data-fr="Donc la règle : <em>commencez au niveau que vous utiliserez réellement aujourd'hui.</em> Si c'est la boîte à chaussures, c'est juste. Montez quand le niveau actuel devient trop petit pour votre vie — pas parce qu'on vous l'a dit.">So here's the rule: <em>start at the level you'll actually use today.</em> If that's the shoe box, the shoe box is right. Upgrade when the current level feels too small for your life — not because someone said you should.</p>
+    </div>
+
+    <h3 style="margin-top:48px; font-family:Georgia, serif; color:var(--navy); font-size:24px;"
+        data-en="The capture flow — what to do when you meet a new word"
+        data-es="El flujo de captura — qué hacer cuando aparece una palabra nueva"
+        data-fr="Le flux de capture — quoi faire face à un mot nouveau">The capture flow — what to do when you meet a new word</h3>
+    <p style="margin-top:8px; color:var(--charcoal); font-size:15px; line-height:1.65;"
+       data-en="A new word that you don't capture is gone in 24 hours. The five steps below take 30 seconds total. Do this every time and your deck grows itself."
+       data-es="Una palabra nueva que no capturas desaparece en 24 horas. Los cinco pasos de abajo toman 30 segundos en total. Hazlo siempre y tu mazo crece solo."
+       data-fr="Un mot nouveau non capturé disparaît en 24 heures. Les cinq étapes ci-dessous prennent 30 secondes au total. Faites-le toujours et votre paquet grandit tout seul.">A new word that you don't capture is gone in 24 hours. The five steps below take 30 seconds total. Do this every time and your deck grows itself.</p>
+
+    <div class="capture-flow">
+      <div class="capture-step">
+        <div class="num">1</div>
+        <h5 data-en="Notice"
+            data-es="Notar"
+            data-fr="Remarquer">Notice</h5>
+        <p data-en="When you hear a word you don't know, stop. Even three seconds of attention is enough to make it stick later."
+           data-es="Cuando oigas una palabra que no conoces, detente. Hasta tres segundos de atención bastan para fijarla después."
+           data-fr="Quand vous entendez un mot inconnu, arrêtez-vous. Trois secondes d'attention suffisent à le retenir plus tard.">When you hear a word you don't know, stop. Even three seconds of attention is enough to make it stick later.</p>
+        <div class="when"
+             data-en="In conversation, on the bus, watching TV"
+             data-es="En conversación, en el autobús, viendo TV"
+             data-fr="En conversation, dans le bus, devant la TV">In conversation, on the bus, watching TV</div>
+      </div>
+      <div class="capture-step">
+        <div class="num">2</div>
+        <h5 data-en="Capture in 5 seconds"
+            data-es="Captura en 5 segundos"
+            data-fr="Capturez en 5 secondes">Capture in 5 seconds</h5>
+        <p data-en="Type the word in your phone Notes app. Voice memo it if you can't type. Don't worry about a definition — just get the word."
+           data-es="Escribe la palabra en la app de Notas. Graba un memo de voz si no puedes escribir. No te preocupes por la definición — solo guarda la palabra."
+           data-fr="Tapez le mot dans Notes. Mémo vocal si vous ne pouvez pas taper. Pas besoin de définition — capturez juste le mot.">Type the word in your phone Notes app. Voice memo it if you can't type. Don't worry about a definition — just get the word.</p>
+        <div class="when"
+             data-en="Today's Notes page or voice memos"
+             data-es="Nota del día o memos de voz"
+             data-fr="Note du jour ou mémo vocal">Today's Notes page or voice memos</div>
+      </div>
+      <div class="capture-step">
+        <div class="num">3</div>
+        <h5 data-en="Look it up tonight"
+            data-es="Búscala esta noche"
+            data-fr="Cherchez ce soir">Look it up tonight</h5>
+        <p data-en="Five minutes before bed: Google Translate or ChatGPT for each word. Write the meaning + one example sentence in your note."
+           data-es="Cinco minutos antes de dormir: Google Translate o ChatGPT con cada palabra. Anota el significado + una oración de ejemplo."
+           data-fr="Cinq minutes avant le coucher : Google Traduction ou ChatGPT pour chaque mot. Notez le sens + une phrase d'exemple.">Five minutes before bed: Google Translate or ChatGPT for each word. Write the meaning + one example sentence in your note.</p>
+        <div class="when"
+             data-en="Once a day, just before lights-out"
+             data-es="Una vez al día, antes de apagar la luz"
+             data-fr="Une fois par jour, avant de dormir">Once a day, just before lights-out</div>
+      </div>
+      <div class="capture-step">
+        <div class="num">4</div>
+        <h5 data-en="Move into your system"
+            data-es="Pásala al sistema"
+            data-fr="Transférez dans votre système">Move into your system</h5>
+        <p data-en="Sunday: take the week's words and put them into the box, the weekly note, or Anki — whichever level you're at. This is the only weekly chore that matters."
+           data-es="Domingo: toma las palabras de la semana y pásalas a la caja, a la nota semanal, o a Anki — al nivel donde estés. Esta es la única tarea semanal que importa."
+           data-fr="Dimanche : prenez les mots de la semaine et placez-les dans la boîte, la note hebdo ou Anki — selon votre niveau. C'est la seule corvée hebdomadaire qui compte.">Sunday: take the week's words and put them into the box, the weekly note, or Anki — whichever level you're at. This is the only weekly chore that matters.</p>
+        <div class="when"
+             data-en="Sunday, 10 minutes"
+             data-es="Domingo, 10 minutos"
+             data-fr="Dimanche, 10 minutes">Sunday, 10 minutes</div>
+      </div>
+      <div class="capture-step">
+        <div class="num">5</div>
+        <h5 data-en="Speak it out loud"
+            data-es="Dilo en voz alta"
+            data-fr="Dites-le à voix haute">Speak it out loud</h5>
+        <p data-en="Once a card lives in your system, the goal isn't to recognize the word — it's to use it. Say each new word in your own sentence within the same week."
+           data-es="Cuando una tarjeta ya vive en tu sistema, la meta no es reconocer la palabra — es usarla. Di cada palabra nueva en tu propia oración esa misma semana."
+           data-fr="Une fois la carte dans votre système, l'objectif n'est plus de reconnaître le mot — c'est de l'utiliser. Dites chaque mot nouveau dans votre propre phrase la même semaine.">Once a card lives in your system, the goal isn't to recognize the word — it's to use it. Say each new word in your own sentence within the same week.</p>
+        <div class="when"
+             data-en="Whenever you review"
+             data-es="Cada vez que repases"
+             data-fr="À chaque révision">Whenever you review</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px; font-family:Georgia, serif; color:var(--navy); font-size:24px;"
+        data-en="Free AI helpers — copy, paste, done"
+        data-es="Ayudantes de IA gratis — copia, pega, listo"
+        data-fr="Aides IA gratuites — copier, coller, c'est fait">Free AI helpers — copy, paste, done</h3>
+    <p style="margin-top:8px; color:var(--charcoal); font-size:15px; line-height:1.65;"
+       data-en="Use the free version of ChatGPT (chat.openai.com) or Claude (claude.ai) on your phone. You don't need a paid plan. The five prompts below replace a private tutor for the part of the work that's just lookup. Type your word where it says [WORD] and hit send."
+       data-es="Usa la versión gratis de ChatGPT (chat.openai.com) o Claude (claude.ai) en tu celular. No necesitas un plan pagado. Los cinco prompts de abajo reemplazan a un tutor privado para la parte que es solo búsqueda. Escribe tu palabra donde dice [PALABRA] y envía."
+       data-fr="Utilisez la version gratuite de ChatGPT (chat.openai.com) ou Claude (claude.ai) sur téléphone. Pas besoin d'abonnement. Les cinq prompts ci-dessous remplacent un tuteur privé pour la partie qui est juste de la recherche. Tapez votre mot là où il y a [MOT] et envoyez.">Use the free version of ChatGPT (chat.openai.com) or Claude (claude.ai) on your phone. You don't need a paid plan. The five prompts below replace a private tutor for the part of the work that's just lookup. Type your word where it says [WORD] and hit send.</p>
+
+    <div class="ai-prompt-grid">
+      <div class="ai-prompt">
+        <h5 data-en="1. Translate + example"
+            data-es="1. Traducción + ejemplo"
+            data-fr="1. Traduction + exemple">1. Translate + example</h5>
+        <div class="use-when"
+             data-en="When you don't know what a word means"
+             data-es="Cuando no sabes qué significa una palabra"
+             data-fr="Quand vous ne connaissez pas le sens d'un mot">When you don't know what a word means</div>
+<pre>Translate "[WORD]" to Spanish. Give:
+1. The meaning in one sentence.
+2. One example sentence in English (simple, A2 level).
+3. Same example sentence in Spanish.
+Keep it short.</pre>
+      </div>
+
+      <div class="ai-prompt">
+        <h5 data-en="2. Make 5 flashcards"
+            data-es="2. Haz 5 tarjetas"
+            data-fr="2. Faites 5 fiches">2. Make 5 flashcards</h5>
+        <div class="use-when"
+             data-en="When you have a topic and want a starter deck"
+             data-es="Cuando tienes un tema y quieres un mazo inicial"
+             data-fr="Quand vous voulez un paquet de départ sur un sujet">When you have a topic and want a starter deck</div>
+<pre>Give me 5 flashcards for an adult Spanish-speaker
+learning English about [TOPIC].
+Format:
+English | Spanish | Example sentence
+Use simple A2-level words only.</pre>
+      </div>
+
+      <div class="ai-prompt">
+        <h5 data-en="3. Quiz me"
+            data-es="3. Hazme un examen"
+            data-fr="3. Interrogez-moi">3. Quiz me</h5>
+        <div class="use-when"
+             data-en="When you have words but want active practice"
+             data-es="Cuando tienes palabras y quieres práctica activa"
+             data-fr="Quand vous voulez vous tester activement">When you have words but want active practice</div>
+<pre>Quiz me on these 10 English words:
+[paste your week's word list]
+Ask one at a time. Wait for my answer
+in Spanish. Tell me right or wrong, then
+give the correct answer.</pre>
+      </div>
+
+      <div class="ai-prompt">
+        <h5 data-en="4. Level-appropriate story"
+            data-es="4. Historia a tu nivel"
+            data-fr="4. Histoire à votre niveau">4. Level-appropriate story</h5>
+        <div class="use-when"
+             data-en="When you want listening or reading practice"
+             data-es="Cuando quieres practicar escucha o lectura"
+             data-fr="Quand vous voulez de l'écoute ou de la lecture">When you want listening or reading practice</div>
+<pre>Write a 200-word story in English at A2 level.
+Use these words at least once each:
+[paste 8 words from your deck]
+End with 3 questions about the story.</pre>
+      </div>
+
+      <div class="ai-prompt">
+        <h5 data-en="5. Pronunciation help"
+            data-es="5. Ayuda de pronunciación"
+            data-fr="5. Aide à la prononciation">5. Pronunciation help</h5>
+        <div class="use-when"
+             data-en="When a word is hard to say"
+             data-es="Cuando una palabra es difícil de pronunciar"
+             data-fr="Quand un mot est difficile à dire">When a word is hard to say</div>
+<pre>How do I pronounce "[WORD]" in English?
+Write it phonetically using Spanish letters
+(so a Spanish speaker can read it).
+Then tell me which sound is the hardest part
+and give one tip.</pre>
+      </div>
+
+      <div class="ai-prompt">
+        <h5 data-en="6. Real-life script"
+            data-es="6. Guion de la vida real"
+            data-fr="6. Script du quotidien">6. Real-life script</h5>
+        <div class="use-when"
+             data-en="When you have a real meeting (doctor, work) tomorrow"
+             data-es="Cuando tienes una cita real (doctor, trabajo) mañana"
+             data-fr="Quand vous avez un rendez-vous réel demain">When you have a real meeting (doctor, work) tomorrow</div>
+<pre>I am [your situation, in Spanish or English].
+Tomorrow I have to [the meeting, in your words].
+Give me 8 short English sentences I can use.
+A2 level. Include what to say if I don't
+understand someone.</pre>
+      </div>
+    </div>
+
+    <p style="margin-top:18px; font-style:italic; color:var(--slate); font-size:14px;"
+       data-en="One rule: don't chat with the AI. Generate, then close the chat. The conversation is the trap — it lets you stay passive. Generate the cards, then put the words in your mouth."
+       data-es="Una regla: no platiques con la IA. Genera y cierra el chat. La conversación es la trampa — te deja pasivo. Genera las tarjetas, luego pon las palabras en tu boca."
+       data-fr="Une règle : ne discutez pas avec l'IA. Générez, puis fermez le chat. La conversation est le piège — elle vous laisse passif. Générez les cartes, puis prononcez les mots.">One rule: don't chat with the AI. Generate, then close the chat. The conversation is the trap — it lets you stay passive. Generate the cards, then put the words in your mouth.</p>
+
   </div>
 </section>
 
@@ -1405,6 +1890,19 @@
         <p data-en="4 fully-written Spanish podcast scripts (~1,000 words each). Feed to NotebookLM, ElevenLabs, or read aloud. For students who prefer to listen."
            data-es="4 guiones completos en español (~1,000 palabras cada uno). Pásalos a NotebookLM, ElevenLabs, o léelos. Para estudiantes que prefieren escuchar."
            data-fr="4 scripts complets en espagnol. À utiliser avec NotebookLM, ElevenLabs, ou à lire à voix haute.">4 fully-written Spanish podcast scripts (~1,000 words each). Feed to NotebookLM, ElevenLabs, or read aloud. For students who prefer to listen.</p>
+        <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
+      </a>
+      <a href="docs/CURR7003_Signature_Piece_Submission_Miljus.docx" class="download-card" download style="border-left-color:#0F4C5C">
+        <span class="badge"
+              data-en="Research paper · APA 7"
+              data-es="Trabajo de investigación · APA 7"
+              data-fr="Article de recherche · APA 7">Research paper · APA 7</span>
+        <h4 data-en="The Research Paper Behind This Course"
+            data-es="El Trabajo de Investigación Detrás del Curso"
+            data-fr="L'article de recherche derrière ce cours">The Research Paper Behind This Course</h4>
+        <p data-en="The complete CURR7003 Signature Piece — 16 peer-reviewed citations, full rationale for every design choice, and the science behind spaced repetition, retrieval practice, dual coding, and desirable difficulties."
+           data-es="El trabajo completo CURR7003 — 16 citas revisadas por pares, justificación completa de cada decisión de diseño, y la ciencia detrás de la repetición espaciada, la práctica de recuperación, la codificación dual y las dificultades deseables."
+           data-fr="L'article complet CURR7003 — 16 citations évaluées par les pairs, justification de chaque choix de conception, et la science derrière la répétition espacée, la pratique de récupération, le codage dual et les difficultés désirables.">The complete CURR7003 Signature Piece — 16 peer-reviewed citations, full rationale for every design choice, and the science behind spaced repetition, retrieval practice, dual coding, and desirable difficulties.</p>
         <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
       </a>
     </div>
