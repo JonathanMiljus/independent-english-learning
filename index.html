@@ -94,12 +94,27 @@
   h3 { font-family: Georgia, serif; font-size: 26px; color: var(--navy); margin: 32px 0 12px; }
   .lead { font-size: 20px; color: var(--slate); font-style: italic; max-width: 760px; margin-bottom: 32px; }
 
-  /* AUDIO */
-  .audio-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-top: 24px; }
+  /* AUDIO — sectioned layout */
+  .lang-hint {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 22px; border-radius: 6px; margin: 0 0 32px;
+    display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600;
+  }
+  .lang-hint .icon { font-size: 22px; }
+  .audio-section { margin: 32px 0 48px; }
+  .audio-section-head {
+    border-left: 4px solid var(--gold); padding: 8px 0 8px 18px; margin-bottom: 8px;
+  }
+  .audio-section-head h3 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 26px; margin: 0 0 4px;
+  }
+  .audio-section-head p { color: var(--slate); font-size: 15px; font-style: italic; margin: 0; }
+  .audio-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 18px; }
+
   .audio-card {
     background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
-    padding: 20px 22px; border-left: 5px solid var(--coral);
-    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 18px 22px 16px; border-left: 5px solid var(--coral);
+    transition: transform 0.2s, box-shadow 0.2s; position: relative;
   }
   .audio-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,76,92,0.10); }
   .audio-card .badge {
@@ -113,9 +128,53 @@
   }
   .audio-card p { color: var(--slate); font-size: 14px; margin-bottom: 12px; line-height: 1.5; }
   .audio-card audio { width: 100%; height: 38px; border-radius: 4px; }
+
+  /* Pronunciation cards — show IPA prominently */
+  .audio-card.pron { border-left-color: var(--coral); display: grid; grid-template-columns: 80px 1fr; gap: 18px; align-items: start; }
+  .audio-card.pron .ipa-block {
+    background: var(--soft); border-radius: 6px; padding: 14px 8px; text-align: center;
+    border: 1px dashed var(--rule);
+  }
+  .audio-card.pron .ipa {
+    font-family: 'Times New Roman', Georgia, serif; font-size: 32px; color: var(--coral);
+    font-weight: 700; line-height: 1; display: block;
+  }
+  .audio-card.pron .ipa-label {
+    display: block; font-family: Georgia, serif; font-size: 10px;
+    color: var(--slate); letter-spacing: 0.15em; text-transform: uppercase;
+    margin-top: 6px;
+  }
+  .audio-card.pron .body { min-width: 0; }
+  .audio-card.pron .how {
+    background: var(--research); border-radius: 4px; padding: 8px 12px; margin: 8px 0 12px;
+    font-size: 13px; color: var(--charcoal); border-left: 3px solid var(--gold);
+  }
+  .audio-card.pron .how strong { color: var(--navy); font-family: Georgia, serif; }
+
+  /* Podcast cards — bigger, longer-form, ES badge variant */
+  .audio-card.podcast { border-left-color: var(--navy); }
+  .audio-card.podcast .badge { color: var(--navy); }
+  .audio-card.podcast.es { border-left-color: #B65C2A; }
+  .audio-card.podcast.es .badge { color: #B65C2A; }
+
+  /* Dialogue + frame cards */
+  .audio-card.dialogue { border-left-color: var(--gold); }
+  .audio-card.dialogue .badge { color: #A57014; }
+
   .audio-empty {
     text-align: center; color: var(--muted); font-style: italic;
     font-size: 15px; padding: 32px 0;
+  }
+  .ipa-explainer {
+    background: var(--research); border-left: 4px solid var(--gold);
+    padding: 14px 18px; margin: 12px 0 24px; font-size: 14px; color: var(--charcoal);
+    border-radius: 0 4px 4px 0;
+  }
+  .ipa-explainer strong { font-family: Georgia, serif; color: var(--navy); }
+
+  @media (max-width: 480px) {
+    .audio-card.pron { grid-template-columns: 60px 1fr; gap: 12px; }
+    .audio-card.pron .ipa { font-size: 24px; }
   }
 
   /* MODULE CARDS */
@@ -615,7 +674,23 @@
        data-es="Presiona play. Repite en voz alta. La forma más rápida de fijar el inglés es ponerlo en tu boca, no solo en tus ojos."
        data-fr="Appuyez sur lecture. Répétez à voix haute. Le moyen le plus rapide de fixer l'anglais, c'est de le mettre dans votre bouche, pas seulement dans vos yeux.">Press play. Repeat out loud. The fastest way to make English stick is to put it in your mouth, not just in your eyes.</p>
 
-    <div id="audio-list" class="audio-list"></div>
+    <div class="lang-hint">
+      <span class="icon">🌐</span>
+      <span
+        data-en="Tip: prefer Spanish or French? Tap EN / ES / FR at the top right of the page anytime — every label, instruction, and description switches with one click."
+        data-es="¿Prefieres leer en español o en francés? Toca EN / ES / FR arriba a la derecha — cada etiqueta y descripción cambia al instante."
+        data-fr="Préférez-vous le français ou l'espagnol ? Cliquez sur EN / ES / FR en haut à droite — toutes les descriptions changent en un clic.">Tip: prefer Spanish or French? Tap EN / ES / FR at the top right of the page anytime — every label, instruction, and description switches with one click.</span>
+    </div>
+
+    <div class="ipa-explainer">
+      <strong data-en="What's IPA?" data-es="¿Qué es el IPA?" data-fr="C'est quoi l'API ?">What's IPA?</strong>
+      <span
+        data-en=" The International Phonetic Alphabet — symbols that show exactly how a sound is pronounced. /θ/ always means the &quot;th&quot; sound in <em>think</em>, no matter the language. Use it to check yourself."
+        data-es=" El Alfabeto Fonético Internacional — símbolos que muestran exactamente cómo se pronuncia un sonido. /θ/ siempre significa el sonido &quot;th&quot; de <em>think</em>, sin importar el idioma. Úsalo para revisarte."
+        data-fr=" L'Alphabet Phonétique International — des symboles qui montrent exactement comment se prononce un son. /θ/ veut toujours dire le « th » de <em>think</em>, peu importe la langue. Utilisez-le pour vous vérifier."> The International Phonetic Alphabet — symbols that show exactly how a sound is pronounced. /θ/ always means the "th" sound in <em>think</em>, no matter the language. Use it to check yourself.</span>
+    </div>
+
+    <div id="audio-sections"></div>
     <div id="audio-empty" class="audio-empty" hidden
          data-en="Audio is being recorded — check back soon."
          data-es="Estamos grabando los audios — vuelve pronto."
@@ -825,47 +900,100 @@
 
 <script>
   // ============== AUDIO MANIFEST ==============
-  // Each entry maps to an mp3 file expected at audio/<file>. If the file is missing
-  // (HEAD request returns non-200), the entry is silently hidden — push files in any
-  // order. Add new entries by appending here and uploading the file to /audio/.
+  // Entries are GROUPED. Section headers render between groups. Each entry maps to an
+  // mp3 expected at audio/<file>. If the file is missing the entry is silently hidden,
+  // so you can push new audio in any order. For pronunciation entries, add `ipa` and
+  // `howEn`/`howEs`/`howFr` and the card will show the IPA symbol prominently.
+
+  var AUDIO_SECTIONS = [
+    { id: "podcasts",
+      titleEn: "🎙️  Podcasts — listen instead of read",
+      titleEs: "🎙️  Podcasts — escucha en vez de leer",
+      titleFr: "🎙️  Podcasts — écoutez plutôt que lire",
+      introEn: "Conversational AI-host episodes (5–10 min each) covering the whole course. Press play and listen while you cook, drive, or walk. Spanish-language podcasts coming once you generate them with NotebookLM (see the AUDIO_WORKFLOW guide).",
+      introEs: "Episodios conversacionales con presentadores IA (5–10 min) que cubren todo el curso. Presiona play mientras cocinas, manejas, o caminas. Hay episodios en español que aparecen aquí cuando los generes con NotebookLM.",
+      introFr: "Épisodes conversationnels avec hôtes IA (5–10 min chacun) qui couvrent tout le cours. Appuyez sur lecture pendant que vous cuisinez, conduisez ou marchez." },
+    { id: "pronunciation",
+      titleEn: "🔊  Pronunciation — sounds Spanish speakers most often miss",
+      titleEs: "🔊  Pronunciación — sonidos que los hispanohablantes más fallan",
+      titleFr: "🔊  Prononciation — les sons les plus difficiles pour les hispanophones",
+      introEn: "Each card shows the IPA symbol (the international code for the sound), how to make it with your mouth, and audio you repeat after.",
+      introEs: "Cada tarjeta muestra el símbolo IPA (el código internacional del sonido), cómo hacerlo con tu boca, y un audio para que repitas.",
+      introFr: "Chaque carte montre le symbole API (le code international pour le son), comment le faire avec la bouche, et un audio à répéter." },
+    { id: "vocabulary",
+      titleEn: "📖  Vocabulary by topic",
+      titleEs: "📖  Vocabulario por tema",
+      titleFr: "📖  Vocabulaire par thème",
+      introEn: "Each track is a 10–12 word set you'll actually use. Listen, repeat after the speaker, and add new words to your Anki deck (see Resources).",
+      introEs: "Cada audio enseña 10–12 palabras que de verdad vas a usar. Escucha, repite después del hablante, y agrega las nuevas a Anki (ver Recursos).",
+      introFr: "Chaque piste enseigne 10–12 mots que vous utiliserez vraiment. Écoutez, répétez après le locuteur, et ajoutez les nouveaux mots à Anki." },
+    { id: "frames",
+      titleEn: "💬  Sentence frames — memorize the frame, swap the word",
+      titleEs: "💬  Plantillas de oraciones — memoriza la plantilla, cambia la palabra",
+      titleFr: "💬  Structures de phrases — mémorisez la structure, changez le mot",
+      introEn: "Frames are templates. Once you know \"I need ___,\" you can say \"I need water,\" \"I need help,\" \"I need a doctor.\" One pattern, infinite uses.",
+      introEs: "Las plantillas son moldes. Una vez sepas \"I need ___,\" puedes decir \"I need water,\" \"I need help,\" \"I need a doctor.\" Un patrón, infinitos usos.",
+      introFr: "Les structures sont des modèles. Une fois que vous savez « I need ___ », vous pouvez dire « I need water », « I need help », « I need a doctor »." },
+    { id: "dialogues",
+      titleEn: "🗣️  Real-life dialogues — listen, then shadow line by line",
+      titleEs: "🗣️  Diálogos de la vida real — escucha y repite línea por línea",
+      titleFr: "🗣️  Dialogues de la vie réelle — écoutez puis répétez ligne par ligne",
+      introEn: "Each track is a back-and-forth conversation in a real situation. Listen once, then play it again and repeat each line. This is called \"shadowing\" and it's how interpreters train.",
+      introEs: "Cada audio es una conversación real con dos personas. Escucha una vez, luego repítelo línea por línea. Esto se llama \"shadowing\" y es como entrenan los intérpretes profesionales.",
+      introFr: "Chaque piste est une vraie conversation avec deux personnes. Écoutez une fois, puis répétez ligne par ligne. C'est ce qu'on appelle le « shadowing » — la technique des interprètes professionnels." },
+    { id: "intros",
+      titleEn: "▶️  Module intros + course close",
+      titleEs: "▶️  Intros de módulos y cierre del curso",
+      titleFr: "▶️  Intros des modules et clôture du cours",
+      introEn: "Short 30-second intros to play before each module, plus a course-end audio for the day you finish.",
+      introEs: "Intros cortos de 30 segundos para escuchar antes de cada módulo, más un audio final para el día que termines.",
+      introFr: "Courtes intros de 30 secondes à écouter avant chaque module, plus un audio de fin pour le jour où vous terminez." },
+  ];
+
   var AUDIO_INDEX = [
-    // ---- NotebookLM podcasts ----
-    { file: "the_method_overview.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+    // ============== PODCASTS — English ==============
+    { file: "the_method_overview.mp3", group: "podcasts",
+      badgeEn: "Podcast · EN", badgeEs: "Podcast · EN", badgeFr: "Podcast · EN",
       titleEn: "The Method — full course overview",
       titleEs: "El Método — vista completa del curso",
       titleFr: "La Méthode — vue d'ensemble du cours",
       descEn: "Two-host AI discussion of the science behind the whole system. ~8 minutes.",
       descEs: "Discusión entre dos presentadores IA sobre la ciencia detrás del sistema. ~8 min.",
       descFr: "Discussion entre deux animateurs IA sur la science derrière tout le système. ~8 min." },
-    { file: "module1_podcast.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+    { file: "module1_podcast.mp3", group: "podcasts",
+      badgeEn: "Podcast · EN", badgeEs: "Podcast · EN", badgeFr: "Podcast · EN",
       titleEn: "Module 1 — Goals & routine",
       titleEs: "Módulo 1 — Metas y rutina",
       titleFr: "Module 1 — Objectifs et routine",
       descEn: "Why most learners quit, and the planning frame that keeps you going.",
       descEs: "Por qué la mayoría abandona, y el marco de planeación que te mantiene.",
       descFr: "Pourquoi la plupart abandonnent, et le cadre de planification qui vous fait tenir." },
-    { file: "module2_podcast.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+    { file: "module2_podcast.mp3", group: "podcasts",
+      badgeEn: "Podcast · EN", badgeEs: "Podcast · EN", badgeFr: "Podcast · EN",
       titleEn: "Module 2 — Vocabulary that sticks",
       titleEs: "Módulo 2 — Vocabulario que se queda",
       titleFr: "Module 2 — Vocabulaire qui s'ancre",
       descEn: "Multimodal encoding, cognates, and sentence frames in plain language.",
       descEs: "Codificación multimodal, cognados, y plantillas — en lenguaje simple.",
       descFr: "Encodage multimodal, cognats et structures — en langage simple." },
-    { file: "module3_podcast.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+    { file: "module3_podcast.mp3", group: "podcasts",
+      badgeEn: "Podcast · EN", badgeEs: "Podcast · EN", badgeFr: "Podcast · EN",
       titleEn: "Module 3 — Use English for real",
       titleEs: "Módulo 3 — Usa el inglés de verdad",
       titleFr: "Module 3 — Utiliser l'anglais pour de vrai",
       descEn: "Comprehensible input, output, and the 90-day plan that turns this into a habit.",
       descEs: "Input comprensible, producción, y el plan de 90 días que lo convierte en hábito.",
       descFr: "Input compréhensible, production, et le plan 90 jours qui en fait une habitude." },
-    { file: "why_anki_works.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+    { file: "why_anki_works.mp3", group: "podcasts",
+      badgeEn: "Podcast · EN", badgeEs: "Podcast · EN", badgeFr: "Podcast · EN",
       titleEn: "Why Anki works",
       titleEs: "Por qué funciona Anki",
       titleFr: "Pourquoi Anki fonctionne",
       descEn: "The testing effect, spaced retrieval, and what to do when cards keep failing.",
       descEs: "El efecto de prueba, la recuperación espaciada, y qué hacer cuando las tarjetas fallan.",
       descFr: "L'effet de test, la récupération espacée, et que faire quand les cartes échouent." },
-    { file: "how_to_use_ai.mp3", badgeEn: "Podcast", badgeEs: "Podcast", badgeFr: "Podcast",
+    { file: "how_to_use_ai.mp3", group: "podcasts",
+      badgeEn: "Podcast · EN", badgeEs: "Podcast · EN", badgeFr: "Podcast · EN",
       titleEn: "How to use AI for language learning",
       titleEs: "Cómo usar la IA para aprender idiomas",
       titleFr: "Comment utiliser l'IA pour apprendre une langue",
@@ -873,212 +1001,285 @@
       descEs: "Genera mazos y ejercicios — no plática infinita. Los 5 prompts de mayor impacto.",
       descFr: "Générez des decks et exercices — pas de discussion infinie. Les 5 prompts les plus utiles." },
 
-    // ---- ElevenLabs drills ----
-    { file: "pron_th_drill.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
-      titleEn: "The 'th' sound — listen and repeat",
-      titleEs: "El sonido 'th' — escucha y repite",
-      titleFr: "Le son « th » — écoutez et répétez",
-      descEn: "Tongue tip between teeth. Think, three, this, that.",
-      descEs: "Punta de la lengua entre los dientes. Think, three, this, that.",
-      descFr: "Bout de la langue entre les dents. Think, three, this, that." },
-    { file: "pron_v_drill.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
-      titleEn: "The 'v' sound — listen and repeat",
-      titleEs: "El sonido 'v' — escucha y repite",
-      titleFr: "Le son « v » — écoutez et répétez",
-      descEn: "Top teeth on bottom lip. Very, vote, have, love.",
-      descEs: "Dientes de arriba en el labio de abajo. Very, vote, have, love.",
-      descFr: "Dents du haut sur la lèvre inférieure. Very, vote, have, love." },
-    { file: "pron_sh_drill.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
-      titleEn: "The 'sh' sound — listen and repeat",
-      titleEs: "El sonido 'sh' — escucha y repite",
-      titleFr: "Le son « sh » — écoutez et répétez",
-      descEn: "Round your lips. Shhh. She, shoe, wash, sure.",
-      descEs: "Redondea los labios. Shhh. She, shoe, wash, sure.",
-      descFr: "Arrondissez les lèvres. Shhh. She, shoe, wash, sure." },
-    { file: "pron_minimal_pairs.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
-      titleEn: "Minimal pairs",
-      titleEs: "Pares mínimos",
-      titleFr: "Paires minimales",
-      descEn: "Sheep / ship · ban / van · think / sink. Hear the contrast, then say it.",
-      descEs: "Sheep / ship · ban / van · think / sink. Oye el contraste, luego dilo.",
-      descFr: "Sheep / ship · ban / van · think / sink. Entendez le contraste, puis dites-le." },
-    { file: "vocab_starter_20.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+    // ============== PODCASTS — Spanish (NotebookLM, generate yourself) ==============
+    { file: "the_method_overview_es.mp3", group: "podcasts", isSpanish: true,
+      badgeEn: "Podcast · ES", badgeEs: "Podcast · ES", badgeFr: "Podcast · ES",
+      titleEn: "El Método (en español) — full course overview",
+      titleEs: "El Método (en español) — vista completa del curso",
+      titleFr: "El Método (en español) — vue d'ensemble du cours",
+      descEn: "Spanish-language AI-host discussion of the entire system. For students who'd rather listen than read.",
+      descEs: "Discusión de los dos presentadores IA en español sobre todo el sistema. Para estudiantes que prefieren escuchar a leer.",
+      descFr: "Discussion en espagnol des deux hôtes IA sur tout le système. Pour les étudiants qui préfèrent écouter." },
+    { file: "module1_podcast_es.mp3", group: "podcasts", isSpanish: true,
+      badgeEn: "Podcast · ES", badgeEs: "Podcast · ES", badgeFr: "Podcast · ES",
+      titleEn: "Módulo 1 — Metas y rutina (Spanish podcast)",
+      titleEs: "Módulo 1 — Metas y rutina (en español)",
+      titleFr: "Module 1 — Objectifs et routine (en espagnol)",
+      descEn: "Spanish version of the Module 1 podcast.",
+      descEs: "Versión en español del podcast del Módulo 1.",
+      descFr: "Version espagnole du podcast du Module 1." },
+    { file: "module2_podcast_es.mp3", group: "podcasts", isSpanish: true,
+      badgeEn: "Podcast · ES", badgeEs: "Podcast · ES", badgeFr: "Podcast · ES",
+      titleEn: "Módulo 2 — Vocabulario que se queda (Spanish podcast)",
+      titleEs: "Módulo 2 — Vocabulario que se queda (en español)",
+      titleFr: "Module 2 — Vocabulaire qui s'ancre (en espagnol)",
+      descEn: "Spanish version of the Module 2 podcast.",
+      descEs: "Versión en español del podcast del Módulo 2.",
+      descFr: "Version espagnole du podcast du Module 2." },
+    { file: "module3_podcast_es.mp3", group: "podcasts", isSpanish: true,
+      badgeEn: "Podcast · ES", badgeEs: "Podcast · ES", badgeFr: "Podcast · ES",
+      titleEn: "Módulo 3 — Usa el inglés de verdad (Spanish podcast)",
+      titleEs: "Módulo 3 — Usa el inglés de verdad (en español)",
+      titleFr: "Module 3 — Utiliser l'anglais pour de vrai (en espagnol)",
+      descEn: "Spanish version of the Module 3 podcast.",
+      descEs: "Versión en español del podcast del Módulo 3.",
+      descFr: "Version espagnole du podcast du Module 3." },
+
+    // ============== PRONUNCIATION DRILLS ==============
+    { file: "pron_th_drill.mp3", group: "pronunciation",
+      ipa: "/θ/  /ð/", ipaLabelEn: "TH",
+      badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The 'th' sound — think, three, this",
+      titleEs: "El sonido 'th' — think, three, this",
+      titleFr: "Le son « th » — think, three, this",
+      howEn: "Tongue tip BETWEEN your teeth. Push air over the tongue. Spanish has no equivalent.",
+      howEs: "Punta de la lengua ENTRE los dientes. Empuja aire sobre la lengua. No existe en español.",
+      howFr: "Bout de la langue ENTRE les dents. Poussez l'air par-dessus. N'existe pas en espagnol.",
+      descEn: "Practice both 'th' sounds: voiceless /θ/ in <em>think</em> and voiced /ð/ in <em>this</em>.",
+      descEs: "Practica los dos sonidos 'th': sordo /θ/ en <em>think</em> y sonoro /ð/ en <em>this</em>.",
+      descFr: "Pratiquez les deux sons « th » : sourd /θ/ dans <em>think</em> et voisé /ð/ dans <em>this</em>." },
+    { file: "pron_v_drill.mp3", group: "pronunciation",
+      ipa: "/v/", ipaLabelEn: "V",
+      badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The 'v' sound — very, vote, have",
+      titleEs: "El sonido 'v' — very, vote, have",
+      titleFr: "Le son « v » — very, vote, have",
+      howEn: "Top teeth gently bite the bottom lip. Hum the lip. Different from Spanish 'b'.",
+      howEs: "Los dientes de arriba muerden suavemente el labio de abajo. Vibra el labio. Diferente de la 'b'.",
+      howFr: "Les dents du haut mordent doucement la lèvre inférieure. Vibrez la lèvre.",
+      descEn: "Spanish merges /b/ and /v/. English keeps them distinct. Drill until it's automatic.",
+      descEs: "El español junta /b/ y /v/. El inglés los separa. Practica hasta que sea automático.",
+      descFr: "L'espagnol fusionne /b/ et /v/. L'anglais les distingue. Pratiquez jusqu'à ce que ce soit automatique." },
+    { file: "pron_sh_drill.mp3", group: "pronunciation",
+      ipa: "/ʃ/", ipaLabelEn: "SH",
+      badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The 'sh' sound — she, shoe, wash",
+      titleEs: "El sonido 'sh' — she, shoe, wash",
+      titleFr: "Le son « sh » — she, shoe, wash",
+      howEn: "Round your lips. Push air through. Like calming a baby — \"shhhh.\"",
+      howEs: "Redondea los labios. Saca aire. Como calmando a un bebé — \"shhhh.\"",
+      howFr: "Arrondissez les lèvres. Faites passer l'air. Comme pour calmer un bébé — « chhhh ».",
+      descEn: "Don't substitute the Spanish 'ch' (/tʃ/) — that's a different sound.",
+      descEs: "No lo cambies por la 'ch' española (/tʃ/) — son sonidos distintos.",
+      descFr: "Ne le remplacez pas par le « ch » espagnol (/tʃ/) — c'est un autre son." },
+    { file: "pron_short_i_vs_long_e.mp3", group: "pronunciation",
+      ipa: "/ɪ/ vs /iː/", ipaLabelEn: "ship vs sheep",
+      badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "Short 'i' vs long 'e' — sheep / ship",
+      titleEs: "'i' corta vs 'e' larga — sheep / ship",
+      titleFr: "« i » court vs « e » long — sheep / ship",
+      howEn: "Long /iː/: tense mouth, smile, hold the sound. Short /ɪ/: relaxed mouth, fast, drop it.",
+      howEs: "/iː/ larga: boca tensa, sonríe, mantén el sonido. /ɪ/ corta: boca relajada, rápida, suéltala.",
+      howFr: "/iː/ long : bouche tendue, sourire, tenez le son. /ɪ/ court : bouche détendue, rapide.",
+      descEn: "The single biggest pronunciation gain for Spanish speakers. Drill this every week.",
+      descEs: "La mejor inversión de pronunciación para hispanohablantes. Practica esto cada semana.",
+      descFr: "Le plus gros progrès de prononciation pour hispanophones. Pratiquez chaque semaine." },
+    { file: "pron_american_r.mp3", group: "pronunciation",
+      ipa: "/ɹ/", ipaLabelEn: "American R",
+      badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The American R — red, right, around",
+      titleEs: "La R americana — red, right, around",
+      titleFr: "Le R américain — red, right, around",
+      howEn: "Curl your tongue back, tip up. DON'T trill. The Spanish 'rr' is a different sound entirely.",
+      howEs: "Curva la lengua hacia atrás, punta arriba. NO la vibres. La 'rr' del español es otro sonido.",
+      howFr: "Recourbez la langue vers l'arrière, pointe vers le haut. NE pas rouler. Le « rr » espagnol est un autre son.",
+      descEn: "The R appears everywhere in English. Practice this daily — it's worth it.",
+      descEs: "La R aparece por todos lados en inglés. Practica todos los días — vale la pena.",
+      descFr: "Le R apparaît partout en anglais. Pratiquez chaque jour — ça en vaut la peine." },
+    { file: "pron_schwa.mp3", group: "pronunciation",
+      ipa: "/ə/", ipaLabelEn: "schwa",
+      badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "The schwa — most common English vowel",
+      titleEs: "La schwa — la vocal más común del inglés",
+      titleFr: "Le schwa — la voyelle la plus courante",
+      howEn: "Relax your mouth completely. Make a soft \"uh\" sound. Almost no effort.",
+      howEs: "Relaja la boca por completo. Haz un \"uh\" suave. Casi sin esfuerzo.",
+      howFr: "Détendez complètement la bouche. Faites un « euh » très doux. Presque sans effort.",
+      descEn: "Most unstressed vowels in English become /ə/. About → uh-BOUT. Banana → buh-NAN-uh.",
+      descEs: "La mayoría de vocales débiles en inglés se convierten en /ə/. About → uh-BOUT.",
+      descFr: "La plupart des voyelles non accentuées deviennent /ə/. About → uh-BOUT." },
+    { file: "pron_z_vs_s.mp3", group: "pronunciation",
+      ipa: "/z/ vs /s/", ipaLabelEn: "Z vs S",
+      badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "Z vs S — voiced and voiceless",
+      titleEs: "Z vs S — con voz y sin voz",
+      titleFr: "Z vs S — voisé et non voisé",
+      howEn: "/z/ buzzes — feel the vibration in your throat. /s/ is silent — no vibration.",
+      howEs: "/z/ vibra — siente la vibración en la garganta. /s/ no vibra — silencioso.",
+      howFr: "/z/ vibre — sentez la vibration dans la gorge. /s/ ne vibre pas.",
+      descEn: "Zoo / Sue · Buzz / bus · Rose / race. Put your hand on your throat to feel it.",
+      descEs: "Zoo / Sue · Buzz / bus · Rose / race. Pon la mano en tu garganta para sentirlo.",
+      descFr: "Zoo / Sue · Buzz / bus · Rose / race. Mettez la main sur la gorge pour le sentir." },
+    { file: "pron_silent_letters.mp3", group: "pronunciation",
+      ipa: "Ø", ipaLabelEn: "silent",
+      badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "Silent letters — know, write, hour, listen",
+      titleEs: "Letras mudas — know, write, hour, listen",
+      titleFr: "Lettres muettes — know, write, hour, listen",
+      howEn: "Some letters are written but never pronounced. Memorize the patterns: kn-, wr-, h-, -lk, -mb.",
+      howEs: "Algunas letras se escriben pero nunca se pronuncian. Memoriza los patrones: kn-, wr-, h-, -lk, -mb.",
+      howFr: "Certaines lettres s'écrivent mais ne se prononcent jamais. Mémorisez les motifs : kn-, wr-, h-, -lk, -mb.",
+      descEn: "If you pronounce these letters, native speakers will hear an accent. Skip them.",
+      descEs: "Si las pronuncias, los nativos oirán un acento. No las pronuncies.",
+      descFr: "Si vous les prononcez, les natifs entendront un accent. Ne les prononcez pas." },
+    { file: "pron_minimal_pairs.mp3", group: "pronunciation",
+      ipa: "drill", ipaLabelEn: "ear training",
+      badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
+      titleEn: "Minimal pairs — train your ear",
+      titleEs: "Pares mínimos — entrena tu oído",
+      titleFr: "Paires minimales — entraînez votre oreille",
+      howEn: "Words that differ by ONE sound. Listen to the contrast, then say both. The fastest ear-training drill.",
+      howEs: "Palabras que cambian por UN sonido. Oye el contraste, luego di ambas. El ejercicio de oído más rápido.",
+      howFr: "Mots qui diffèrent d'UN seul son. Écoutez le contraste, puis dites les deux.",
+      descEn: "Sheep / ship · ban / van · think / sink. The classic Spanish-speaker traps.",
+      descEs: "Sheep / ship · ban / van · think / sink. Las trampas clásicas para hispanohablantes.",
+      descFr: "Sheep / ship · ban / van · think / sink. Les pièges classiques pour hispanophones." },
+
+    // ============== VOCABULARY ==============
+    { file: "vocab_starter_20.mp3", group: "vocabulary",
+      badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
       titleEn: "20 starter words",
       titleEs: "20 palabras iniciales",
       titleFr: "20 mots de départ",
       descEn: "Each word spoken twice, then in an example sentence. Listen and repeat.",
       descEs: "Cada palabra dicha dos veces, luego en una oración. Escucha y repite.",
       descFr: "Chaque mot prononcé deux fois, puis dans une phrase. Écoutez et répétez." },
-    { file: "vocab_cognates.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+    { file: "vocab_cognates.mp3", group: "vocabulary",
+      badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
       titleEn: "Cognates — free vocabulary",
       titleEs: "Cognados — vocabulario gratis",
       titleFr: "Cognats — vocabulaire gratuit",
-      descEn: "10 words you almost already know, with example sentences.",
-      descEs: "10 palabras que casi ya sabes, con oraciones de ejemplo.",
-      descFr: "10 mots que vous connaissez presque, avec phrases d'exemple." },
-    { file: "frames_10.mp3", badgeEn: "Sentence frames", badgeEs: "Plantillas", badgeFr: "Structures",
-      titleEn: "10 reusable sentence frames",
-      titleEs: "10 plantillas reutilizables",
-      titleFr: "10 structures réutilisables",
-      descEn: "Memorize the frame, swap the word. Three example variations per frame.",
-      descEs: "Memoriza la plantilla, cambia la palabra. Tres variaciones por plantilla.",
-      descFr: "Mémorisez la structure, changez le mot. Trois variations par structure." },
-    { file: "speaking_starters.mp3", badgeEn: "Speaking", badgeEs: "Habla", badgeFr: "Parole",
-      titleEn: "Speaking starters for your 30-second recording",
-      titleEs: "Arranques para tu grabación de 30 segundos",
-      titleFr: "Amorces pour votre enregistrement de 30 secondes",
-      descEn: "Use these to begin. Today is… This morning I… Tonight I…",
-      descEs: "Úsalos para empezar. Today is… This morning I… Tonight I…",
-      descFr: "Utilisez-les pour commencer. Today is… This morning I… Tonight I…" },
-    { file: "module1_intro.mp3", badgeEn: "Module intro", badgeEs: "Intro de módulo", badgeFr: "Intro du module",
-      titleEn: "Module 1 welcome",
-      titleEs: "Bienvenida al Módulo 1",
-      titleFr: "Bienvenue au Module 1",
-      descEn: "30-second audio overview of Module 1.",
-      descEs: "Resumen en audio de 30 segundos del Módulo 1.",
-      descFr: "Aperçu audio de 30 secondes du Module 1." },
-    { file: "module2_intro.mp3", badgeEn: "Module intro", badgeEs: "Intro de módulo", badgeFr: "Intro du module",
-      titleEn: "Module 2 welcome",
-      titleEs: "Bienvenida al Módulo 2",
-      titleFr: "Bienvenue au Module 2",
-      descEn: "30-second audio overview of Module 2.",
-      descEs: "Resumen en audio de 30 segundos del Módulo 2.",
-      descFr: "Aperçu audio de 30 secondes du Module 2." },
-    { file: "module3_intro.mp3", badgeEn: "Module intro", badgeEs: "Intro de módulo", badgeFr: "Intro du module",
-      titleEn: "Module 3 welcome",
-      titleEs: "Bienvenida al Módulo 3",
-      titleFr: "Bienvenue au Module 3",
-      descEn: "30-second audio overview of Module 3.",
-      descEs: "Resumen en audio de 30 segundos del Módulo 3.",
-      descFr: "Aperçu audio de 30 secondes du Module 3." },
-
-    // ---- Expanded pronunciation drills ----
-    { file: "pron_short_i_vs_long_e.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
-      titleEn: "Short 'i' vs long 'e' — sheep / ship",
-      titleEs: "'i' corta vs 'e' larga — sheep / ship",
-      titleFr: "« i » court vs « e » long — sheep / ship",
-      descEn: "The most common Spanish-speaker confusion. Train your ear.",
-      descEs: "La confusión más común de los hispanohablantes. Entrena tu oído.",
-      descFr: "La confusion la plus fréquente chez les hispanophones. Entraînez votre oreille." },
-    { file: "pron_american_r.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
-      titleEn: "The American R",
-      titleEs: "La R americana",
-      titleFr: "Le R américain",
-      descEn: "Curl your tongue back. Don't trill it. Red, right, run, around.",
-      descEs: "Curva la lengua hacia atrás. No la vibres. Red, right, run, around.",
-      descFr: "Recourbez la langue en arrière. Ne la roulez pas. Red, right, run, around." },
-    { file: "pron_schwa.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
-      titleEn: "The schwa — most common English vowel",
-      titleEs: "La schwa — la vocal más común del inglés",
-      titleFr: "Le schwa — la voyelle la plus courante de l'anglais",
-      descEn: "About, banana, sofa. Most unstressed vowels reduce to 'uh.'",
-      descEs: "About, banana, sofa. La mayoría de las vocales débiles se reducen a 'uh.'",
-      descFr: "About, banana, sofa. La plupart des voyelles non accentuées deviennent « uh »." },
-    { file: "pron_z_vs_s.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
-      titleEn: "Z vs S — voiced and voiceless",
-      titleEs: "Z vs S — con voz y sin voz",
-      titleFr: "Z vs S — voisé et non voisé",
-      descEn: "Zoo / Sue. Buzz / bus. Feel the vibration in your throat.",
-      descEs: "Zoo / Sue. Buzz / bus. Siente la vibración en tu garganta.",
-      descFr: "Zoo / Sue. Buzz / bus. Sentez la vibration dans la gorge." },
-    { file: "pron_silent_letters.mp3", badgeEn: "Pronunciation", badgeEs: "Pronunciación", badgeFr: "Prononciation",
-      titleEn: "Silent letters",
-      titleEs: "Letras mudas",
-      titleFr: "Lettres muettes",
-      descEn: "Know, write, hour, listen — the letters are written but not spoken.",
-      descEs: "Know, write, hour, listen — las letras se escriben pero no se pronuncian.",
-      descFr: "Know, write, hour, listen — les lettres s'écrivent mais ne se prononcent pas." },
-
-    // ---- Themed vocabulary ----
-    { file: "vocab_work.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      descEn: "10 words you almost already know — hospital, doctor, family, important…",
+      descEs: "10 palabras que casi ya sabes — hospital, doctor, family, important…",
+      descFr: "10 mots que vous connaissez presque — hospital, doctor, family, important…" },
+    { file: "vocab_work.mp3", group: "vocabulary",
+      badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
       titleEn: "Workplace vocabulary",
       titleEs: "Vocabulario del trabajo",
       titleFr: "Vocabulaire du travail",
-      descEn: "Boss, schedule, shift, break, paycheck, coworker, meeting…",
-      descEs: "Jefe, horario, turno, descanso, cheque, compañero, reunión…",
-      descFr: "Patron, horaire, équipe, pause, paie, collègue, réunion…" },
-    { file: "vocab_doctor.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      descEn: "Boss, schedule, shift, break, paycheck, coworker, meeting, deadline, overtime…",
+      descEs: "Jefe, horario, turno, descanso, cheque, compañero, reunión, fecha límite, horas extra…",
+      descFr: "Patron, horaire, équipe, pause, paie, collègue, réunion, échéance, heures supp…" },
+    { file: "vocab_doctor.mp3", group: "vocabulary",
+      badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
       titleEn: "Doctor's office vocabulary",
       titleEs: "Vocabulario del consultorio médico",
       titleFr: "Vocabulaire du cabinet médical",
-      descEn: "Appointment, insurance, pain, prescription, allergic, emergency…",
-      descEs: "Cita, seguro, dolor, receta, alérgico, emergencia…",
+      descEn: "Appointment, insurance, pain, prescription, allergic, emergency, follow-up…",
+      descEs: "Cita, seguro, dolor, receta, alérgico, emergencia, seguimiento…",
       descFr: "Rendez-vous, assurance, douleur, ordonnance, allergique, urgence…" },
-    { file: "vocab_grocery.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+    { file: "vocab_grocery.mp3", group: "vocabulary",
+      badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
       titleEn: "Grocery store vocabulary",
       titleEs: "Vocabulario del supermercado",
       titleFr: "Vocabulaire du supermarché",
-      descEn: "Cart, aisle, coupon, sale, receipt, refund, express lane…",
-      descEs: "Carrito, pasillo, cupón, oferta, recibo, reembolso, fila rápida…",
+      descEn: "Cart, aisle, coupon, sale, receipt, refund, express lane, total, discount…",
+      descEs: "Carrito, pasillo, cupón, oferta, recibo, reembolso, fila rápida, total, descuento…",
       descFr: "Caddie, allée, coupon, soldes, reçu, remboursement, caisse rapide…" },
-    { file: "vocab_restaurant.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+    { file: "vocab_restaurant.mp3", group: "vocabulary",
+      badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
       titleEn: "Restaurant vocabulary",
       titleEs: "Vocabulario del restaurante",
       titleFr: "Vocabulaire du restaurant",
-      descEn: "Menu, waiter, order, appetizer, allergy, check, tip, refill…",
-      descEs: "Menú, mesero, pedido, entrada, alergia, cuenta, propina, refill…",
-      descFr: "Menu, serveur, commande, entrée, allergie, addition, pourboire…" },
-    { file: "vocab_school.mp3", badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
+      descEn: "Menu, waiter, order, appetizer, allergy, check, tip, refill, to go…",
+      descEs: "Menú, mesero, pedido, entrada, alergia, cuenta, propina, refill, para llevar…",
+      descFr: "Menu, serveur, commande, entrée, allergie, addition, pourboire, à emporter…" },
+    { file: "vocab_school.mp3", group: "vocabulary",
+      badgeEn: "Vocabulary", badgeEs: "Vocabulario", badgeFr: "Vocabulaire",
       titleEn: "School & parent vocabulary",
       titleEs: "Vocabulario escolar y para padres",
       titleFr: "Vocabulaire scolaire et pour parents",
-      descEn: "Teacher, homework, grade, report card, conference, field trip…",
-      descEs: "Maestro, tarea, grado, reporte, conferencia, excursión…",
+      descEn: "Teacher, homework, grade, report card, conference, field trip, absent, pick-up…",
+      descEs: "Maestro, tarea, grado, reporte, conferencia, excursión, ausente, recogida…",
       descFr: "Enseignant, devoirs, classe, bulletin, conférence, sortie scolaire…" },
 
-    // ---- Expanded sentence frames ----
-    { file: "frames_past.mp3", badgeEn: "Sentence frames", badgeEs: "Plantillas", badgeFr: "Structures",
+    // ============== SENTENCE FRAMES ==============
+    { file: "frames_10.mp3", group: "frames",
+      badgeEn: "Sentence frames", badgeEs: "Plantillas", badgeFr: "Structures",
+      titleEn: "The 10 core frames",
+      titleEs: "Las 10 plantillas básicas",
+      titleFr: "Les 10 structures de base",
+      descEn: "I am ___, I have ___, I need ___, I want ___, I like ___, I can ___, plus four more. Three example variations each.",
+      descEs: "I am ___, I have ___, I need ___, I want ___, I like ___, I can ___, y cuatro más. Tres variaciones por plantilla.",
+      descFr: "I am ___, I have ___, I need ___, I want ___, I like ___, I can ___, et quatre autres. Trois variations chacune." },
+    { file: "frames_past.mp3", group: "frames",
+      badgeEn: "Sentence frames · Past", badgeEs: "Plantillas · Pasado", badgeFr: "Structures · Passé",
       titleEn: "Past-tense frames",
       titleEs: "Plantillas en pasado",
       titleFr: "Structures au passé",
-      descEn: "I went, I had, I did, I saw, I made, I spoke, I forgot.",
-      descEs: "I went, I had, I did, I saw, I made, I spoke, I forgot.",
-      descFr: "I went, I had, I did, I saw, I made, I spoke, I forgot." },
-    { file: "frames_questions.mp3", badgeEn: "Sentence frames", badgeEs: "Plantillas", badgeFr: "Structures",
+      descEn: "I went, I had, I did, I saw, I made, I spoke, I forgot — and how to use them.",
+      descEs: "I went, I had, I did, I saw, I made, I spoke, I forgot — y cómo usarlas.",
+      descFr: "I went, I had, I did, I saw, I made, I spoke, I forgot — et comment les utiliser." },
+    { file: "frames_questions.mp3", group: "frames",
+      badgeEn: "Sentence frames · Questions", badgeEs: "Plantillas · Preguntas", badgeFr: "Structures · Questions",
       titleEn: "Question frames",
       titleEs: "Plantillas de preguntas",
       titleFr: "Structures de questions",
-      descEn: "Do you have…? Can you…? Could you…? What…? Where…? How much…?",
-      descEs: "Do you have…? Can you…? Could you…? What…? Where…? How much…?",
-      descFr: "Do you have…? Can you…? Could you…? What…? Where…? How much…?" },
-    { file: "frames_polite.mp3", badgeEn: "Sentence frames", badgeEs: "Plantillas", badgeFr: "Structures",
-      titleEn: "Polite frames for stores, offices, strangers",
-      titleEs: "Plantillas educadas para tiendas, oficinas, desconocidos",
-      titleFr: "Structures polies pour magasins, bureaux, inconnus",
+      descEn: "Do you have…? Can you…? Could you…? What…? Where…? How much…? Three variations each.",
+      descEs: "Do you have…? Can you…? Could you…? What…? Where…? How much…? Tres variaciones cada una.",
+      descFr: "Do you have…? Can you…? Could you…? What…? Where…? How much…? Trois variations chacune." },
+    { file: "frames_polite.mp3", group: "frames",
+      badgeEn: "Sentence frames · Polite", badgeEs: "Plantillas · Educadas", badgeFr: "Structures · Politesse",
+      titleEn: "Polite frames — stores, offices, strangers",
+      titleEs: "Plantillas educadas — tiendas, oficinas, desconocidos",
+      titleFr: "Structures polies — magasins, bureaux, inconnus",
       descEn: "Excuse me… Could I please… Would you mind… May I… Thank you so much.",
       descEs: "Excuse me… Could I please… Would you mind… May I… Thank you so much.",
       descFr: "Excuse me… Could I please… Would you mind… May I… Thank you so much." },
+    { file: "speaking_starters.mp3", group: "frames",
+      badgeEn: "Speaking starters", badgeEs: "Arranques de habla", badgeFr: "Amorces orales",
+      titleEn: "Starters for your 30-second recording",
+      titleEs: "Arranques para tu grabación de 30 segundos",
+      titleFr: "Amorces pour votre enregistrement de 30 secondes",
+      descEn: "Today is… This morning I… Right now I… Tonight I… Tomorrow I have to…",
+      descEs: "Today is… This morning I… Right now I… Tonight I… Tomorrow I have to…",
+      descFr: "Today is… This morning I… Right now I… Tonight I… Tomorrow I have to…" },
 
-    // ---- Real-life chunk dialogues ----
-    { file: "chunks_doctor_visit.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+    // ============== REAL-LIFE DIALOGUES ==============
+    { file: "chunks_doctor_visit.mp3", group: "dialogues",
+      badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
       titleEn: "Doctor's visit — full dialogue",
       titleEs: "Visita al doctor — diálogo completo",
       titleFr: "Visite chez le médecin — dialogue complet",
-      descEn: "Receptionist + patient back-and-forth. Shadow it line by line.",
-      descEs: "Conversación entre recepcionista y paciente. Repítela línea por línea.",
-      descFr: "Échange entre la réceptionniste et le patient. Répétez ligne par ligne." },
-    { file: "chunks_ordering_food.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+      descEn: "Receptionist + patient. Insurance, form, waiting. Shadow line by line.",
+      descEs: "Recepcionista + paciente. Seguro, formulario, espera. Repite línea por línea.",
+      descFr: "Réceptionniste + patient. Assurance, formulaire, attente. Répétez ligne par ligne." },
+    { file: "chunks_ordering_food.mp3", group: "dialogues",
+      badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
       titleEn: "Ordering food at a restaurant",
       titleEs: "Pedir comida en un restaurante",
       titleFr: "Commander au restaurant",
-      descEn: "Server greets you, you order, you ask for the check.",
-      descEs: "El mesero saluda, pides, pides la cuenta.",
+      descEn: "Server greets you, you order, you ask for the check. Standard US script.",
+      descEs: "El mesero saluda, pides, pides la cuenta. Guion estándar de EE. UU.",
       descFr: "Le serveur vous accueille, vous commandez, vous demandez l'addition." },
-    { file: "chunks_grocery_checkout.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+    { file: "chunks_grocery_checkout.mp3", group: "dialogues",
+      badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
       titleEn: "Grocery store checkout",
       titleEs: "Caja del supermercado",
       titleFr: "Caisse du supermarché",
       descEn: "Cashier greets, asks paper or plastic, gives total. Standard US script.",
-      descEs: "El cajero saluda, pregunta papel o plástico, da el total. Guion estándar de EE. UU.",
-      descFr: "Le caissier accueille, demande papier ou plastique, donne le total. Standard US." },
-    { file: "chunks_work_morning.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+      descEs: "El cajero saluda, pregunta papel o plástico, da el total.",
+      descFr: "Le caissier accueille, demande papier ou plastique, donne le total." },
+    { file: "chunks_work_morning.mp3", group: "dialogues",
+      badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
       titleEn: "Morning small talk at work",
       titleEs: "Conversación matutina en el trabajo",
       titleFr: "Petits mots du matin au travail",
-      descEn: "How was your weekend? See you at the meeting.",
-      descEs: "¿Cómo estuvo tu fin de semana? Nos vemos en la reunión.",
+      descEn: "How was your weekend? See you at the meeting. Casual coworker exchange.",
+      descEs: "¿Cómo estuvo tu fin de semana? Nos vemos en la reunión. Charla casual con compañeros.",
       descFr: "Comment s'est passé ton weekend ? On se voit à la réunion." },
-    { file: "chunks_phone_call.mp3", badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
+    { file: "chunks_phone_call.mp3", group: "dialogues",
+      badgeEn: "Real dialogue", badgeEs: "Diálogo real", badgeFr: "Dialogue réel",
       titleEn: "Phone call to make an appointment",
       titleEs: "Llamada para hacer una cita",
       titleFr: "Appel pour prendre rendez-vous",
@@ -1086,8 +1287,33 @@
       descEs: "Agendar una cita dental por teléfono, paso a paso.",
       descFr: "Prendre rendez-vous chez le dentiste au téléphone, étape par étape." },
 
-    // ---- Course close ----
-    { file: "course_close.mp3", badgeEn: "Course close", badgeEs: "Cierre del curso", badgeFr: "Fin du cours",
+    // ============== MODULE INTROS + COURSE CLOSE ==============
+    { file: "module1_intro.mp3", group: "intros",
+      badgeEn: "Module intro", badgeEs: "Intro de módulo", badgeFr: "Intro du module",
+      titleEn: "Module 1 welcome",
+      titleEs: "Bienvenida al Módulo 1",
+      titleFr: "Bienvenue au Module 1",
+      descEn: "30-second audio overview of Module 1.",
+      descEs: "Resumen en audio de 30 segundos del Módulo 1.",
+      descFr: "Aperçu audio de 30 secondes du Module 1." },
+    { file: "module2_intro.mp3", group: "intros",
+      badgeEn: "Module intro", badgeEs: "Intro de módulo", badgeFr: "Intro du module",
+      titleEn: "Module 2 welcome",
+      titleEs: "Bienvenida al Módulo 2",
+      titleFr: "Bienvenue au Module 2",
+      descEn: "30-second audio overview of Module 2.",
+      descEs: "Resumen en audio de 30 segundos del Módulo 2.",
+      descFr: "Aperçu audio de 30 secondes du Module 2." },
+    { file: "module3_intro.mp3", group: "intros",
+      badgeEn: "Module intro", badgeEs: "Intro de módulo", badgeFr: "Intro du module",
+      titleEn: "Module 3 welcome",
+      titleEs: "Bienvenida al Módulo 3",
+      titleFr: "Bienvenue au Module 3",
+      descEn: "30-second audio overview of Module 3.",
+      descEs: "Resumen en audio de 30 segundos del Módulo 3.",
+      descFr: "Aperçu audio de 30 secondes du Module 3." },
+    { file: "course_close.mp3", group: "intros",
+      badgeEn: "Course close", badgeEs: "Cierre del curso", badgeFr: "Fin du cours",
       titleEn: "You finished the course",
       titleEs: "Terminaste el curso",
       titleFr: "Vous avez terminé le cours",
@@ -1101,52 +1327,87 @@
     var KEY = 'iel-lang';
     var currentLang = 'en';
 
-    // ---- Build audio cards (hidden until file is verified to exist) ----
-    var listEl = document.getElementById('audio-list');
+    function attr(s) { return String(s == null ? '' : s).replace(/"/g, '&quot;'); }
+
+    // Build sectioned audio UI
+    var sectionsRoot = document.getElementById('audio-sections');
     var emptyEl = document.getElementById('audio-empty');
     var visibleAudioCount = 0;
-    if (listEl) {
+
+    if (sectionsRoot) {
+      AUDIO_SECTIONS.forEach(function (sec) {
+        var secEl = document.createElement('div');
+        secEl.className = 'audio-section';
+        secEl.dataset.section = sec.id;
+        secEl.style.display = 'none'; // hidden until at least one card in it loads
+        secEl.innerHTML =
+          '<div class="audio-section-head">'
+          + '<h3 data-en="' + attr(sec.titleEn) + '" data-es="' + attr(sec.titleEs) + '" data-fr="' + attr(sec.titleFr) + '">' + sec.titleEn + '</h3>'
+          + '<p data-en="' + attr(sec.introEn) + '" data-es="' + attr(sec.introEs) + '" data-fr="' + attr(sec.introFr) + '">' + sec.introEn + '</p>'
+          + '</div>'
+          + '<div class="audio-list" data-list="' + sec.id + '"></div>';
+        sectionsRoot.appendChild(secEl);
+      });
+
       AUDIO_INDEX.forEach(function (item) {
+        var listEl = sectionsRoot.querySelector('[data-list="' + item.group + '"]');
+        if (!listEl) return;
+
         var card = document.createElement('div');
-        card.className = 'audio-card';
-        card.style.display = 'none'; // hidden until HEAD check passes
+        var classes = ['audio-card'];
+        if (item.group === 'pronunciation') classes.push('pron');
+        if (item.group === 'podcasts') {
+          classes.push('podcast');
+          if (item.isSpanish) classes.push('es');
+        }
+        if (item.group === 'dialogues') classes.push('dialogue');
+        card.className = classes.join(' ');
+        card.style.display = 'none';
         card.dataset.file = item.file;
-        card.innerHTML = ''
-          + '<span class="badge"'
-          + ' data-en="' + item.badgeEn + '"'
-          + ' data-es="' + item.badgeEs + '"'
-          + ' data-fr="' + item.badgeFr + '">' + item.badgeEn + '</span>'
-          + '<h4'
-          + ' data-en="' + item.titleEn.replace(/"/g, '&quot;') + '"'
-          + ' data-es="' + item.titleEs.replace(/"/g, '&quot;') + '"'
-          + ' data-fr="' + item.titleFr.replace(/"/g, '&quot;') + '">' + item.titleEn + '</h4>'
-          + '<p'
-          + ' data-en="' + item.descEn.replace(/"/g, '&quot;') + '"'
-          + ' data-es="' + item.descEs.replace(/"/g, '&quot;') + '"'
-          + ' data-fr="' + item.descFr.replace(/"/g, '&quot;') + '">' + item.descEn + '</p>'
-          + '<audio controls preload="none" src="audio/' + item.file + '"></audio>';
+
+        if (item.group === 'pronunciation') {
+          card.innerHTML =
+            '<div class="ipa-block">'
+            +   '<span class="ipa">' + (item.ipa || '') + '</span>'
+            +   '<span class="ipa-label">IPA · ' + attr(item.ipaLabelEn || '') + '</span>'
+            + '</div>'
+            + '<div class="body">'
+            +   '<span class="badge" data-en="' + attr(item.badgeEn) + '" data-es="' + attr(item.badgeEs) + '" data-fr="' + attr(item.badgeFr) + '">' + item.badgeEn + '</span>'
+            +   '<h4 data-en="' + attr(item.titleEn) + '" data-es="' + attr(item.titleEs) + '" data-fr="' + attr(item.titleFr) + '">' + item.titleEn + '</h4>'
+            +   '<div class="how"><strong data-en="How:" data-es="Cómo:" data-fr="Comment :">How:</strong> '
+            +     '<span data-en="' + attr(item.howEn || '') + '" data-es="' + attr(item.howEs || '') + '" data-fr="' + attr(item.howFr || '') + '">' + (item.howEn || '') + '</span>'
+            +   '</div>'
+            +   '<p data-en="' + attr(item.descEn) + '" data-es="' + attr(item.descEs) + '" data-fr="' + attr(item.descFr) + '">' + item.descEn + '</p>'
+            +   '<audio controls preload="none" src="audio/' + item.file + '"></audio>'
+            + '</div>';
+        } else {
+          card.innerHTML =
+            '<span class="badge" data-en="' + attr(item.badgeEn) + '" data-es="' + attr(item.badgeEs) + '" data-fr="' + attr(item.badgeFr) + '">' + item.badgeEn + '</span>'
+            + '<h4 data-en="' + attr(item.titleEn) + '" data-es="' + attr(item.titleEs) + '" data-fr="' + attr(item.titleFr) + '">' + item.titleEn + '</h4>'
+            + '<p data-en="' + attr(item.descEn) + '" data-es="' + attr(item.descEs) + '" data-fr="' + attr(item.descFr) + '">' + item.descEn + '</p>'
+            + '<audio controls preload="none" src="audio/' + item.file + '"></audio>';
+        }
         listEl.appendChild(card);
 
-        // HEAD check — show only if file exists
         fetch('audio/' + item.file, { method: 'HEAD' })
           .then(function (r) {
             if (r.ok) {
               card.style.display = '';
+              var sec = card.closest('.audio-section');
+              if (sec) sec.style.display = '';
               visibleAudioCount++;
               if (emptyEl) emptyEl.hidden = true;
-              // Re-apply language to the newly inserted nodes
               setLang(currentLang);
             }
           })
-          .catch(function () { /* offline / 404 — leave hidden */ });
+          .catch(function () { /* missing — leave hidden */ });
       });
-      // Show "audio coming soon" message after a short delay if nothing loaded
+
       setTimeout(function () {
         if (emptyEl && visibleAudioCount === 0) emptyEl.hidden = false;
       }, 1500);
     }
 
-    // ---- Language toggle ----
     function setLang(lang) {
       currentLang = lang;
       document.documentElement.setAttribute('lang', lang);
