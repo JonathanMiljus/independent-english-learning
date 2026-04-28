@@ -94,6 +94,183 @@
   h3 { font-family: Georgia, serif; font-size: 26px; color: var(--navy); margin: 32px 0 12px; }
   .lead { font-size: 20px; color: var(--slate); font-style: italic; max-width: 760px; margin-bottom: 32px; }
 
+  /* MODULE COMPLETE BUTTONS */
+  .module-complete {
+    margin-top: 32px; padding: 18px 24px; background: var(--white);
+    border: 2px solid var(--coral); border-radius: 8px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .module-complete .label {
+    font-family: Georgia, serif; color: var(--navy); font-size: 17px; font-weight: 700;
+  }
+  .module-complete button {
+    background: var(--coral); color: var(--white); border: none; padding: 10px 22px;
+    font-weight: 700; font-size: 14px; border-radius: 6px; cursor: pointer; font-family: inherit;
+    letter-spacing: 0.04em; transition: all 0.2s;
+  }
+  .module-complete button:hover { background: var(--navy); }
+  .module-complete.done { border-color: var(--gold); background: var(--cream); }
+  .module-complete.done .label::before { content: "✓ "; color: var(--coral); font-weight: 700; }
+  .module-complete.done button { background: var(--slate); }
+
+  /* INTERACTIVE WIDGETS */
+  .streak-badge {
+    background: var(--coral); color: var(--white); padding: 4px 12px; border-radius: 20px;
+    font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;
+    margin-left: 8px;
+  }
+  .streak-badge.zero { background: var(--rule); color: var(--slate); }
+
+  /* Goal commitment widget — sits inside its own section */
+  .goal-widget {
+    background: linear-gradient(135deg, #FBE6B0 0%, var(--gold) 100%);
+    border-radius: 8px; padding: 28px 32px; margin: 32px 0;
+    box-shadow: 0 4px 20px rgba(247,181,56,0.18);
+  }
+  .goal-widget .step-label {
+    font-family: Georgia, serif; font-size: 12px; font-weight: 700;
+    color: var(--coral); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .goal-widget h3 { font-family: Georgia, serif; color: var(--navy); font-size: 26px; margin-bottom: 6px; }
+  .goal-widget p.sub { color: var(--charcoal); font-size: 15px; margin-bottom: 18px; line-height: 1.5; }
+  .goal-widget input[type="text"] {
+    width: 100%; padding: 14px 18px; font-size: 16px; border: 2px solid var(--navy);
+    border-radius: 6px; font-family: inherit; background: var(--white); color: var(--navy);
+    transition: border-color 0.2s;
+  }
+  .goal-widget input[type="text"]:focus { outline: none; border-color: var(--coral); }
+  .goal-widget button {
+    margin-top: 12px; background: var(--navy); color: var(--gold); border: none;
+    padding: 10px 24px; font-weight: 700; font-size: 14px; border-radius: 6px; cursor: pointer;
+    letter-spacing: 0.04em;
+  }
+  .goal-widget button:hover { background: #082c36; }
+  .goal-widget .saved {
+    background: var(--white); border-radius: 6px; padding: 18px 22px; margin-top: 12px;
+    border-left: 5px solid var(--coral);
+  }
+  .goal-widget .saved .label {
+    font-family: Georgia, serif; font-size: 11px; font-weight: 700; color: var(--coral);
+    letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .goal-widget .saved .value {
+    font-family: Georgia, serif; font-size: 22px; color: var(--navy); font-style: italic;
+    line-height: 1.4;
+  }
+  .goal-widget .saved button {
+    background: transparent; color: var(--slate); margin-top: 10px; padding: 4px 0;
+    font-size: 13px; text-decoration: underline;
+  }
+  .goal-widget .checkin {
+    margin-top: 20px; padding-top: 20px; border-top: 2px dashed rgba(15,76,92,0.2);
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .goal-widget .checkin .label { font-weight: 700; color: var(--navy); font-size: 15px; }
+  .goal-widget .checkin .btn-yes, .goal-widget .checkin .btn-no {
+    padding: 8px 18px; font-size: 14px; font-weight: 700; border-radius: 6px; cursor: pointer;
+    border: 2px solid var(--navy); background: var(--white); color: var(--navy); transition: all 0.2s;
+    margin-top: 0;
+  }
+  .goal-widget .checkin .btn-yes:hover { background: var(--navy); color: var(--gold); }
+  .goal-widget .checkin .btn-no { border-color: var(--slate); color: var(--slate); }
+  .goal-widget .checkin .btn-no:hover { background: var(--slate); color: var(--white); }
+  .goal-widget .checkin-done {
+    color: var(--navy); font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* Module progress bar */
+  .progress-row {
+    display: grid; grid-template-columns: 1fr; gap: 12px; margin: 24px 0 32px;
+  }
+  .progress-track {
+    background: var(--soft); border-radius: 999px; height: 14px; overflow: hidden;
+    position: relative; border: 1px solid var(--rule);
+  }
+  .progress-fill {
+    background: linear-gradient(90deg, var(--coral) 0%, var(--gold) 100%);
+    height: 100%; transition: width 0.4s ease;
+  }
+  .progress-label { font-size: 14px; color: var(--charcoal); font-weight: 600; }
+  .progress-label .pct { color: var(--coral); font-family: Georgia, serif; font-weight: 700; }
+
+  /* Strategy cards (accordion) */
+  .strategies { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 28px; }
+  .strategy {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+    border-left: 5px solid var(--navy); overflow: hidden;
+    transition: border-left-color 0.2s;
+  }
+  .strategy:hover { border-left-color: var(--coral); }
+  .strategy summary {
+    padding: 18px 22px; cursor: pointer; display: flex; align-items: center; gap: 14px;
+    list-style: none; user-select: none;
+  }
+  .strategy summary::-webkit-details-marker { display: none; }
+  .strategy summary::after {
+    content: "+"; margin-left: auto; font-size: 28px; color: var(--coral); font-weight: 300;
+    transition: transform 0.25s;
+  }
+  .strategy[open] summary::after { content: "−"; }
+  .strategy .icon-circle {
+    background: var(--gold); color: var(--navy); width: 38px; height: 38px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .strategy h4 { font-family: Georgia, serif; color: var(--navy); font-size: 19px; margin: 0; line-height: 1.3; }
+  .strategy .body {
+    padding: 0 22px 22px 74px; color: var(--charcoal); font-size: 15px; line-height: 1.6;
+  }
+  .strategy .body p { margin-bottom: 10px; }
+  .strategy .body cite {
+    display: block; margin-top: 10px; font-size: 13px; color: var(--slate); font-style: italic;
+  }
+  .strategy .body strong { color: var(--navy); }
+
+  /* Vocabulary flashcard player */
+  .flashcard-widget {
+    background: var(--soft); padding: 28px; border-radius: 8px; margin: 24px 0;
+    border: 1px solid var(--rule);
+  }
+  .flashcard-widget .head {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;
+  }
+  .flashcard-widget .head .label {
+    font-family: Georgia, serif; font-size: 12px; font-weight: 700; color: var(--coral);
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .flashcard-widget .progress {
+    font-size: 14px; color: var(--slate); font-weight: 600;
+  }
+  .flashcard {
+    background: var(--white); border-radius: 8px; padding: 40px 28px;
+    text-align: center; cursor: pointer; user-select: none;
+    border: 2px solid var(--rule); transition: border-color 0.15s, transform 0.15s;
+    min-height: 180px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .flashcard:hover { border-color: var(--coral); }
+  .flashcard:active { transform: scale(0.99); }
+  .flashcard .face-en {
+    font-family: Georgia, serif; font-size: 40px; color: var(--navy); font-weight: 700; line-height: 1.2;
+  }
+  .flashcard .face-es {
+    font-family: Georgia, serif; font-size: 26px; color: var(--coral); font-style: italic; line-height: 1.3;
+  }
+  .flashcard .example {
+    margin-top: 12px; font-size: 16px; color: var(--charcoal); font-style: italic;
+  }
+  .flashcard .hint { font-size: 12px; color: var(--muted); margin-top: 14px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .flashcard-controls { display: flex; gap: 10px; margin-top: 14px; justify-content: center; flex-wrap: wrap; }
+  .flashcard-controls button {
+    padding: 8px 18px; font-weight: 700; font-size: 14px; border-radius: 6px; cursor: pointer;
+    border: 2px solid var(--navy); background: var(--white); color: var(--navy);
+    font-family: inherit; transition: all 0.15s;
+  }
+  .flashcard-controls button:hover { background: var(--navy); color: var(--gold); }
+  .flashcard-controls button.shuffle { border-color: var(--coral); color: var(--coral); }
+  .flashcard-controls button.shuffle:hover { background: var(--coral); color: var(--white); }
+
   /* DOWNLOADS */
   .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px; }
   .download-card {
@@ -355,6 +532,9 @@
     <a href="#downloads" data-en="Downloads" data-es="Descargas" data-fr="Téléchargements">Downloads</a>
     <a href="#resources" data-en="Resources" data-es="Recursos" data-fr="Ressources">Resources</a>
     <a href="#plan" data-en="90-Day Plan" data-es="Plan de 90 días" data-fr="Plan 90 jours">90-Day Plan</a>
+    <span id="streak-badge" class="streak-badge zero" title="Daily check-in streak">
+      🔥 <span id="streak-count">0</span>
+    </span>
     <div class="lang-toggle" role="tablist" aria-label="Language">
       <button type="button" data-lang="en" class="active" aria-label="English">EN</button>
       <button type="button" data-lang="es" aria-label="Español">ES</button>
@@ -383,6 +563,65 @@
       <span><strong>100</strong> <span data-en="total points" data-es="puntos totales" data-fr="points au total">total points</span></span>
     </div>
     <div class="byline">Material by Jonathan Michael Miljus</div>
+  </div>
+</section>
+
+<section id="commit">
+  <div class="container">
+    <div class="goal-widget">
+      <p class="step-label"
+         data-en="Step 1 — Make it real (saved in your browser)"
+         data-es="Paso 1 — Hazlo real (se guarda en tu navegador)"
+         data-fr="Étape 1 — Rendez-le réel (sauvegardé dans votre navigateur)">Step 1 — Make it real (saved in your browser)</p>
+      <h3 data-en="Write your English goal. One sentence."
+          data-es="Escribe tu meta de inglés. Una sola oración."
+          data-fr="Écrivez votre objectif d'anglais. Une seule phrase.">Write your English goal. One sentence.</h3>
+      <p class="sub"
+         data-en="It stays right here every time you visit the site. The reason most learners quit is they forgot why they started. You won't."
+         data-es="Se queda aquí cada vez que visites el sitio. La razón por la que la mayoría abandona es que olvidaron por qué empezaron. Tú no."
+         data-fr="Il reste ici chaque fois que vous visitez le site. La raison pour laquelle la plupart abandonnent, c'est qu'ils ont oublié pourquoi ils ont commencé. Pas vous.">It stays right here every time you visit the site. The reason most learners quit is they forgot why they started. You won't.</p>
+
+      <div id="goal-input-wrap">
+        <input type="text" id="goal-input"
+               data-en-placeholder="In 90 days I want to be able to ____________"
+               data-es-placeholder="En 90 días quiero poder ____________"
+               data-fr-placeholder="Dans 90 jours, je veux pouvoir ____________"
+               placeholder="In 90 days I want to be able to ____________"
+               autocomplete="off" />
+        <button id="goal-save"
+                data-en="Save my goal"
+                data-es="Guardar mi meta"
+                data-fr="Enregistrer mon objectif">Save my goal</button>
+      </div>
+
+      <div id="goal-saved-wrap" class="saved" hidden>
+        <div class="label"
+             data-en="My English goal — saved on this device"
+             data-es="Mi meta de inglés — guardada en este dispositivo"
+             data-fr="Mon objectif d'anglais — sauvegardé sur cet appareil">My English goal — saved on this device</div>
+        <div class="value" id="goal-saved-value"></div>
+        <button id="goal-edit"
+                data-en="Edit my goal"
+                data-es="Editar mi meta"
+                data-fr="Modifier mon objectif">Edit my goal</button>
+      </div>
+
+      <div class="checkin">
+        <span class="label"
+              data-en="Did you study today?"
+              data-es="¿Estudiaste hoy?"
+              data-fr="Avez-vous étudié aujourd'hui ?">Did you study today?</span>
+        <button class="btn-yes" id="checkin-yes"
+                data-en="Yes — count it"
+                data-es="Sí — cuéntalo"
+                data-fr="Oui — comptez-le">Yes — count it</button>
+        <button class="btn-no" id="checkin-no"
+                data-en="Not yet"
+                data-es="Aún no"
+                data-fr="Pas encore">Not yet</button>
+        <span class="checkin-done" id="checkin-done" hidden>✓ <span id="checkin-msg"></span></span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -426,6 +665,19 @@
     <h2 data-en="What you'll do in each one."
         data-es="Lo que harás en cada uno."
         data-fr="Ce que vous ferez dans chacun.">What you'll do in each one.</h2>
+
+    <div class="progress-row" id="module-progress">
+      <div class="progress-label">
+        <span
+          data-en="Your progress through the course"
+          data-es="Tu progreso en el curso"
+          data-fr="Votre avancement dans le cours">Your progress through the course</span> ·
+        <span class="pct" id="module-progress-pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="module-progress-fill" style="width: 0%"></div>
+      </div>
+    </div>
 
     <div class="modules">
       <article class="module-card">
@@ -479,6 +731,151 @@
   </div>
 </section>
 
+<section id="strategies">
+  <div class="container">
+    <p class="eyebrow"
+       data-en="Strategies &amp; mindset · the science of staying"
+       data-es="Estrategias y mentalidad · la ciencia de no rendirse"
+       data-fr="Stratégies et mentalité · la science de tenir bon">Strategies &amp; mindset · the science of staying</p>
+    <h2 data-en="Empowering strategies — backed by research, written for real life."
+        data-es="Estrategias que te empoderan — respaldadas por la ciencia, escritas para la vida real."
+        data-fr="Stratégies qui vous donnent du pouvoir — fondées sur la science, pour la vraie vie.">Empowering strategies — backed by research, written for real life.</h2>
+    <p class="lead"
+       data-en="Adults don't fail at language learning because they aren't smart enough. They fail because the methods most often offered to them are at odds with how memory actually works. Here's what the science says — and what to do."
+       data-es="Los adultos no fracasan al aprender un idioma porque no sean inteligentes. Fracasan porque los métodos que se les ofrecen chocan con cómo funciona la memoria. Esto dice la ciencia — y qué hacer al respecto."
+       data-fr="Les adultes n'échouent pas par manque d'intelligence. Ils échouent parce que les méthodes proposées vont à l'encontre du fonctionnement réel de la mémoire. Voici ce que dit la science — et quoi faire.">Adults don't fail at language learning because they aren't smart enough. They fail because the methods most often offered to them are at odds with how memory actually works. Here's what the science says — and what to do.</p>
+
+    <div class="strategies">
+
+      <details class="strategy">
+        <summary>
+          <span class="icon-circle">🧠</span>
+          <h4 data-en="Forgetting is part of remembering. Get comfortable with it."
+              data-es="Olvidar es parte de recordar. Acostúmbrate."
+              data-fr="Oublier fait partie du souvenir. Habituez-vous-y.">Forgetting is part of remembering. Get comfortable with it.</h4>
+        </summary>
+        <div class="body">
+          <p data-en="Every time you struggle to recall a word — and even fail — your brain strengthens the long-term memory trace more than easy review does. This is called &quot;desirable difficulty.&quot; The conditions that feel hardest in the moment produce the most durable learning."
+             data-es="Cada vez que luchas por recordar una palabra — y aunque la falles — tu cerebro refuerza la memoria a largo plazo más que un repaso fácil. Esto se llama 'dificultad deseable.' Lo que se siente más difícil en el momento es lo que produce el aprendizaje más duradero.">Every time you struggle to recall a word — and even fail — your brain strengthens the long-term memory trace more than easy review does. This is called "desirable difficulty." The conditions that feel hardest in the moment produce the most durable learning.</p>
+          <p><strong data-en="Action:" data-es="Acción:" data-fr="Action :">Action:</strong>
+             <span data-en=" Stop being afraid of forgetting. When Anki shows you a card and you blank — that's the gym. The struggle IS the learning."
+                   data-es=" Deja de tenerle miedo al olvido. Cuando Anki te muestre una tarjeta y no recuerdes — eso es el gimnasio. La lucha ES el aprendizaje."
+                   data-fr=" Cessez d'avoir peur d'oublier. Quand Anki vous montre une carte et que vous bloquez — c'est la salle de sport. La difficulté EST l'apprentissage."> Stop being afraid of forgetting. When Anki shows you a card and you blank — that's the gym. The struggle IS the learning.</span></p>
+          <cite>Bjork &amp; Bjork (2011). Making things hard on yourself, but in a good way.</cite>
+        </div>
+      </details>
+
+      <details class="strategy">
+        <summary>
+          <span class="icon-circle">⏱️</span>
+          <h4 data-en="15 minutes daily beats 2 hours on Sunday. Every time."
+              data-es="15 minutos al día le ganan a 2 horas el domingo. Siempre."
+              data-fr="15 minutes par jour battent 2 heures le dimanche. À chaque fois.">15 minutes daily beats 2 hours on Sunday. Every time.</h4>
+        </summary>
+        <div class="body">
+          <p data-en="Distributed practice — short sessions spread across days — produces stronger long-term retention than the same total time crammed into one session. A meta-analysis of 60+ studies on second-language learning found medium-to-large effects."
+             data-es="La práctica distribuida — sesiones cortas a lo largo de varios días — produce mejor retención a largo plazo que el mismo tiempo total en una sola sesión. Un meta-análisis de más de 60 estudios encontró efectos medianos a grandes.">Distributed practice — short sessions spread across days — produces stronger long-term retention than the same total time crammed into one session. A meta-analysis of 60+ studies on second-language learning found medium-to-large effects.</p>
+          <p><strong data-en="Action:" data-es="Acción:" data-fr="Action :">Action:</strong>
+             <span data-en=" Anchor your 15 minutes to something you already do — morning coffee, the commute, brushing teeth. Same time, every day. Frequency wins."
+                   data-es=" Ata tus 15 minutos a algo que ya haces — el café de la mañana, el transporte, lavarte los dientes. Misma hora, todos los días. Gana la frecuencia."
+                   data-fr=" Liez vos 15 minutes à une habitude existante — café du matin, trajets, brossage de dents. Même heure, chaque jour."> Anchor your 15 minutes to something you already do — morning coffee, the commute, brushing teeth. Same time, every day. Frequency wins.</span></p>
+          <cite>Cepeda et al. (2006); Kim &amp; Webb (2022). Spaced practice meta-analysis.</cite>
+        </div>
+      </details>
+
+      <details class="strategy">
+        <summary>
+          <span class="icon-circle">🛠️</span>
+          <h4 data-en="When motivation drops, lower the bar — don't quit."
+              data-es="Cuando baje la motivación, baja la meta — no abandones."
+              data-fr="Quand la motivation chute, baissez la barre — n'abandonnez pas.">When motivation drops, lower the bar — don't quit.</h4>
+        </summary>
+        <div class="body">
+          <p data-en="Almost everyone has a bad week between weeks 3–6. The learners who stick around aren't more disciplined — they pre-decided what to do on bad days. They drop from 15 minutes to 5 instead of dropping to zero."
+             data-es="Casi todo el mundo tiene una semana mala entre las semanas 3 y 6. Los que continúan no son más disciplinados — decidieron con anticipación qué hacer en días malos. Bajan de 15 minutos a 5, en vez de bajar a cero.">Almost everyone has a bad week between weeks 3–6. The learners who stick around aren't more disciplined — they pre-decided what to do on bad days. They drop from 15 minutes to 5 instead of dropping to zero.</p>
+          <p><strong data-en="Action:" data-es="Acción:" data-fr="Action :">Action:</strong>
+             <span data-en=" Decide right now, in writing, what your minimum bad-day routine looks like. \"On a bad day, I will play one BBC clip while making coffee.\" That's it. Never zero."
+                   data-es=" Decide ahora mismo, por escrito, cuál es tu rutina mínima en un día malo. 'En un día malo, escucho un clip de BBC mientras me hago café.' Punto. Nunca cero."
+                   data-fr=" Décidez maintenant, par écrit, quelle est votre routine minimum un mauvais jour. « Un mauvais jour, j'écoute un clip BBC en faisant le café ». C'est tout. Jamais zéro."> Decide right now, in writing, what your minimum bad-day routine looks like. "On a bad day, I will play one BBC clip while making coffee." That's it. Never zero.</span></p>
+          <cite>Zimmerman (2002). Becoming a self-regulated learner.</cite>
+        </div>
+      </details>
+
+      <details class="strategy">
+        <summary>
+          <span class="icon-circle">🎯</span>
+          <h4 data-en="Use AI to generate. Use your mouth to learn."
+              data-es="Usa la IA para generar. Usa tu boca para aprender."
+              data-fr="Utilisez l'IA pour générer. Utilisez votre bouche pour apprendre.">Use AI to generate. Use your mouth to learn.</h4>
+        </summary>
+        <div class="body">
+          <p data-en="Most people use ChatGPT in the worst way for language learning — endless chat that adapts down to their level. Use AI as a tool, not a tutor. Generate vocabulary lists, drills, and example paragraphs. Then close the chat and put the words in your mouth."
+             data-es="La mayoría usa ChatGPT de la peor manera para aprender idiomas — plática infinita que se adapta hacia abajo. Usa la IA como herramienta, no como tutor. Genera listas, ejercicios, y párrafos. Luego cierra el chat y mete las palabras en tu boca.">Most people use ChatGPT in the worst way for language learning — endless chat that adapts down to their level. Use AI as a tool, not a tutor. Generate vocabulary lists, drills, and example paragraphs. Then close the chat and put the words in your mouth.</p>
+          <p><strong data-en="Action:" data-es="Acción:" data-fr="Action :">Action:</strong>
+             <span data-en=" Download the AI Prompt Library (in the Downloads section below). 10 copy-paste prompts that turn ChatGPT into a deck factory. Generate, then memorize. Generate, then speak."
+                   data-es=" Descarga la Biblioteca de Prompts de IA (en la sección de Descargas). 10 prompts listos para copiar que convierten a ChatGPT en una fábrica de tarjetas. Genera, luego memoriza. Genera, luego habla."
+                   data-fr=" Téléchargez la bibliothèque de prompts IA (section Téléchargements). 10 prompts prêts à copier qui transforment ChatGPT en générateur de decks."> Download the AI Prompt Library (in the Downloads section below). 10 copy-paste prompts that turn ChatGPT into a deck factory. Generate, then memorize. Generate, then speak.</span></p>
+        </div>
+      </details>
+
+      <details class="strategy">
+        <summary>
+          <span class="icon-circle">🗣️</span>
+          <h4 data-en="Speak before you're ready. Especially when nobody is listening."
+              data-es="Habla antes de estar listo. Sobre todo cuando nadie te oiga."
+              data-fr="Parlez avant d'être prêt. Surtout quand personne n'écoute.">Speak before you're ready. Especially when nobody is listening.</h4>
+        </summary>
+        <div class="body">
+          <p data-en="Listening builds comprehension. Speaking turns comprehension into fluency. Producing language out loud forces your brain to convert vague recognition into precise expression — that's where consolidation happens. Even talking to yourself in the kitchen counts."
+             data-es="Escuchar construye comprensión. Hablar la convierte en fluidez. Producir lenguaje en voz alta obliga a tu cerebro a convertir reconocimiento vago en expresión precisa — ahí pasa la consolidación. Hablar contigo mismo en la cocina cuenta.">Listening builds comprehension. Speaking turns comprehension into fluency. Producing language out loud forces your brain to convert vague recognition into precise expression — that's where consolidation happens. Even talking to yourself in the kitchen counts.</p>
+          <p><strong data-en="Action:" data-es="Acción:" data-fr="Action :">Action:</strong>
+             <span data-en=" Narrate your day in English for 5 minutes daily. \"I am making coffee. I am driving.\" Where you stumble is what to add to your Anki tonight."
+                   data-es=" Narra tu día en inglés 5 minutos al día. 'I am making coffee. I am driving.' Donde te trabes es lo que agregas a Anki esta noche."
+                   data-fr=" Racontez votre journée en anglais 5 minutes par jour. « I am making coffee. I am driving. » Là où vous bloquez, c'est ce qu'il faut ajouter à Anki ce soir."> Narrate your day in English for 5 minutes daily. "I am making coffee. I am driving." Where you stumble is what to add to your Anki tonight.</span></p>
+          <cite>Swain (1985). The output hypothesis.</cite>
+        </div>
+      </details>
+
+      <details class="strategy">
+        <summary>
+          <span class="icon-circle">📊</span>
+          <h4 data-en="Trust the process. Don't trust your feelings about progress."
+              data-es="Confía en el proceso. No confíes en cómo te sientes."
+              data-fr="Faites confiance au processus. Pas à votre ressenti.">Trust the process. Don't trust your feelings about progress.</h4>
+        </summary>
+        <div class="body">
+          <p data-en="At week 4, you'll feel like you're not improving. At week 8, you'll be shocked how far you've come. Subjective progress lags objective progress by weeks. Use measurable evidence: Anki retention rate, recordings of yourself, real-world conversations. Don't trust the feeling."
+             data-es="En la semana 4 vas a sentir que no mejoras. En la semana 8 te vas a sorprender de lo lejos que llegaste. La sensación va atrasada respecto al progreso real por semanas. Usa evidencia medible: tasa de retención en Anki, grabaciones tuyas, conversaciones reales. No confíes en la sensación.">At week 4, you'll feel like you're not improving. At week 8, you'll be shocked how far you've come. Subjective progress lags objective progress by weeks. Use measurable evidence: Anki retention rate, recordings of yourself, real-world conversations. Don't trust the feeling.</p>
+          <p><strong data-en="Action:" data-es="Acción:" data-fr="Action :">Action:</strong>
+             <span data-en=" Record yourself speaking 30 seconds every Sunday. Save them. After 8 weeks, listen to recording 1 vs recording 8. Now you have evidence."
+                   data-es=" Grábate hablando 30 segundos cada domingo. Guárdalas. Después de 8 semanas, compara la grabación 1 con la 8. Ahí está la evidencia."
+                   data-fr=" Enregistrez-vous 30 secondes chaque dimanche. Gardez-les. Après 8 semaines, comparez l'enregistrement 1 et le 8."> Record yourself speaking 30 seconds every Sunday. Save them. After 8 weeks, listen to recording 1 vs recording 8. Now you have evidence.</span></p>
+          <cite>Dunlosky et al. (2013). Improving students' learning.</cite>
+        </div>
+      </details>
+
+      <details class="strategy">
+        <summary>
+          <span class="icon-circle">😴</span>
+          <h4 data-en="Sleep is when learning consolidates. It's not optional."
+              data-es="El sueño es cuando se consolida lo aprendido. No es opcional."
+              data-fr="Le sommeil consolide l'apprentissage. Il n'est pas optionnel.">Sleep is when learning consolidates. It's not optional.</h4>
+        </summary>
+        <div class="body">
+          <p data-en="Memory consolidation happens primarily during sleep — especially slow-wave and REM stages. Studying right before bed (a quick Anki review) measurably improves next-day recall vs. studying earlier with the same total wake time elapsed."
+             data-es="La consolidación de memoria pasa sobre todo durante el sueño — fases de ondas lentas y REM. Estudiar justo antes de dormir (un repaso rápido de Anki) mejora medible la memoria del día siguiente.">Memory consolidation happens primarily during sleep — especially slow-wave and REM stages. Studying right before bed (a quick Anki review) measurably improves next-day recall vs. studying earlier with the same total wake time elapsed.</p>
+          <p><strong data-en="Action:" data-es="Acción:" data-fr="Action :">Action:</strong>
+             <span data-en=" Do a 5-minute Anki review the moment before lights-out. Treat it like brushing your teeth. Your sleeping brain will keep working on it."
+                   data-es=" Haz un repaso de Anki de 5 minutos justo antes de apagar la luz. Trátalo como lavarte los dientes. Tu cerebro dormido va a seguir trabajando."
+                   data-fr=" Faites une révision Anki de 5 minutes juste avant d'éteindre la lumière. Traitez-le comme le brossage de dents."> Do a 5-minute Anki review the moment before lights-out. Treat it like brushing your teeth. Your sleeping brain will keep working on it.</span></p>
+          <cite>Walker &amp; Stickgold (2004). Sleep-dependent learning.</cite>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <section id="module-1">
   <div class="container">
     <p class="eyebrow" data-en="Module 1 deep dive" data-es="Módulo 1 a fondo" data-fr="Module 1 en détail">Module 1 deep dive</p>
@@ -526,6 +923,15 @@
              data-es="Decide hoy qué harás en un día que pierdas. El mínimo es 5 minutos — nunca cero."
              data-fr="Décidez aujourd'hui ce que vous ferez un jour raté. Le minimum est 5 minutes — jamais zéro.">Decide today what you'll do on a missed day. The floor is 5 minutes — never zero.</p>
       </div>
+    </div>
+    <div class="module-complete" data-module="1">
+      <span class="label"
+            data-en="Finished Module 1?"
+            data-es="¿Terminaste el Módulo 1?"
+            data-fr="Module 1 terminé ?">Finished Module 1?</span>
+      <button data-en="Mark Module 1 complete"
+              data-es="Marcar Módulo 1 completo"
+              data-fr="Marquer Module 1 terminé">Mark Module 1 complete</button>
     </div>
   </div>
 </section>
@@ -610,6 +1016,51 @@
       <div class="frame"><strong>I do not understand ___.</strong><em data-en="e.g., I do not understand this word." data-es="ej., I do not understand this word." data-fr="ex. : I do not understand this word.">e.g., I do not understand this word.</em></div>
     </div>
 
+    <h3 data-en="Try it now — interactive flashcards"
+        data-es="Pruébalo ahora — tarjetas interactivas"
+        data-fr="Essayez maintenant — cartes interactives">Try it now — interactive flashcards</h3>
+    <div class="flashcard-widget" id="flashcard-widget">
+      <div class="head">
+        <span class="label"
+              data-en="Tap card to flip · use arrows to move"
+              data-es="Toca la tarjeta para voltear · flechas para mover"
+              data-fr="Touchez pour retourner · flèches pour avancer">Tap card to flip · use arrows to move</span>
+        <span class="progress" id="fc-progress">1 / 20</span>
+      </div>
+      <div class="flashcard" id="flashcard" tabindex="0" role="button"
+           aria-label="Flashcard — click to flip">
+        <div id="fc-front">
+          <div class="face-en" id="fc-en">hello</div>
+          <div class="hint"
+               data-en="Click to see Spanish"
+               data-es="Toca para ver el español"
+               data-fr="Cliquez pour voir l'espagnol">Click to see Spanish</div>
+        </div>
+        <div id="fc-back" hidden>
+          <div class="face-es" id="fc-es">hola</div>
+          <div class="example" id="fc-example">Hello, how are you?</div>
+        </div>
+      </div>
+      <div class="flashcard-controls">
+        <button id="fc-prev"
+                data-en="← Previous"
+                data-es="← Anterior"
+                data-fr="← Précédent">← Previous</button>
+        <button id="fc-flip"
+                data-en="Flip card"
+                data-es="Voltear"
+                data-fr="Retourner">Flip card</button>
+        <button id="fc-next"
+                data-en="Next →"
+                data-es="Siguiente →"
+                data-fr="Suivant →">Next →</button>
+        <button id="fc-shuffle" class="shuffle"
+                data-en="Shuffle"
+                data-es="Mezclar"
+                data-fr="Mélanger">Shuffle</button>
+      </div>
+    </div>
+
     <div class="callout">
       <p class="label" data-en="Research behind this" data-es="Investigación detrás" data-fr="La recherche derrière">Research behind this</p>
       <h4 data-en="Words + images + sentences are remembered far longer than words alone."
@@ -619,6 +1070,15 @@
          data-es="El cerebro codifica la información verbal y visual a través de canales separados. Asociar una palabra con una imagen y una oración crea dos caminos de recuperación y mejora mucho la retención a largo plazo."
          data-fr="Le cerveau encode l'information verbale et visuelle par des canaux distincts. Associer un mot à une image et une phrase d'exemple crée deux chemins de récupération et améliore considérablement la rétention à long terme.">The brain encodes verbal and visual information through separate channels. Pairing a new word with an image and an example sentence creates two retrieval paths and dramatically improves long-term retention.</p>
       <cite>Mayer, R. E. (2009). <em>Multimedia Learning</em> (2nd ed.) · Nation, I. S. P. (2013). <em>Learning Vocabulary</em>.</cite>
+    </div>
+    <div class="module-complete" data-module="2">
+      <span class="label"
+            data-en="Finished Module 2?"
+            data-es="¿Terminaste el Módulo 2?"
+            data-fr="Module 2 terminé ?">Finished Module 2?</span>
+      <button data-en="Mark Module 2 complete"
+              data-es="Marcar Módulo 2 completo"
+              data-fr="Marquer Module 2 terminé">Mark Module 2 complete</button>
     </div>
   </div>
 </section>
@@ -677,6 +1137,15 @@
            data-es="Y luego haz otra la próxima semana. Para la grabación número 10, sonarás distinto."
            data-fr="Puis faites-en une autre la semaine prochaine. Au 10e enregistrement, vous aurez une voix différente.">And then do another one next week. By recording number 10, you'll sound different.</p>
       </div>
+    </div>
+    <div class="module-complete" data-module="3">
+      <span class="label"
+            data-en="Finished Module 3?"
+            data-es="¿Terminaste el Módulo 3?"
+            data-fr="Module 3 terminé ?">Finished Module 3?</span>
+      <button data-en="Mark Module 3 complete · Finish course"
+              data-es="Marcar Módulo 3 completo · Terminar curso"
+              data-fr="Marquer Module 3 · Terminer le cours">Mark Module 3 complete · Finish course</button>
     </div>
   </div>
 </section>
@@ -1514,6 +1983,273 @@
       descFr: "Au revoir de 30 secondes. Gardez celui-ci pour le jour où vous finissez." },
   ];
 
+  // ============== INTERACTIVE WIDGETS ==============
+  // All widget state lives in localStorage so it persists across visits.
+  // Storage keys are namespaced under "iel-".
+
+  (function widgets() {
+    // ---- Goal commitment ----
+    var goalInput = document.getElementById('goal-input');
+    var goalSave = document.getElementById('goal-save');
+    var goalEdit = document.getElementById('goal-edit');
+    var goalSavedWrap = document.getElementById('goal-saved-wrap');
+    var goalSavedValue = document.getElementById('goal-saved-value');
+    var goalInputWrap = document.getElementById('goal-input-wrap');
+
+    function loadGoal() {
+      var saved = '';
+      try { saved = localStorage.getItem('iel-goal') || ''; } catch (e) {}
+      if (saved) {
+        goalSavedValue.textContent = saved;
+        goalSavedWrap.hidden = false;
+        goalInputWrap.hidden = true;
+      } else {
+        goalSavedWrap.hidden = true;
+        goalInputWrap.hidden = false;
+      }
+    }
+    if (goalSave) {
+      goalSave.addEventListener('click', function () {
+        var v = (goalInput.value || '').trim();
+        if (!v) { goalInput.focus(); return; }
+        try { localStorage.setItem('iel-goal', v); } catch (e) {}
+        loadGoal();
+      });
+      goalInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') goalSave.click();
+      });
+    }
+    if (goalEdit) {
+      goalEdit.addEventListener('click', function () {
+        try {
+          var saved = localStorage.getItem('iel-goal') || '';
+          if (goalInput) goalInput.value = saved;
+        } catch (e) {}
+        goalSavedWrap.hidden = true;
+        goalInputWrap.hidden = false;
+        if (goalInput) goalInput.focus();
+      });
+    }
+    loadGoal();
+
+    // ---- Daily check-in + streak ----
+    var checkinYes = document.getElementById('checkin-yes');
+    var checkinNo = document.getElementById('checkin-no');
+    var checkinDone = document.getElementById('checkin-done');
+    var checkinMsg = document.getElementById('checkin-msg');
+    var streakBadge = document.getElementById('streak-badge');
+    var streakCount = document.getElementById('streak-count');
+
+    function todayKey() {
+      var d = new Date();
+      return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    }
+    function yesterdayKey() {
+      var d = new Date();
+      d.setDate(d.getDate() - 1);
+      return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    }
+    function getStreakState() {
+      var s = { last: '', count: 0 };
+      try {
+        s.last = localStorage.getItem('iel-streak-last') || '';
+        s.count = parseInt(localStorage.getItem('iel-streak-count') || '0', 10) || 0;
+      } catch (e) {}
+      return s;
+    }
+    function setStreakState(s) {
+      try {
+        localStorage.setItem('iel-streak-last', s.last);
+        localStorage.setItem('iel-streak-count', String(s.count));
+      } catch (e) {}
+    }
+    function refreshStreakUi() {
+      var s = getStreakState();
+      // If last check-in was neither today nor yesterday, the streak is broken — reset count display to 0 (we'll only update on next check-in)
+      var displayCount = s.count;
+      if (s.last && s.last !== todayKey() && s.last !== yesterdayKey()) {
+        displayCount = 0;
+      }
+      if (streakCount) streakCount.textContent = String(displayCount);
+      if (streakBadge) {
+        streakBadge.classList.toggle('zero', displayCount === 0);
+      }
+      if (s.last === todayKey()) {
+        if (checkinDone) {
+          checkinDone.hidden = false;
+          var msgs = {
+            en: "Logged for today (streak: " + s.count + ").",
+            es: "Registrado para hoy (racha: " + s.count + ").",
+            fr: "Enregistré aujourd'hui (série : " + s.count + ").",
+          };
+          if (checkinMsg) {
+            checkinMsg.setAttribute('data-en', msgs.en);
+            checkinMsg.setAttribute('data-es', msgs.es);
+            checkinMsg.setAttribute('data-fr', msgs.fr);
+            checkinMsg.textContent = msgs.en;
+          }
+        }
+        if (checkinYes) checkinYes.hidden = true;
+        if (checkinNo) checkinNo.hidden = true;
+      }
+    }
+    if (checkinYes) {
+      checkinYes.addEventListener('click', function () {
+        var s = getStreakState();
+        if (s.last === todayKey()) return;
+        if (s.last === yesterdayKey()) s.count = (s.count || 0) + 1;
+        else s.count = 1;
+        s.last = todayKey();
+        setStreakState(s);
+        refreshStreakUi();
+        // Re-apply language so the localized message renders
+        if (window.__setLang) window.__setLang(window.__currentLang || 'en');
+      });
+    }
+    if (checkinNo) {
+      checkinNo.addEventListener('click', function () {
+        // Hide buttons; gentle nudge
+        var msgs = {
+          en: "Open a 30-second audio drill below — even 5 minutes counts.",
+          es: "Abre un audio de 30 segundos abajo — hasta 5 minutos cuenta.",
+          fr: "Ouvrez un exercice audio de 30 secondes — même 5 minutes comptent.",
+        };
+        if (checkinMsg) {
+          checkinMsg.setAttribute('data-en', msgs.en);
+          checkinMsg.setAttribute('data-es', msgs.es);
+          checkinMsg.setAttribute('data-fr', msgs.fr);
+          checkinMsg.textContent = msgs.en;
+        }
+        if (checkinDone) {
+          checkinDone.hidden = false;
+          checkinDone.firstChild.nodeValue = "→ ";
+        }
+        checkinYes.hidden = true;
+        checkinNo.hidden = true;
+        // Smooth-scroll to the listen section as a gentle prompt
+        var listen = document.getElementById('listen');
+        if (listen) listen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+    refreshStreakUi();
+
+    // ---- Module progress ----
+    function getCompleted() {
+      try { return JSON.parse(localStorage.getItem('iel-modules') || '[]'); } catch (e) { return []; }
+    }
+    function setCompleted(list) {
+      try { localStorage.setItem('iel-modules', JSON.stringify(list)); } catch (e) {}
+    }
+    function refreshProgress() {
+      var done = getCompleted();
+      var total = 3;
+      var pct = Math.round((done.length / total) * 100);
+      var fill = document.getElementById('module-progress-fill');
+      var lab = document.getElementById('module-progress-pct');
+      if (fill) fill.style.width = pct + '%';
+      if (lab) lab.textContent = pct + '%';
+      // Update each module-complete block
+      document.querySelectorAll('.module-complete').forEach(function (el) {
+        var n = el.getAttribute('data-module');
+        var btn = el.querySelector('button');
+        var label = el.querySelector('.label');
+        var isDone = done.indexOf(parseInt(n, 10)) >= 0;
+        el.classList.toggle('done', isDone);
+        if (btn && isDone) {
+          btn.setAttribute('data-en', 'Unmark · I want to redo this module');
+          btn.setAttribute('data-es', 'Desmarcar · quiero rehacer este módulo');
+          btn.setAttribute('data-fr', 'Annuler · je veux refaire ce module');
+          btn.textContent = 'Unmark · I want to redo this module';
+        } else if (btn && !isDone) {
+          btn.setAttribute('data-en', 'Mark Module ' + n + ' complete');
+          btn.setAttribute('data-es', 'Marcar Módulo ' + n + ' completo');
+          btn.setAttribute('data-fr', 'Marquer Module ' + n + ' terminé');
+          btn.textContent = 'Mark Module ' + n + ' complete';
+        }
+      });
+      // Re-apply language to refreshed text
+      if (window.__setLang) window.__setLang(window.__currentLang || 'en');
+    }
+    document.querySelectorAll('.module-complete button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var n = parseInt(btn.parentElement.getAttribute('data-module'), 10);
+        var done = getCompleted();
+        var idx = done.indexOf(n);
+        if (idx >= 0) done.splice(idx, 1);
+        else done.push(n);
+        setCompleted(done);
+        refreshProgress();
+      });
+    });
+    refreshProgress();
+
+    // ---- Vocabulary flashcard player ----
+    var DECK_BASE = [
+      { en: 'hello', es: 'hola', ex: 'Hello, how are you?' },
+      { en: 'please', es: 'por favor', ex: 'Please help me.' },
+      { en: 'thank you', es: 'gracias', ex: 'Thank you very much.' },
+      { en: 'sorry', es: 'lo siento', ex: 'I am sorry.' },
+      { en: 'help', es: 'ayuda', ex: 'I need help.' },
+      { en: 'water', es: 'agua', ex: 'I need water.' },
+      { en: 'food', es: 'comida', ex: 'The food is good.' },
+      { en: 'work', es: 'trabajo', ex: 'I go to work at seven.' },
+      { en: 'today', es: 'hoy', ex: 'Today is Monday.' },
+      { en: 'tomorrow', es: 'mañana', ex: 'See you tomorrow.' },
+      { en: 'morning', es: 'mañana (a.m.)', ex: 'Good morning.' },
+      { en: 'afternoon', es: 'tarde', ex: 'Good afternoon.' },
+      { en: 'money', es: 'dinero', ex: 'How much money?' },
+      { en: 'time', es: 'tiempo / hora', ex: 'What time is it?' },
+      { en: 'family', es: 'familia', ex: 'My family is here.' },
+      { en: 'friend', es: 'amigo', ex: 'He is my friend.' },
+      { en: 'want', es: 'querer', ex: 'I want to learn.' },
+      { en: 'need', es: 'necesitar', ex: 'I need help.' },
+      { en: 'can', es: 'poder', ex: 'I can do it.' },
+      { en: 'understand', es: 'entender', ex: 'I do not understand.' },
+    ];
+    var deck = DECK_BASE.slice();
+    var fcIdx = 0, fcFlipped = false;
+    var fcEn = document.getElementById('fc-en');
+    var fcEs = document.getElementById('fc-es');
+    var fcEx = document.getElementById('fc-example');
+    var fcFront = document.getElementById('fc-front');
+    var fcBack = document.getElementById('fc-back');
+    var fcProg = document.getElementById('fc-progress');
+    var fcCard = document.getElementById('flashcard');
+    function fcRender() {
+      if (!fcCard) return;
+      var c = deck[fcIdx];
+      fcEn.textContent = c.en;
+      fcEs.textContent = c.es;
+      fcEx.textContent = '"' + c.ex + '"';
+      fcProg.textContent = (fcIdx + 1) + ' / ' + deck.length;
+      fcFront.hidden = fcFlipped;
+      fcBack.hidden = !fcFlipped;
+    }
+    function fcFlip() { fcFlipped = !fcFlipped; fcRender(); }
+    function fcNext() { fcIdx = (fcIdx + 1) % deck.length; fcFlipped = false; fcRender(); }
+    function fcPrev() { fcIdx = (fcIdx - 1 + deck.length) % deck.length; fcFlipped = false; fcRender(); }
+    function fcShuffle() {
+      for (var i = deck.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = deck[i]; deck[i] = deck[j]; deck[j] = t;
+      }
+      fcIdx = 0; fcFlipped = false; fcRender();
+    }
+    if (fcCard) {
+      fcCard.addEventListener('click', fcFlip);
+      fcCard.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fcFlip(); }
+        if (e.key === 'ArrowRight') fcNext();
+        if (e.key === 'ArrowLeft') fcPrev();
+      });
+      var fpb = document.getElementById('fc-prev'); if (fpb) fpb.addEventListener('click', fcPrev);
+      var fnb = document.getElementById('fc-next'); if (fnb) fnb.addEventListener('click', fcNext);
+      var ffb = document.getElementById('fc-flip'); if (ffb) ffb.addEventListener('click', fcFlip);
+      var fsb = document.getElementById('fc-shuffle'); if (fsb) fsb.addEventListener('click', fcShuffle);
+      fcRender();
+    }
+  })();
+
   (function () {
     var BTNS = document.querySelectorAll('.lang-toggle button');
     var KEY = 'iel-lang';
@@ -1602,16 +2338,23 @@
 
     function setLang(lang) {
       currentLang = lang;
+      window.__currentLang = lang;
       document.documentElement.setAttribute('lang', lang);
       document.querySelectorAll('[data-en]').forEach(function (el) {
         var v = el.getAttribute('data-' + lang);
         if (v) { el.innerHTML = v; }
+      });
+      // Translate placeholders on inputs that have data-en-placeholder etc.
+      document.querySelectorAll('[data-en-placeholder]').forEach(function (el) {
+        var v = el.getAttribute('data-' + lang + '-placeholder');
+        if (v) el.setAttribute('placeholder', v);
       });
       BTNS.forEach(function (b) {
         b.classList.toggle('active', b.getAttribute('data-lang') === lang);
       });
       try { localStorage.setItem(KEY, lang); } catch (e) {}
     }
+    window.__setLang = setLang;
 
     BTNS.forEach(function (b) {
       b.addEventListener('click', function () {
