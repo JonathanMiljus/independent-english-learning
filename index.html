@@ -454,6 +454,96 @@
   }
   .video-callout a:hover { background: var(--white); }
 
+  /* 4-word visual example panel — vivid, personal, exaggerated, story */
+  .image-method {
+    margin: 28px 0;
+  }
+  .image-method-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px; margin-top: 18px;
+  }
+  .image-card {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 22px 22px; display: flex; flex-direction: column;
+    border-top: 5px solid var(--coral);
+  }
+  .image-card .principle {
+    font-family: Georgia, serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.10em; text-transform: uppercase; color: var(--coral);
+    margin-bottom: 4px;
+  }
+  .image-card .principle-num { color: var(--navy); }
+  .image-card .principle-en { color: var(--coral); }
+  .image-card h5 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 17px;
+    margin: 0 0 14px; line-height: 1.3;
+  }
+  .image-card .word {
+    text-align: center; padding: 14px 0; border-top: 1px dashed var(--rule);
+    border-bottom: 1px dashed var(--rule); margin-bottom: 14px;
+  }
+  .image-card .word .es {
+    font-family: Georgia, serif; font-size: 30px; color: var(--navy);
+    font-weight: 700; line-height: 1.1;
+  }
+  .image-card .word .en { font-size: 14px; color: var(--slate); font-style: italic; }
+  .image-card .scene {
+    font-size: 14px; color: var(--charcoal); line-height: 1.55;
+    margin-bottom: 10px; padding-left: 16px; position: relative;
+  }
+  .image-card .scene::before {
+    content: "🎬"; position: absolute; left: 0; top: 0;
+  }
+  .image-card .why {
+    font-size: 13px; color: var(--slate); font-style: italic;
+    line-height: 1.5; margin-top: auto;
+  }
+
+  /* "Don't lie to yourself" warning callout — coral-bordered, slightly alarming */
+  .anti-procrastinate {
+    background: #FFF5F2; border: 2px solid var(--coral); border-radius: 8px;
+    padding: 24px 28px; margin: 28px 0; position: relative;
+  }
+  .anti-procrastinate .warn-label {
+    display: inline-block; background: var(--coral); color: var(--white);
+    font-family: Georgia, serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 4px; margin-bottom: 12px;
+  }
+  .anti-procrastinate h4 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 22px;
+    margin: 0 0 10px; line-height: 1.3;
+  }
+  .anti-procrastinate p { color: var(--charcoal); font-size: 15px; line-height: 1.65; margin: 0 0 10px; }
+  .anti-procrastinate p:last-child { margin-bottom: 0; }
+  .anti-procrastinate em { color: var(--coral); font-style: italic; font-weight: 700; }
+  .anti-procrastinate .timer {
+    background: var(--white); border: 1px dashed var(--coral); border-radius: 6px;
+    padding: 12px 16px; margin-top: 14px; font-family: 'Courier New', monospace;
+    font-size: 14px; color: var(--charcoal); line-height: 1.6;
+  }
+
+  /* Image source row (Google Images, AI, etc.) */
+  .image-sources {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin: 22px 0;
+  }
+  .source-card {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 16px 18px; border-left: 4px solid var(--gold);
+  }
+  .source-card h6 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 15px;
+    margin: 0 0 6px; line-height: 1.3;
+  }
+  .source-card .speed {
+    font-family: Georgia, serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral);
+    margin-bottom: 4px;
+  }
+  .source-card p { font-size: 13px; color: var(--charcoal); line-height: 1.5; margin: 0; }
+  .source-card .tip { font-size: 12px; color: var(--slate); font-style: italic; margin-top: 6px; display: block; }
+
   /* Workflow steps — 5 simple steps */
   .workflow-row {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -1767,6 +1857,184 @@ work, and daily conversation.</pre>
            data-es="Oración + imagen + situación real = tres caminos de recuperación a una memoria. El pequeño estrés de llegar tarde la hace emocionalmente vívida. Esta tarjeta sí la recordarás."
            data-fr="Phrase + image + situation réelle = trois chemins de récupération vers un même souvenir. Le petit stress du retard la rend émotionnellement saillante. Cette carte, vous la retiendrez.">Sentence + image + real situation = three retrieval paths into one memory. The slight stress of running late makes it emotionally salient. You will remember this card.</p>
       </div>
+    </div>
+
+    <h3 style="margin-top:36px; font-family:Georgia, serif; color:var(--navy); font-size:22px;"
+        data-en="The 4-image method — see four words become unforgettable"
+        data-es="El método de las 4 imágenes — ve cómo cuatro palabras se vuelven inolvidables"
+        data-fr="La méthode des 4 images — voyez comment quatre mots deviennent inoubliables">The 4-image method — see four words become unforgettable</h3>
+    <p style="margin-top:6px; color:var(--charcoal); font-size:15px; line-height:1.65;"
+       data-en="Four principles, one example word for each. Read the scene out loud once. Then close your eyes and replay it. That's the whole technique — vivid + context + exaggeration + story. Notice that none of these images cost money or took an hour to make: a banana peel, a paper marked F, a flame, a dog with a trophy."
+       data-es="Cuatro principios, una palabra de ejemplo para cada uno. Lee la escena en voz alta una vez. Luego cierra los ojos y reprodúcela en tu mente. Eso es toda la técnica — vívido + contexto + exageración + historia. Fíjate que ninguna de estas imágenes cuesta dinero ni tomó una hora hacerla: una cáscara de plátano, un papel con F, una llama, un perro con un trofeo."
+       data-fr="Quatre principes, un mot d'exemple chacun. Lisez la scène à voix haute une fois. Puis fermez les yeux et rejouez-la dans votre tête. C'est toute la technique — vivant + contexte + exagération + histoire.">Four principles, one example word for each. Read the scene out loud once. Then close your eyes and replay it. That's the whole technique — vivid + context + exaggeration + story. Notice that none of these images cost money or took an hour to make: a banana peel, a paper marked F, a flame, a dog with a trophy.</p>
+
+    <div class="image-method">
+      <div class="image-method-grid">
+
+        <div class="image-card">
+          <span class="principle"><span class="principle-num">1.</span> <span class="principle-en"
+              data-en="Use a vivid, specific image" data-es="Usa una imagen vívida y específica"
+              data-fr="Utilisez une image vivante et précise">Use a vivid, specific image</span></span>
+          <div class="word">
+            <div class="es">resbalarse</div>
+            <div class="en"
+                data-en="(to slip)" data-es="(resbalar)" data-fr="(glisser)">(to slip)</div>
+          </div>
+          <div class="scene"
+               data-en='Front: "Me resbalé con la cáscara de plátano." Image: a man\'s shoe coming down on a banana peel on a wet sidewalk.'
+               data-es='Frente: "Me resbalé con la cáscara de plátano." Imagen: el zapato de un hombre cayendo sobre una cáscara de plátano en una banqueta mojada.'
+               data-fr='Devant : « Me resbalé con la cáscara de plátano. » Image : la chaussure d\'un homme qui se pose sur une peau de banane sur un trottoir mouillé.'>Front: "Me resbalé con la cáscara de plátano." Image: a man's shoe coming down on a banana peel on a wet sidewalk.</div>
+          <div class="why"
+               data-en="You associate the word with one clear, funny scene. The brain locks onto specific."
+               data-es="Asocias la palabra con una escena clara y divertida. El cerebro se queda con lo específico."
+               data-fr="Vous associez le mot à une scène nette et drôle. Le cerveau retient le précis.">You associate the word with one clear, funny scene. The brain locks onto specific.</div>
+        </div>
+
+        <div class="image-card">
+          <span class="principle"><span class="principle-num">2.</span> <span class="principle-en"
+              data-en="Add personal or emotional context" data-es="Agrega contexto personal o emocional"
+              data-fr="Ajoutez un contexte personnel ou émotionnel">Add personal or emotional context</span></span>
+          <div class="word">
+            <div class="es">olvidar</div>
+            <div class="en"
+                data-en="(to forget)" data-es="(olvidar)" data-fr="(oublier)">(to forget)</div>
+          </div>
+          <div class="scene"
+               data-en='Back: "Olvidé estudiar para el examen." Image: a student panicking, holding a paper marked with a bright red F, mouth open.'
+               data-es='Reverso: "Olvidé estudiar para el examen." Imagen: un estudiante en pánico, con un papel marcado con una F roja, la boca abierta.'
+               data-fr='Arrière : « Olvidé estudiar para el examen. » Image : un étudiant qui panique, papier marqué d\'un F rouge, bouche ouverte.'>Back: "Olvidé estudiar para el examen." Image: a student panicking, holding a paper marked with a bright red F, mouth open.</div>
+          <div class="why"
+               data-en="Use situations that have happened to you. Personal beats abstract every time (Cahill & McGaugh, 1995)."
+               data-es="Usa situaciones que te hayan pasado a ti. Lo personal le gana a lo abstracto siempre."
+               data-fr="Prenez des situations que vous avez vécues. Le personnel bat l'abstrait à chaque fois.">Use situations that have happened to you. Personal beats abstract every time (Cahill &amp; McGaugh, 1995).</div>
+        </div>
+
+        <div class="image-card">
+          <span class="principle"><span class="principle-num">3.</span> <span class="principle-en"
+              data-en="Exaggerate a little (make it memorable)" data-es="Exagera un poco (hazlo memorable)"
+              data-fr="Exagérez un peu (rendez-le mémorable)">Exaggerate a little (make it memorable)</span></span>
+          <div class="word">
+            <div class="es">picante</div>
+            <div class="en"
+                data-en="(spicy)" data-es="(picante)" data-fr="(épicé)">(spicy)</div>
+          </div>
+          <div class="scene"
+               data-en='Front: "Esta salsa está demasiado picante." Image: someone breathing a literal flame after one bite of hot-sauce-bottle salsa, eyes wide.'
+               data-es='Frente: "Esta salsa está demasiado picante." Imagen: alguien echando una llama literal después de un bocado de salsa, ojos muy abiertos.'
+               data-fr='Devant : « Esta salsa está demasiado picante. » Image : quelqu\'un qui crache une vraie flamme après une bouchée de sauce, yeux écarquillés.'>Front: "Esta salsa está demasiado picante." Image: someone breathing a literal flame after one bite of hot-sauce-bottle salsa, eyes wide.</div>
+          <div class="why"
+               data-en="Exaggeration helps you fix the word in memory. Realistic but absurd."
+               data-es="La exageración ayuda a fijar la palabra en la memoria. Realista pero absurda."
+               data-fr="L'exagération aide à graver le mot. Réaliste mais absurde.">Exaggeration helps you fix the word in memory. Realistic but absurd.</div>
+        </div>
+
+        <div class="image-card">
+          <span class="principle"><span class="principle-num">4.</span> <span class="principle-en"
+              data-en="Connect the word to a tiny story" data-es="Conecta la palabra con una pequeña historia"
+              data-fr="Reliez le mot à une petite histoire">Connect the word to a tiny story</span></span>
+          <div class="word">
+            <div class="es">ganar</div>
+            <div class="en"
+                data-en="(to win)" data-es="(ganar)" data-fr="(gagner)">(to win)</div>
+          </div>
+          <div class="scene"
+               data-en='Back: "Quiero ganar el campeonato con mi perro." Image: a golden retriever on a beach holding a stick, dreaming of a giant gold trophy in a thought bubble.'
+               data-es='Reverso: "Quiero ganar el campeonato con mi perro." Imagen: un labrador dorado en la playa con un palo, soñando con un trofeo gigante en una nube de pensamiento.'
+               data-fr='Arrière : « Quiero ganar el campeonato con mi perro. » Image : un golden retriever sur une plage avec un bâton, rêvant d\'un trophée géant dans une bulle.'>Back: "Quiero ganar el campeonato con mi perro." Image: a golden retriever on a beach holding a stick, dreaming of a giant gold trophy in a thought bubble.</div>
+          <div class="why"
+               data-en="Build a tiny mental story. Stories give the word meaning, not just a definition."
+               data-es="Construye una mini-historia mental. Las historias le dan significado a la palabra, no solo una definición."
+               data-fr="Construisez une mini-histoire mentale. Les histoires donnent du sens, pas juste une définition.">Build a tiny mental story. Stories give the word meaning, not just a definition.</div>
+        </div>
+
+      </div>
+
+      <p style="margin-top:18px; color:var(--charcoal); font-size:14px; font-style:italic; line-height:1.6;"
+         data-en="The pattern: a vivid scene, drawn from your real life, slightly exaggerated, told as a story. None of these need to be a perfect AI-generated image. A 30-second mental picture is enough."
+         data-es="El patrón: una escena vívida, sacada de tu vida real, un poco exagerada, contada como historia. Ninguna necesita ser una imagen perfecta hecha con IA. Una imagen mental de 30 segundos es suficiente."
+         data-fr="Le motif : une scène vivante, tirée de votre vie réelle, légèrement exagérée, racontée comme une histoire. Aucune n'a besoin d'être une image IA parfaite. Une image mentale de 30 secondes suffit.">The pattern: a vivid scene, drawn from your real life, slightly exaggerated, told as a story. None of these need to be a perfect AI-generated image. A 30-second mental picture is enough.</p>
+    </div>
+
+    <h3 style="margin-top:36px; font-family:Georgia, serif; color:var(--navy); font-size:22px;"
+        data-en="Where do you get the image? (free shortcuts, ranked by speed)"
+        data-es="¿De dónde sacas la imagen? (atajos gratis, por velocidad)"
+        data-fr="D'où vient l'image ? (raccourcis gratuits, classés par rapidité)">Where do you get the image? (free shortcuts, ranked by speed)</h3>
+
+    <div class="image-sources">
+      <div class="source-card">
+        <span class="speed"
+              data-en="🥇 Fastest · 0 seconds" data-es="🥇 Más rápido · 0 segundos"
+              data-fr="🥇 Le plus rapide · 0 seconde">🥇 Fastest · 0 seconds</span>
+        <h6 data-en="The picture in your head" data-es="La imagen en tu cabeza"
+            data-fr="L'image dans votre tête">The picture in your head</h6>
+        <p data-en="Close your eyes. Imagine the scene for 5 seconds. Done. You don't have to put a real image on the card — your mental image is enough."
+           data-es="Cierra los ojos. Imagina la escena 5 segundos. Listo. No necesitas poner una imagen real en la tarjeta — tu imagen mental basta."
+           data-fr="Fermez les yeux. Imaginez la scène pendant 5 secondes. C'est fait. Pas besoin de mettre une vraie image sur la carte — l'image mentale suffit.">Close your eyes. Imagine the scene for 5 seconds. Done. You don't have to put a real image on the card — your mental image is enough.</p>
+      </div>
+      <div class="source-card">
+        <span class="speed"
+              data-en="🥈 30 seconds · free" data-es="🥈 30 segundos · gratis"
+              data-fr="🥈 30 secondes · gratuit">🥈 30 seconds · free</span>
+        <h6 data-en="Google Images search" data-es="Búsqueda en Google Images"
+            data-fr="Recherche Google Images">Google Images search</h6>
+        <p data-en="Open images.google.com on your phone. Type the word + a vivid noun (e.g., &quot;banana peel slip&quot;). Pick the first image that makes you smile. Long-press → copy → paste into Anki."
+           data-es="Abre images.google.com en tu celular. Escribe la palabra + un sustantivo vívido (ej., 'banana peel slip'). Elige la primera imagen que te haga sonreír. Mantén presionado → copiar → pega en Anki."
+           data-fr="Ouvrez images.google.com sur votre téléphone. Tapez le mot + un nom vivant (ex. : « banana peel slip »). Prenez la première image qui vous fait sourire. Appuyez longuement → copier → collez dans Anki.">Open images.google.com on your phone. Type the word + a vivid noun (e.g., "banana peel slip"). Pick the first image that makes you smile. Long-press → copy → paste into Anki.</p>
+        <span class="tip"
+              data-en="Tip: search the SCENE, not just the word."
+              data-es="Truco: busca la ESCENA, no solo la palabra."
+              data-fr="Astuce : cherchez la SCÈNE, pas juste le mot.">Tip: search the SCENE, not just the word.</span>
+      </div>
+      <div class="source-card">
+        <span class="speed"
+              data-en="🥉 1–2 minutes · free" data-es="🥉 1–2 minutos · gratis"
+              data-fr="🥉 1–2 minutes · gratuit">🥉 1–2 minutes · free</span>
+        <h6 data-en="ChatGPT / Claude — describe the scene" data-es="ChatGPT / Claude — describe la escena"
+            data-fr="ChatGPT / Claude — décrire la scène">ChatGPT / Claude — describe the scene</h6>
+        <p data-en="When nothing fits, ask the AI to invent the scene. Use Prompt 2 from the section above. Read the description, picture it, move on. No image generation needed."
+           data-es="Cuando no encuentres nada, pídele a la IA que invente la escena. Usa el Prompt 2 de la sección anterior. Lee la descripción, imagínala, sigue. No necesitas generar imagen."
+           data-fr="Quand rien ne va, demandez à l'IA d'inventer la scène. Utilisez le Prompt 2. Lisez la description, imaginez-la, passez à autre chose.">When nothing fits, ask the AI to invent the scene. Use Prompt 2 from the section above. Read the description, picture it, move on. No image generation needed.</p>
+        <span class="tip"
+              data-en="The description IS the image — that's what your brain stores."
+              data-es="La descripción ES la imagen — eso es lo que tu cerebro guarda."
+              data-fr="La description EST l'image — c'est ce que le cerveau garde.">The description IS the image — that's what your brain stores.</span>
+      </div>
+      <div class="source-card">
+        <span class="speed"
+              data-en="⚠ 5+ minutes · slow"
+              data-es="⚠ 5+ minutos · lento"
+              data-fr="⚠ 5+ minutes · lent">⚠ 5+ minutes · slow</span>
+        <h6 data-en="AI image generators (DALL-E, Midjourney)"
+            data-es="Generadores de imagen IA (DALL-E, Midjourney)"
+            data-fr="Générateurs d'images IA (DALL-E, Midjourney)">AI image generators (DALL-E, Midjourney)</h6>
+        <p data-en="Only use this if you genuinely enjoy it. The pretty AI image is not what makes the card work — the SCENE in your head is. Don't let &quot;perfect image&quot; become an excuse not to learn."
+           data-es="Úsalo solo si de verdad lo disfrutas. La imagen IA bonita no es lo que hace funcionar la tarjeta — es la ESCENA en tu cabeza. No dejes que 'la imagen perfecta' sea una excusa para no aprender."
+           data-fr="N'utilisez ceci que si vous y prenez vraiment plaisir. La belle image IA n'est pas ce qui fait fonctionner la carte — c'est la SCÈNE dans votre tête.">Only use this if you genuinely enjoy it. The pretty AI image is not what makes the card work — the SCENE in your head is. Don't let "perfect image" become an excuse not to learn.</p>
+      </div>
+    </div>
+
+    <div class="anti-procrastinate">
+      <span class="warn-label"
+            data-en="⚠ Read this before you waste 5 hours"
+            data-es="⚠ Lee esto antes de perder 5 horas"
+            data-fr="⚠ Lisez ceci avant de perdre 5 heures">⚠ Read this before you waste 5 hours</span>
+      <h4 data-en="The whole point is to get the card done — and start learning."
+          data-es="El objetivo es terminar la tarjeta — y empezar a aprender."
+          data-fr="Le but, c'est de finir la carte — et de commencer à apprendre.">The whole point is to get the card done — and start learning.</h4>
+      <p data-en="Watch out for the trap. It's seductive: you sit down to make 5 cards and three hours later you've generated 47 versions of the perfect AI image, tweaked the lighting on a banana peel, and downloaded a new phone app. <em>You feel productive. You're not.</em> You're procrastinating with a paintbrush in your hand."
+         data-es="Cuidado con la trampa. Es seductora: te sientas a hacer 5 tarjetas y tres horas después llevas 47 versiones de la imagen IA perfecta, has ajustado la iluminación de una cáscara de plátano, y descargaste una app nueva. <em>Te sientes productivo. No lo eres.</em> Estás procrastinando con un pincel en la mano."
+         data-fr="Attention au piège. Il est séduisant : vous vous asseyez pour faire 5 cartes et trois heures plus tard, vous avez généré 47 versions de l'image IA parfaite, retouché l'éclairage d'une peau de banane, téléchargé une nouvelle appli. <em>Vous vous sentez productif. Vous ne l'êtes pas.</em> Vous procrastinez avec un pinceau à la main.">Watch out for the trap. It's seductive: you sit down to make 5 cards and three hours later you've generated 47 versions of the perfect AI image, tweaked the lighting on a banana peel, and downloaded a new phone app. <em>You feel productive. You're not.</em> You're procrastinating with a paintbrush in your hand.</p>
+      <p data-en="The card doesn't have to be beautiful. The card has to <em>exist</em>, and you have to <em>review it tomorrow</em>. A blurry phone screenshot of a Google Image works. A typed scene description works. A stick-figure mental picture works."
+         data-es="La tarjeta no tiene que ser bonita. La tarjeta tiene que <em>existir</em>, y tú tienes que <em>repasarla mañana</em>. Una captura de pantalla borrosa de Google sirve. Una descripción escrita sirve. Una figura de palitos en la cabeza sirve."
+         data-fr="La carte n'a pas besoin d'être belle. La carte doit <em>exister</em>, et vous devez <em>la réviser demain</em>. Une capture floue de Google Images marche. Une description écrite marche. Un bonhomme allumette mental marche.">The card doesn't have to be beautiful. The card has to <em>exist</em>, and you have to <em>review it tomorrow</em>. A blurry phone screenshot of a Google Image works. A typed scene description works. A stick-figure mental picture works.</p>
+      <div class="timer"
+           data-en="⏱  Hard rule: 90 seconds per card max. If you spent more than 90 seconds making it, the card is bad — not because of the image, but because the image stole the time you should have spent reviewing 5 OTHER cards. Set a timer."
+           data-es="⏱  Regla dura: 90 segundos por tarjeta máximo. Si pasaste más de 90 segundos haciéndola, es una tarjeta mala — no por la imagen, sino porque la imagen te robó el tiempo que debiste haber gastado repasando 5 OTRAS tarjetas. Pon un temporizador."
+           data-fr="⏱  Règle stricte : 90 secondes par carte maximum. Si vous avez passé plus de 90 secondes, c'est une mauvaise carte — pas à cause de l'image, mais parce que l'image a volé le temps que vous auriez dû passer à réviser 5 AUTRES cartes. Réglez un minuteur.">⏱  Hard rule: 90 seconds per card max. If you spent more than 90 seconds making it, the card is bad — not because of the image, but because the image stole the time you should have spent reviewing 5 OTHER cards. Set a timer.</div>
+      <p style="margin-top:14px;"
+         data-en="Don't lie to yourself. Productive ≠ pretty. Get the card. Start learning."
+         data-es="No te mientas. Productivo ≠ bonito. Termina la tarjeta. Empieza a aprender."
+         data-fr="Ne vous mentez pas. Productif ≠ joli. Finissez la carte. Commencez à apprendre.">Don't lie to yourself. Productive ≠ pretty. Get the card. Start learning.</p>
     </div>
 
     <h3 style="margin-top:36px; font-family:Georgia, serif; color:var(--navy); font-size:22px;"
