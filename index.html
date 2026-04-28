@@ -337,6 +337,143 @@
   .why-extra-step p:last-child { margin-bottom: 0; }
   .why-extra-step em { color: var(--coral); font-style: italic; font-weight: 700; }
 
+  /* Anki Master section */
+  .core-rule {
+    background: var(--navy); color: var(--white);
+    padding: 28px 32px; border-radius: 8px;
+    margin: 24px 0; text-align: center;
+  }
+  .core-rule .label {
+    font-family: Georgia, serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 10px;
+  }
+  .core-rule .rule {
+    font-family: Georgia, serif; font-size: 26px; font-weight: 700;
+    line-height: 1.35; color: var(--white);
+  }
+  .core-rule .rule em { color: var(--gold); font-style: italic; font-weight: 700; }
+  .anki-prompts { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin: 24px 0; }
+  .anki-prompt-card {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+    border-top: 5px solid var(--coral); padding: 20px 22px;
+    display: flex; flex-direction: column;
+  }
+  .anki-prompt-card .num {
+    display: inline-block; font-family: Georgia, serif; font-size: 12px;
+    font-weight: 700; color: var(--coral); letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .anki-prompt-card h5 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 18px;
+    margin: 0 0 6px; line-height: 1.3;
+  }
+  .anki-prompt-card .when { color: var(--slate); font-size: 13px; font-style: italic; margin-bottom: 12px; }
+  .anki-prompt-card pre {
+    background: #FAF6E8; border-radius: 4px; padding: 12px 14px;
+    font-family: 'Courier New', monospace; font-size: 13px;
+    color: var(--charcoal); white-space: pre-wrap; word-wrap: break-word;
+    border: 1px dashed var(--gold); line-height: 1.55; margin: 0;
+  }
+  .checklist-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin: 24px 0;
+  }
+  .checklist-card {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .checklist-card h6 {
+    font-family: Georgia, serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 10px;
+  }
+  .checklist-card.must h6 { color: var(--coral); }
+  .checklist-card.high h6 { color: #A57014; }
+  .checklist-card.avoid h6 { color: var(--slate); }
+  .checklist-card ul { list-style: none; margin: 0; padding: 0; }
+  .checklist-card li {
+    padding: 5px 0 5px 24px; font-size: 14px; color: var(--charcoal);
+    line-height: 1.5; position: relative;
+  }
+  .checklist-card.must li::before, .checklist-card.high li::before {
+    content: "✓"; position: absolute; left: 0; color: var(--coral); font-weight: 700;
+  }
+  .checklist-card.high li::before { color: #A57014; }
+  .checklist-card.avoid li::before {
+    content: "✗"; position: absolute; left: 0; color: var(--slate); font-weight: 700;
+  }
+  .before-after {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px; margin: 24px 0;
+  }
+  .ba-card { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 20px 22px; }
+  .ba-card.bad { border-left: 5px solid var(--slate); }
+  .ba-card.good { border-left: 5px solid var(--coral); background: var(--research); }
+  .ba-card .ba-label {
+    display: inline-block; font-family: Georgia, serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .ba-card.bad .ba-label { color: var(--slate); }
+  .ba-card.good .ba-label { color: var(--coral); }
+  .ba-card .ba-line {
+    font-family: 'Courier New', monospace; background: #FAF6E8;
+    padding: 8px 12px; border-radius: 4px; font-size: 14px;
+    margin: 6px 0; color: var(--charcoal); line-height: 1.5;
+    border: 1px dashed var(--rule);
+  }
+  .ba-card .ba-why {
+    font-size: 14px; color: var(--charcoal); font-style: italic; margin: 10px 0 0;
+    line-height: 1.55;
+  }
+  .video-callout {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a6878 100%);
+    color: var(--white); border-radius: 10px; padding: 28px 32px;
+    margin: 24px 0; display: grid; grid-template-columns: 80px 1fr;
+    gap: 22px; align-items: center;
+  }
+  @media (max-width: 540px) {
+    .video-callout { grid-template-columns: 1fr; gap: 14px; text-align: center; }
+  }
+  .video-callout .icon {
+    font-size: 56px; line-height: 1; text-align: center; color: var(--gold);
+  }
+  .video-callout .label {
+    font-family: Georgia, serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .video-callout h4 {
+    font-family: Georgia, serif; font-size: 22px; line-height: 1.3;
+    margin: 0 0 8px; color: var(--white);
+  }
+  .video-callout p { font-size: 15px; line-height: 1.6; margin: 0 0 14px; color: #E5E5E5; }
+  .video-callout a {
+    display: inline-block; background: var(--gold); color: var(--navy);
+    padding: 10px 22px; border-radius: 6px; font-weight: 700; text-decoration: none;
+    font-size: 14px; transition: background 0.2s;
+  }
+  .video-callout a:hover { background: var(--white); }
+
+  /* Workflow steps — 5 simple steps */
+  .workflow-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px; margin: 22px 0;
+  }
+  .workflow-step {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 18px 16px; text-align: center;
+    border-bottom: 4px solid var(--gold);
+  }
+  .workflow-step .num {
+    font-family: Georgia, serif; font-size: 36px; font-weight: 700;
+    color: var(--coral); line-height: 1; margin-bottom: 6px;
+  }
+  .workflow-step h6 {
+    font-family: Georgia, serif; color: var(--navy); font-size: 15px;
+    margin: 0 0 6px; line-height: 1.3;
+  }
+  .workflow-step p { font-size: 13px; color: var(--charcoal); margin: 0; line-height: 1.45; }
+
   /* Vocabulary flashcard player */
   .flashcard-widget {
     background: var(--soft); padding: 28px; border-radius: 8px; margin: 24px 0;
@@ -550,8 +687,10 @@
     background: var(--white); border: 1px solid var(--rule); padding: 14px 18px; border-radius: 4px;
     border-left: 4px solid var(--gold); font-size: 16px;
   }
-  .frame strong { font-family: Georgia, serif; color: var(--navy); display: block; font-size: 18px; margin-bottom: 4px; }
-  .frame em { color: var(--slate); font-size: 14px; }
+  .frame strong { font-family: Georgia, serif; color: var(--navy); display: block; font-size: 18px; margin-bottom: 6px; }
+  .frame em { color: var(--slate); font-size: 14px; display: block; padding: 3px 0 3px 12px; border-left: 2px solid var(--rule); margin-bottom: 3px; font-style: normal; }
+  .frame em:last-of-type { margin-bottom: 0; }
+  .frame em::before { content: "→ "; color: var(--coral); font-weight: 700; }
 
   /* RESOURCES */
   .resources { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 24px; }
@@ -639,6 +778,7 @@
     <a href="#module-3" data-en="Module 3" data-es="Módulo 3" data-fr="Module 3">Module 3</a>
     <a href="#listen" data-en="Listen" data-es="Escuchar" data-fr="Écouter">Listen</a>
     <a href="#spaced-repetition" data-en="The System" data-es="El Sistema" data-fr="Le Système">The System</a>
+    <a href="#anki-master" data-en="Anki Cards" data-es="Tarjetas Anki" data-fr="Cartes Anki">Anki Cards</a>
     <a href="#downloads" data-en="Downloads" data-es="Descargas" data-fr="Téléchargements">Downloads</a>
     <a href="#resources" data-en="Resources" data-es="Recursos" data-fr="Ressources">Resources</a>
     <a href="#plan" data-en="90-Day Plan" data-es="Plan de 90 días" data-fr="Plan 90 jours">90-Day Plan</a>
@@ -1361,6 +1501,334 @@ understand someone.</pre>
   </div>
 </section>
 
+<section id="anki-master">
+  <div class="container">
+    <p class="eyebrow"
+       data-en="Master Anki cards · build cards that actually stick"
+       data-es="Domina las tarjetas de Anki · crea tarjetas que de verdad se quedan"
+       data-fr="Maîtrisez les cartes Anki · créez des cartes qui restent">Master Anki cards · build cards that actually stick</p>
+    <h2 data-en="How to make great Anki cards — without overthinking it."
+        data-es="Cómo crear excelentes tarjetas de Anki — sin complicártelo."
+        data-fr="Comment créer d'excellentes cartes Anki — sans vous compliquer la vie.">How to make great Anki cards — without overthinking it.</h2>
+    <p class="lead"
+       data-en="The single biggest reason students quit Anki isn't the algorithm — it's bad cards. A good card is built from a real sentence, a vivid mental image, and a real-life situation. Below is the simple workflow, six AI prompts you can copy, the non-negotiable checklist, and a side-by-side comparison of a weak card vs a strong card."
+       data-es="La razón número uno por la que los estudiantes abandonan Anki no es el algoritmo — son las tarjetas malas. Una buena tarjeta se construye con una oración real, una imagen mental vívida, y una situación de la vida real. Abajo está el flujo simple, seis prompts de IA listos para copiar, la lista de imprescindibles, y una comparación lado a lado de una tarjeta débil vs una fuerte."
+       data-fr="La première raison pour laquelle les étudiants abandonnent Anki, ce n'est pas l'algorithme — ce sont les mauvaises cartes. Une bonne carte se construit avec une vraie phrase, une image mentale vivante, et une situation réelle. Ci-dessous : le flux simple, six prompts IA à copier, la liste des incontournables, et une comparaison côte à côte d'une carte faible et d'une carte forte.">The single biggest reason students quit Anki isn't the algorithm — it's bad cards. A good card is built from a real sentence, a vivid mental image, and a real-life situation. Below is the simple workflow, six AI prompts you can copy, the non-negotiable checklist, and a side-by-side comparison of a weak card vs a strong card.</p>
+
+    <div class="core-rule">
+      <div class="label" data-en="Core idea" data-es="Idea central" data-fr="Idée centrale">Core idea</div>
+      <div class="rule"
+           data-en="Don't memorize translations.<br><em>Memorize situations.</em>"
+           data-es="No memorices traducciones.<br><em>Memoriza situaciones.</em>"
+           data-fr="Ne mémorisez pas des traductions.<br><em>Mémorisez des situations.</em>">Don't memorize translations.<br><em>Memorize situations.</em></div>
+    </div>
+
+    <div class="video-callout">
+      <div class="icon">▶</div>
+      <div>
+        <div class="label" data-en="Best starting video" data-es="El mejor video para empezar" data-fr="Meilleure vidéo pour démarrer">Best starting video</div>
+        <h4 data-en="How to Study for Exams with Flashcards — Anki Masterclass"
+            data-es="Cómo Estudiar con Flashcards — Anki Masterclass"
+            data-fr="Comment Étudier avec des Flashcards — Anki Masterclass">How to Study for Exams with Flashcards — Anki Masterclass</h4>
+        <p data-en="Don't just learn 'flashcards' — learn how to use Anki right. This 12-minute video covers spaced repetition, why algorithm-driven cards beat plain word lists, and how to make cards that show difficult ones more often. Watch this once before you build your first deck."
+           data-es="No te quedes solo con 'flashcards' — aprende a usar Anki bien. Este video de 12 minutos cubre la repetición espaciada, por qué las tarjetas con algoritmo le ganan a las listas de palabras, y cómo hacer tarjetas que muestren las difíciles más seguido. Mírala una vez antes de hacer tu primer mazo."
+           data-fr="N'apprenez pas juste « les flashcards » — apprenez à utiliser Anki correctement. Cette vidéo de 12 minutes couvre la répétition espacée, pourquoi les cartes pilotées par algorithme battent les listes de mots, et comment faire des cartes qui montrent les difficiles plus souvent. Regardez-la une fois avant de faire votre premier paquet.">Don't just learn 'flashcards' — learn how to use Anki right. This 12-minute video covers spaced repetition, why algorithm-driven cards beat plain word lists, and how to make cards that show difficult ones more often. Watch this once before you build your first deck.</p>
+        <a href="https://youtu.be/8zaKVFC9Eu4" target="_blank" rel="noopener noreferrer"
+           data-en="Watch on YouTube →"
+           data-es="Ver en YouTube →"
+           data-fr="Regarder sur YouTube →">Watch on YouTube →</a>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px; font-family:Georgia, serif; color:var(--navy); font-size:22px;"
+        data-en="Six ready-to-paste AI prompts"
+        data-es="Seis prompts de IA listos para copiar"
+        data-fr="Six prompts IA prêts à coller">Six ready-to-paste AI prompts</h3>
+    <p style="margin-top:6px; color:var(--charcoal); font-size:15px; line-height:1.6;"
+       data-en="Use the free version of ChatGPT, Claude, or Gemini. Copy a prompt, replace [WORD] or [LIST] with your own content, paste, send. The AI does the heavy lift; you do the speaking and the review."
+       data-es="Usa la versión gratis de ChatGPT, Claude o Gemini. Copia un prompt, reemplaza [PALABRA] o [LISTA] con lo tuyo, pega, envía. La IA hace el trabajo pesado; tú haces el hablar y repasar."
+       data-fr="Utilisez la version gratuite de ChatGPT, Claude ou Gemini. Copiez un prompt, remplacez [MOT] ou [LISTE] par votre contenu, collez, envoyez. L'IA fait le gros du travail ; vous, vous parlez et vous révisez.">Use the free version of ChatGPT, Claude, or Gemini. Copy a prompt, replace [WORD] or [LIST] with your own content, paste, send. The AI does the heavy lift; you do the speaking and the review.</p>
+
+    <div class="anki-prompts">
+
+      <div class="anki-prompt-card">
+        <span class="num">Prompt 1</span>
+        <h5 data-en="Generate one strong card"
+            data-es="Generar una tarjeta fuerte"
+            data-fr="Générer une carte forte">Generate one strong card</h5>
+        <div class="when"
+             data-en="When you have one word and want a complete card"
+             data-es="Cuando tienes una palabra y quieres una tarjeta completa"
+             data-fr="Quand vous avez un mot et voulez une carte complète">When you have one word and want a complete card</div>
+<pre>Create 1 high-quality Anki flashcard for an
+adult Spanish-speaker learning English.
+
+Word: [WORD]
+
+Include:
+- One natural English sentence (A2 level)
+- Spanish translation
+- The target word clearly highlighted
+- A vivid but appropriate image idea
+  (no violence, no explicit content)
+- A short explanation of the word in context
+- Optional pronunciation tip
+
+Make the sentence realistic and useful for
+daily life.</pre>
+      </div>
+
+      <div class="anki-prompt-card">
+        <span class="num">Prompt 2</span>
+        <h5 data-en="Turn a word into a memorable image"
+            data-es="Convierte una palabra en imagen memorable"
+            data-fr="Transformer un mot en image mémorable">Turn a word into a memorable image</h5>
+        <div class="when"
+             data-en="When you can't think of a way to remember it"
+             data-es="Cuando no se te ocurre cómo recordarla"
+             data-fr="Quand vous ne savez pas comment la retenir">When you can't think of a way to remember it</div>
+<pre>I am learning English. Take this word: [WORD]
+
+Create:
+1. A short, natural English sentence using
+   the word
+2. A vivid, memorable image idea that helps
+   me remember it
+3. A simple explanation of why the image
+   works
+
+Keep it appropriate for school. Realistic
+but slightly exaggerated for memory.</pre>
+      </div>
+
+      <div class="anki-prompt-card">
+        <span class="num">Prompt 3</span>
+        <h5 data-en="Fix a weak card"
+            data-es="Arregla una tarjeta débil"
+            data-fr="Corriger une carte faible">Fix a weak card</h5>
+        <div class="when"
+             data-en="When your old card was just word = translation"
+             data-es="Cuando tu vieja tarjeta era solo palabra = traducción"
+             data-fr="Quand votre ancienne carte n'était que mot = traduction">When your old card was just word = translation</div>
+<pre>Improve this flashcard to make it memorable
+and useful.
+
+Original: [PASTE OLD CARD]
+
+Rewrite it with:
+- A natural English sentence
+- A vivid image idea
+- A real-life context
+- A clearer meaning
+
+Make it something I could actually say
+in real life.</pre>
+      </div>
+
+      <div class="anki-prompt-card">
+        <span class="num">Prompt 4</span>
+        <h5 data-en="Make 3 sentence variations"
+            data-es="Haz 3 variaciones de oración"
+            data-fr="Créer 3 variations de phrase">Make 3 sentence variations</h5>
+        <div class="when"
+             data-en="When you want to use the word in different contexts"
+             data-es="Cuando quieres usar la palabra en distintos contextos"
+             data-fr="Quand vous voulez utiliser le mot dans différents contextes">When you want to use the word in different contexts</div>
+<pre>Create 3 variations of a sentence using the
+same word in different contexts.
+
+Word: [WORD]
+
+For each:
+- English sentence
+- Spanish translation
+- Situation (when you would say this)
+
+Keep them simple and realistic.</pre>
+      </div>
+
+      <div class="anki-prompt-card">
+        <span class="num">Prompt 5</span>
+        <h5 data-en="Personalize for your real life (highest ROI)"
+            data-es="Personaliza para tu vida real (máximo retorno)"
+            data-fr="Personnalisez pour votre vie (meilleur rendement)">Personalize for your real life (highest ROI)</h5>
+        <div class="when"
+             data-en="The most powerful prompt — connect every word to YOUR life"
+             data-es="El prompt más poderoso — conecta cada palabra con TU vida"
+             data-fr="Le prompt le plus puissant — connectez chaque mot à VOTRE vie">The most powerful prompt — connect every word to YOUR life</div>
+<pre>Take this English word: [WORD]
+
+Connect it to my life. I am a
+[your job, in plain English — e.g.,
+"home health aide for elderly patients"].
+
+Create:
+- One sentence I could actually say at work
+- A vivid mental image involving my
+  workplace or my patients
+- Why this will be easy for me to remember</pre>
+      </div>
+
+      <div class="anki-prompt-card">
+        <span class="num">Prompt 6</span>
+        <h5 data-en="Build a starter deck of 10"
+            data-es="Crea un mazo inicial de 10"
+            data-fr="Créer un paquet de départ de 10">Build a starter deck of 10</h5>
+        <div class="when"
+             data-en="When you want a deck and you only have a topic"
+             data-es="Cuando quieres un mazo y solo tienes el tema"
+             data-fr="Quand vous voulez un paquet et n'avez que le sujet">When you want a deck and you only have a topic</div>
+<pre>Create 10 Anki-style flashcards for a Spanish-
+speaking adult learning English about [TOPIC].
+
+For each card include:
+1. Useful English sentence
+2. Spanish translation
+3. Target word or phrase
+4. Vivid school-appropriate image idea
+5. Short memory hook
+6. Pronunciation help if useful
+
+Keep the vocabulary practical for real life,
+work, and daily conversation.</pre>
+      </div>
+
+    </div>
+
+    <h3 style="margin-top:40px; font-family:Georgia, serif; color:var(--navy); font-size:22px;"
+        data-en="The non-negotiable checklist"
+        data-es="La lista de imprescindibles"
+        data-fr="La liste des incontournables">The non-negotiable checklist</h3>
+    <p style="margin-top:6px; color:var(--charcoal); font-size:15px;"
+       data-en="Every Anki card you build should pass this checklist before it goes into your deck."
+       data-es="Cada tarjeta debe pasar esta lista antes de entrar a tu mazo."
+       data-fr="Chaque carte doit passer cette liste avant d'entrer dans votre paquet.">Every Anki card you build should pass this checklist before it goes into your deck.</p>
+
+    <div class="checklist-grid">
+      <div class="checklist-card must">
+        <h6 data-en="Must have" data-es="Debe tener" data-fr="Doit avoir">Must have</h6>
+        <ul>
+          <li data-en="One sentence (not just a word)" data-es="Una oración (no solo una palabra)" data-fr="Une phrase (pas juste un mot)">One sentence (not just a word)</li>
+          <li data-en="One clear meaning" data-es="Un significado claro" data-fr="Un sens clair">One clear meaning</li>
+          <li data-en="One mental image" data-es="Una imagen mental" data-fr="Une image mentale">One mental image</li>
+        </ul>
+      </div>
+      <div class="checklist-card high">
+        <h6 data-en="High value (add when possible)"
+            data-es="Alto valor (agrega si puedes)"
+            data-fr="Haute valeur (ajoutez si possible)">High value (add when possible)</h6>
+        <ul>
+          <li data-en="A personal connection to YOUR life" data-es="Una conexión personal con TU vida" data-fr="Un lien personnel avec VOTRE vie">A personal connection to YOUR life</li>
+          <li data-en="Slight exaggeration or humor" data-es="Un poco de exageración o humor" data-fr="Un peu d'exagération ou d'humour">Slight exaggeration or humor</li>
+          <li data-en="A real-life situation, not abstract" data-es="Una situación real, no abstracta" data-fr="Une situation réelle, pas abstraite">A real-life situation, not abstract</li>
+          <li data-en="Audio or pronunciation note" data-es="Audio o nota de pronunciación" data-fr="Audio ou note de prononciation">Audio or pronunciation note</li>
+        </ul>
+      </div>
+      <div class="checklist-card avoid">
+        <h6 data-en="Avoid" data-es="Evita" data-fr="Évitez">Avoid</h6>
+        <ul>
+          <li data-en="Random word lists with no context" data-es="Listas aleatorias sin contexto" data-fr="Listes de mots aléatoires sans contexte">Random word lists with no context</li>
+          <li data-en="Overly abstract words with no use case" data-es="Palabras abstractas sin caso de uso" data-fr="Mots trop abstraits sans usage">Overly abstract words with no use case</li>
+          <li data-en="Obsessing over &quot;perfect grammar&quot; — usage first" data-es="Obsesionarse con la gramática perfecta — primero el uso" data-fr="L'obsession de la grammaire parfaite — l'usage d'abord">Obsessing over "perfect grammar" — usage first</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px; font-family:Georgia, serif; color:var(--navy); font-size:22px;"
+        data-en="Weak card vs strong card — see the difference"
+        data-es="Tarjeta débil vs tarjeta fuerte — ve la diferencia"
+        data-fr="Carte faible vs carte forte — voyez la différence">Weak card vs strong card — see the difference</h3>
+
+    <div class="before-after">
+      <div class="ba-card bad">
+        <span class="ba-label" data-en="❌ Weak card" data-es="❌ Tarjeta débil" data-fr="❌ Carte faible">❌ Weak card</span>
+        <div class="ba-line">to run = correr</div>
+        <p class="ba-why"
+           data-en="No image. No sentence. No situation. You'll forget this within a week, and even if you remember it, you won't know how to use it in real conversation."
+           data-es="Sin imagen. Sin oración. Sin situación. La olvidarás en una semana, y aunque la recuerdes, no sabrás usarla en una conversación real."
+           data-fr="Pas d'image. Pas de phrase. Pas de situation. Vous l'oublierez en une semaine, et même si vous la retenez, vous ne saurez pas l'utiliser en vraie conversation.">No image. No sentence. No situation. You'll forget this within a week, and even if you remember it, you won't know how to use it in real conversation.</p>
+      </div>
+      <div class="ba-card good">
+        <span class="ba-label" data-en="✓ Strong card" data-es="✓ Tarjeta fuerte" data-fr="✓ Carte forte">✓ Strong card</span>
+        <div class="ba-line"
+             data-en="Front:  I have to run to class."
+             data-es="Frente:  I have to run to class."
+             data-fr="Avant :  I have to run to class.">Front:  I have to run to class.</div>
+        <div class="ba-line"
+             data-en="Image:  A student late for class, books flying, sneakers squeaking on tile."
+             data-es="Imagen:  Un estudiante tarde para clase, libros volando, tenis chillando en el piso."
+             data-fr="Image :  Un étudiant en retard, livres qui volent, baskets qui crissent sur le carrelage.">Image:  A student late for class, books flying, sneakers squeaking on tile.</div>
+        <div class="ba-line"
+             data-en="Back:  &quot;Tengo que correr a clase.&quot;  ·  to run = correr"
+             data-es="Reverso:  'Tengo que correr a clase.'  ·  to run = correr"
+             data-fr="Arrière :  « Tengo que correr a clase. »  ·  to run = correr">Back:  "Tengo que correr a clase."  ·  to run = correr</div>
+        <p class="ba-why"
+           data-en="Sentence + image + real situation = three retrieval paths into one memory. The slight stress of running late makes it emotionally salient. You will remember this card."
+           data-es="Oración + imagen + situación real = tres caminos de recuperación a una memoria. El pequeño estrés de llegar tarde la hace emocionalmente vívida. Esta tarjeta sí la recordarás."
+           data-fr="Phrase + image + situation réelle = trois chemins de récupération vers un même souvenir. Le petit stress du retard la rend émotionnellement saillante. Cette carte, vous la retiendrez.">Sentence + image + real situation = three retrieval paths into one memory. The slight stress of running late makes it emotionally salient. You will remember this card.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px; font-family:Georgia, serif; color:var(--navy); font-size:22px;"
+        data-en="The 5-step student workflow"
+        data-es="El flujo de 5 pasos para estudiantes"
+        data-fr="Le flux étudiant en 5 étapes">The 5-step student workflow</h3>
+    <p style="margin-top:6px; color:var(--charcoal); font-size:15px;"
+       data-en="If you remember nothing else from this section, remember these 5 steps. Repeat them every day."
+       data-es="Si solo recuerdas una cosa de esta sección, recuerda estos 5 pasos. Repítelos todos los días."
+       data-fr="Si vous ne retenez qu'une chose de cette section, retenez ces 5 étapes. Répétez-les chaque jour.">If you remember nothing else from this section, remember these 5 steps. Repeat them every day.</p>
+
+    <div class="workflow-row">
+      <div class="workflow-step">
+        <div class="num">1</div>
+        <h6 data-en="Pick 5 new words" data-es="Elige 5 palabras nuevas" data-fr="Choisissez 5 nouveaux mots">Pick 5 new words</h6>
+        <p data-en="From your day. Real situations only." data-es="De tu día. Solo situaciones reales." data-fr="De votre journée. Que des situations réelles.">From your day. Real situations only.</p>
+      </div>
+      <div class="workflow-step">
+        <div class="num">2</div>
+        <h6 data-en="Run Prompt 1 or 5" data-es="Usa Prompt 1 o 5" data-fr="Lancez Prompt 1 ou 5">Run Prompt 1 or 5</h6>
+        <p data-en="AI gives you sentence + image + Spanish." data-es="La IA te da oración + imagen + español." data-fr="L'IA donne phrase + image + espagnol.">AI gives you sentence + image + Spanish.</p>
+      </div>
+      <div class="workflow-step">
+        <div class="num">3</div>
+        <h6 data-en="Copy into Anki" data-es="Cópialo en Anki" data-fr="Copiez dans Anki">Copy into Anki</h6>
+        <p data-en="Or your paper Leitner box. Same logic." data-es="O tu caja de Leitner en papel. Misma lógica." data-fr="Ou votre boîte de Leitner papier. Même logique.">Or your paper Leitner box. Same logic.</p>
+      </div>
+      <div class="workflow-step">
+        <div class="num">4</div>
+        <h6 data-en="Review 2–5 minutes" data-es="Revisa 2–5 minutos" data-fr="Révisez 2–5 minutes">Review 2–5 minutes</h6>
+        <p data-en="Daily. Same time, anchored to a habit." data-es="Diario. Misma hora, atado a un hábito." data-fr="Quotidien. Même heure, sur une habitude.">Daily. Same time, anchored to a habit.</p>
+      </div>
+      <div class="workflow-step">
+        <div class="num">5</div>
+        <h6 data-en="Say each sentence out loud" data-es="Di cada oración en voz alta" data-fr="Dites chaque phrase à voix haute">Say each sentence out loud</h6>
+        <p data-en="Output is what makes it real." data-es="Hablar es lo que lo hace real." data-fr="Parler, c'est ce qui rend ça réel.">Output is what makes it real.</p>
+      </div>
+    </div>
+
+    <div class="why-extra-step">
+      <h4 data-en="The memory rule to teach yourself."
+          data-es="La regla de memoria que debes aprender."
+          data-fr="La règle de mémoire à retenir.">The memory rule to teach yourself.</h4>
+      <p data-en="If you can <em>SEE</em> it, you can remember it. If you can <em>USE</em> it, you can learn it. Vivid images help memory, but language learning still needs context. A funny or dramatic image lets the word stick. Sentences, pronunciation, and repeated review let you actually use it. Both halves matter."
+         data-es="Si puedes <em>VERLO</em>, puedes recordarlo. Si puedes <em>USARLO</em>, puedes aprenderlo. Las imágenes vívidas ayudan a la memoria, pero el aprendizaje del idioma necesita contexto. Una imagen divertida o dramática hace que la palabra se quede. Las oraciones, la pronunciación, y el repaso repetido te dejan usarla de verdad. Las dos mitades importan."
+         data-fr="Si vous pouvez le <em>VOIR</em>, vous pouvez vous en souvenir. Si vous pouvez l'<em>UTILISER</em>, vous pouvez l'apprendre. Les images vivantes aident la mémoire, mais l'apprentissage d'une langue a besoin de contexte. Une image drôle ou dramatique aide le mot à rester. Les phrases, la prononciation, et la révision répétée vous laissent vraiment l'utiliser. Les deux moitiés comptent.">If you can <em>SEE</em> it, you can remember it. If you can <em>USE</em> it, you can learn it. Vivid images help memory, but language learning still needs context. A funny or dramatic image lets the word stick. Sentences, pronunciation, and repeated review let you actually use it. Both halves matter.</p>
+    </div>
+
+    <div class="callout">
+      <p class="label" data-en="The science" data-es="La ciencia" data-fr="La science">The science</p>
+      <h4 data-en="Why vivid images make vocabulary stick — and the limits of the technique."
+          data-es="Por qué las imágenes vívidas fijan el vocabulario — y los límites de la técnica."
+          data-fr="Pourquoi les images vivantes fixent le vocabulaire — et les limites de la technique.">Why vivid images make vocabulary stick — and the limits of the technique.</h4>
+      <p data-en="The mnemonic-keyword and method-of-loci traditions both rest on the same finding: information processed through both verbal and visual channels is recalled far better than information encoded through words alone (Paivio, 1971; dual-coding theory). Emotionally salient images add another retrieval boost (Cahill &amp; McGaugh, 1995). The method of loci — anchoring images to familiar places — has been shown to work even in virtual environments (Legge et al., 2012). One important caveat: images alone are not enough. The Levels-of-Processing framework (Craik &amp; Lockhart, 1972) shows that deeper, semantic engagement — actually using the word in a sentence, in context — produces more durable memories than surface-level encoding. So pair every image with a real sentence, and you get both wins."
+         data-es="Las tradiciones de palabra-clave y método de loci se apoyan en lo mismo: la información procesada por canales verbal y visual se recuerda mucho mejor que la codificada solo con palabras (Paivio, 1971; teoría de codificación dual). Las imágenes con carga emocional agregan otro impulso (Cahill y McGaugh, 1995). El método de loci — anclar imágenes a lugares familiares — funciona incluso en entornos virtuales (Legge et al., 2012). Cuidado: las imágenes solas no bastan. El marco de Niveles de Procesamiento (Craik y Lockhart, 1972) muestra que el procesamiento semántico más profundo — usar de verdad la palabra en oración y contexto — produce memorias más duraderas. Así que combina cada imagen con una oración real."
+         data-fr="Les traditions du mot-clé mnémonique et de la méthode des loci reposent sur le même constat : l'information traitée par les canaux verbal et visuel se rappelle bien mieux que l'information encodée par les mots seuls (Paivio, 1971 ; théorie du double codage). Les images chargées émotionnellement renforcent encore le rappel (Cahill et McGaugh, 1995). La méthode des loci — ancrer des images à des lieux familiers — fonctionne même dans des environnements virtuels (Legge et al., 2012). Mise en garde : les images seules ne suffisent pas. Le modèle des niveaux de traitement (Craik et Lockhart, 1972) montre qu'un engagement sémantique plus profond — utiliser vraiment le mot dans une phrase, dans un contexte — produit des souvenirs plus durables. Associez donc chaque image à une vraie phrase.">The mnemonic-keyword and method-of-loci traditions both rest on the same finding: information processed through both verbal and visual channels is recalled far better than information encoded through words alone (Paivio, 1971; dual-coding theory). Emotionally salient images add another retrieval boost (Cahill &amp; McGaugh, 1995). The method of loci — anchoring images to familiar places — has been shown to work even in virtual environments (Legge et al., 2012). One important caveat: images alone are not enough. The Levels-of-Processing framework (Craik &amp; Lockhart, 1972) shows that deeper, semantic engagement — actually using the word in a sentence, in context — produces more durable memories than surface-level encoding. So pair every image with a real sentence, and you get both wins.</p>
+      <cite>Cahill &amp; McGaugh (1995) · Craik &amp; Lockhart (1972) · Legge, Madan, Ng &amp; Caplan (2012) · Paivio (1971) · Yates (1966)</cite>
+    </div>
+
+  </div>
+</section>
+
 <section id="module-1">
   <div class="container">
     <p class="eyebrow" data-en="Module 1 deep dive" data-es="Módulo 1 a fondo" data-fr="Module 1 en détail">Module 1 deep dive</p>
@@ -1409,6 +1877,80 @@ understand someone.</pre>
              data-fr="Décidez aujourd'hui ce que vous ferez un jour raté. Le minimum est 5 minutes — jamais zéro.">Decide today what you'll do on a missed day. The floor is 5 minutes — never zero.</p>
       </div>
     </div>
+    <h3 style="margin-top:36px; font-family:Georgia, serif; color:var(--navy); font-size:24px;"
+        data-en="Module 1 — read the full mini-lesson"
+        data-es="Módulo 1 — lee la mini-lección completa"
+        data-fr="Module 1 — lisez la mini-leçon complète">Module 1 — read the full mini-lesson</h3>
+    <p style="margin-top:8px; color:var(--charcoal); font-size:15px; line-height:1.65;"
+       data-en="Below is the full text of Module 1 — eight minutes to read. The four steps above are the summary; this is the real chapter. If you only have time for one thing today, read this section out loud once."
+       data-es="Abajo está el texto completo del Módulo 1 — ocho minutos de lectura. Los cuatro pasos de arriba son el resumen; esto es el capítulo real. Si solo tienes tiempo para una cosa hoy, lee esta sección en voz alta una vez."
+       data-fr="Ci-dessous, le texte complet du Module 1 — huit minutes de lecture. Les quatre étapes ci-dessus sont le résumé ; ceci est le vrai chapitre. Si vous n'avez le temps que pour une chose aujourd'hui, lisez ce passage à voix haute une fois.">Below is the full text of Module 1 — eight minutes to read. The four steps above are the summary; this is the real chapter. If you only have time for one thing today, read this section out loud once.</p>
+
+    <div style="background:var(--white); border:1px solid var(--rule); border-radius:8px; padding:28px 32px; margin:24px 0; line-height:1.7;">
+
+      <h4 style="font-family:Georgia, serif; color:var(--navy); font-size:21px; margin:0 0 6px;"
+          data-en="1.  Find your real reason."
+          data-es="1.  Encuentra tu razón real."
+          data-fr="1.  Trouvez votre vraie raison.">1.  Find your real reason.</h4>
+      <p style="font-size:15px; color:var(--charcoal); margin:0 0 14px;"
+         data-en="Most adults who try to learn English give up around week three. The reason is almost never that English is too hard. It's that the goal was vague. &quot;I want to learn English&quot; is not a goal — it's a wish. A wish doesn't survive a bad day at work, a sick kid, or a long commute. A specific goal does. Specific goals attach themselves to your real life. They tell you exactly what to study and when you've succeeded."
+         data-es="La mayoría de los adultos que intentan aprender inglés se rinden cerca de la semana tres. La razón casi nunca es que el inglés sea muy difícil. Es que la meta era vaga. 'Quiero aprender inglés' no es una meta — es un deseo. Un deseo no sobrevive un mal día en el trabajo, un niño enfermo, o un transporte largo. Una meta específica sí. Las metas específicas se atan a tu vida real. Te dicen exactamente qué estudiar y cuándo has tenido éxito."
+         data-fr="La plupart des adultes qui essaient d'apprendre l'anglais abandonnent vers la troisième semaine. La raison n'est presque jamais que l'anglais est trop difficile. C'est que l'objectif était vague. « Je veux apprendre l'anglais » n'est pas un objectif — c'est un souhait. Un souhait ne survit pas à une mauvaise journée au travail, à un enfant malade, ou à un long trajet. Un objectif précis, oui. Les objectifs précis s'accrochent à votre vie réelle. Ils vous disent exactement quoi étudier et quand vous avez réussi.">Most adults who try to learn English give up around week three. The reason is almost never that English is too hard. It's that the goal was vague. "I want to learn English" is not a goal — it's a wish. A wish doesn't survive a bad day at work, a sick kid, or a long commute. A specific goal does. Specific goals attach themselves to your real life. They tell you exactly what to study and when you've succeeded.</p>
+      <p style="font-size:15px; color:var(--charcoal); margin:0 0 14px;"
+         data-en="So the very first thing you do in this course is finish this sentence — out loud, then in writing: &quot;In 90 days, I want to be able to ____________.&quot; The blank should be a real situation in your life. &quot;Order a coffee at Starbucks without a translator.&quot; &quot;Talk to my child's teacher at the parent meeting.&quot; &quot;Explain to the doctor where I have pain without my daughter coming with me.&quot; That's the goal. It's not big. It doesn't have to impress anyone. It just has to be specific enough that you'll know when you got there."
+         data-es="Así que lo primero que haces en este curso es terminar esta oración — en voz alta, y luego por escrito: 'En 90 días quiero poder ____________.' El espacio debe ser una situación real de tu vida. 'Pedir un café en Starbucks sin traductor.' 'Hablar con la maestra de mi hijo en la reunión de padres.' 'Explicarle al doctor dónde me duele sin que mi hija venga conmigo.' Esa es la meta. No es grande. No tiene que impresionar a nadie. Solo tiene que ser lo bastante específica como para que sepas cuándo llegaste."
+         data-fr="La toute première chose à faire dans ce cours, c'est donc de finir cette phrase — à voix haute, puis par écrit : « Dans 90 jours, je veux pouvoir ____________. » Le blanc doit être une situation réelle de votre vie. « Commander un café au Starbucks sans traducteur. » « Parler à la maîtresse de mon enfant à la réunion de parents. » « Expliquer au médecin où j'ai mal sans que ma fille vienne avec moi. » C'est ça l'objectif. Pas énorme. Pas besoin d'impressionner. Juste assez précis pour que vous sachiez quand vous y êtes arrivé.">So the very first thing you do in this course is finish this sentence — out loud, then in writing: "In 90 days, I want to be able to ____________." The blank should be a real situation in your life. "Order a coffee at Starbucks without a translator." "Talk to my child's teacher at the parent meeting." "Explain to the doctor where I have pain without my daughter coming with me." That's the goal. It's not big. It doesn't have to impress anyone. It just has to be specific enough that you'll know when you got there.</p>
+
+      <h4 style="font-family:Georgia, serif; color:var(--navy); font-size:21px; margin:24px 0 6px;"
+          data-en="2.  Match English to your life."
+          data-es="2.  Adapta el inglés a tu vida."
+          data-fr="2.  Adaptez l'anglais à votre vie.">2.  Match English to your life.</h4>
+      <p style="font-size:15px; color:var(--charcoal); margin:0 0 14px;"
+         data-en="The honest truth: you do not need to learn all of English. Native speakers have around 20,000 words in their working vocabulary. You don't need 20,000. Research on language frequency consistently shows that the most common 1,000 words cover roughly 80% of everyday speech. The most common 2,000 cover about 90%. So learn the 10% of English you actually use, and you'll do fine in 90% of the moments that matter."
+         data-es="La verdad honesta: no necesitas aprender todo el inglés. Los nativos manejan alrededor de 20,000 palabras. Tú no necesitas 20,000. La investigación sobre frecuencia de lenguaje muestra de forma consistente que las 1,000 palabras más comunes cubren cerca del 80% del habla diaria. Las 2,000 más comunes cubren cerca del 90%. Así que aprende el 10% de inglés que de verdad usas, y te irá bien en el 90% de los momentos que importan."
+         data-fr="La vérité honnête : vous n'avez pas besoin d'apprendre tout l'anglais. Les locuteurs natifs ont environ 20 000 mots dans leur vocabulaire actif. Vous, vous n'en avez pas besoin de 20 000. Les recherches sur la fréquence des mots montrent systématiquement que les 1 000 mots les plus courants couvrent environ 80 % du langage quotidien. Les 2 000 les plus courants en couvrent ~90 %. Apprenez donc les 10 % d'anglais que vous utilisez vraiment et vous vous en sortirez dans 90 % des moments qui comptent.">The honest truth: you do not need to learn all of English. Native speakers have around 20,000 words in their working vocabulary. You don't need 20,000. Research on language frequency consistently shows that the most common 1,000 words cover roughly 80% of everyday speech. The most common 2,000 cover about 90%. So learn the 10% of English you actually use, and you'll do fine in 90% of the moments that matter.</p>
+      <p style="font-size:15px; color:var(--charcoal); margin:0 0 14px;"
+         data-en="The way to find your 10% is to write down the four areas where English shows up in your life: work, errands, family, fun. Under each, write three real situations. &quot;At work, I have to call my supervisor when I'm late. At work, I have to read the safety signs. At work, I have to greet customers.&quot; That's already a vocabulary list — pulled directly from your life — and it's far more useful than any textbook list."
+         data-es="La forma de encontrar tu 10% es escribir las cuatro áreas donde aparece el inglés en tu vida: trabajo, mandados, familia, diversión. Debajo de cada una, escribe tres situaciones reales. 'En el trabajo, tengo que llamar a mi supervisor cuando llego tarde. En el trabajo, tengo que leer los letreros de seguridad. En el trabajo, tengo que saludar a los clientes.' Eso ya es una lista de vocabulario — sacada directo de tu vida — y es mucho más útil que cualquier lista de libro."
+         data-fr="Pour trouver vos 10 %, écrivez les quatre domaines où l'anglais apparaît dans votre vie : travail, courses, famille, loisirs. Sous chacun, écrivez trois situations réelles. « Au travail, je dois appeler mon supérieur quand je suis en retard. Au travail, je dois lire les panneaux de sécurité. Au travail, je dois saluer les clients. » Vous avez déjà une liste de vocabulaire — tirée directement de votre vie — et bien plus utile que n'importe quelle liste de manuel.">The way to find your 10% is to write down the four areas where English shows up in your life: work, errands, family, fun. Under each, write three real situations. "At work, I have to call my supervisor when I'm late. At work, I have to read the safety signs. At work, I have to greet customers." That's already a vocabulary list — pulled directly from your life — and it's far more useful than any textbook list.</p>
+
+      <h4 style="font-family:Georgia, serif; color:var(--navy); font-size:21px; margin:24px 0 6px;"
+          data-en="3.  Pick your 15-minute slot."
+          data-es="3.  Elige tu espacio de 15 minutos."
+          data-fr="3.  Choisissez votre créneau de 15 minutes.">3.  Pick your 15-minute slot.</h4>
+      <p style="font-size:15px; color:var(--charcoal); margin:0 0 14px;"
+         data-en="Fifteen minutes a day, five to seven days a week. That's it. That is the whole curriculum. The reason it's fifteen and not thirty or sixty is not that you couldn't do more — it's that fifteen is small enough that you'll actually do it on the bad days. And the bad days are when learning gets won or lost. Two hours on Sunday loses to fifteen minutes daily, every single time."
+         data-es="Quince minutos al día, cinco a siete días por semana. Eso es. Ese es todo el plan. La razón de que sean quince y no treinta o sesenta no es que no podrías hacer más — es que quince es lo bastante pequeño como para que de verdad lo hagas en los días malos. Y los días malos es donde se gana o se pierde. Dos horas el domingo siempre pierden frente a quince minutos diarios."
+         data-fr="Quinze minutes par jour, cinq à sept jours par semaine. C'est tout. C'est tout le programme. La raison pour laquelle c'est quinze et pas trente ou soixante, ce n'est pas que vous ne pourriez pas en faire plus — c'est que quinze est assez petit pour que vous le fassiez vraiment les mauvais jours. Et les mauvais jours, c'est là que se gagne ou se perd l'apprentissage. Deux heures le dimanche perdent toujours face à quinze minutes quotidiennes.">Fifteen minutes a day, five to seven days a week. That's it. That is the whole curriculum. The reason it's fifteen and not thirty or sixty is not that you couldn't do more — it's that fifteen is small enough that you'll actually do it on the bad days. And the bad days are when learning gets won or lost. Two hours on Sunday loses to fifteen minutes daily, every single time.</p>
+      <p style="font-size:15px; color:var(--charcoal); margin:0 0 14px;"
+         data-en="Pick the time of day you can repeat. Don't pick the &quot;ideal&quot; time. Pick the realistic one. The trick is to anchor your fifteen minutes to a habit you already have. Right after morning coffee, while the coffee is still warm. During the bus ride to work, with one earbud in. After dinner, before TV. Brushing teeth, with the audio playing through the bathroom speaker. The anchor is what makes it survive the months when motivation is gone — because you're not relying on motivation, you're relying on the existing habit."
+         data-es="Elige la hora del día que puedas repetir. No la 'ideal'. La realista. El truco es anclar tus quince minutos a un hábito que ya tienes. Justo después del café de la mañana, mientras el café aún está caliente. En el camión al trabajo, con un audífono. Después de cenar, antes de la TV. Lavándote los dientes, con el audio sonando en la bocina del baño. El ancla es lo que hace que sobreviva los meses sin motivación — porque no dependes de la motivación, dependes del hábito que ya tienes."
+         data-fr="Choisissez le moment de la journée que vous pouvez répéter. Pas le moment « idéal ». Le moment réaliste. L'astuce, c'est d'attacher vos quinze minutes à une habitude que vous avez déjà. Juste après le café du matin, pendant qu'il est encore chaud. Dans le bus, un écouteur dedans. Après le dîner, avant la télé. En vous brossant les dents, avec l'audio qui passe dans le haut-parleur de la salle de bains. L'ancrage, c'est ce qui le fait survivre aux mois sans motivation — parce que vous ne dépendez pas de la motivation, vous dépendez de l'habitude qui existe déjà.">Pick the time of day you can repeat. Don't pick the "ideal" time. Pick the realistic one. The trick is to anchor your fifteen minutes to a habit you already have. Right after morning coffee, while the coffee is still warm. During the bus ride to work, with one earbud in. After dinner, before TV. Brushing teeth, with the audio playing through the bathroom speaker. The anchor is what makes it survive the months when motivation is gone — because you're not relying on motivation, you're relying on the existing habit.</p>
+
+      <h4 style="font-family:Georgia, serif; color:var(--navy); font-size:21px; margin:24px 0 6px;"
+          data-en="4.  Build your bad-day backup plan."
+          data-es="4.  Crea tu plan B para días malos."
+          data-fr="4.  Bâtissez votre plan B pour les mauvais jours.">4.  Build your bad-day backup plan.</h4>
+      <p style="font-size:15px; color:var(--charcoal); margin:0 0 14px;"
+         data-en="Everyone has bad weeks. The flu, a fight with your partner, a kid up all night, a deadline at work. The learners who quit aren't lazy. They're the ones who tried to keep their full fifteen minutes through a bad week, missed it three days, felt guilty, and then quit on day four. The learners who stay aren't more disciplined. They pre-decided what to do on bad days. They drop from fifteen minutes to five — never to zero."
+         data-es="Todo el mundo tiene semanas malas. La gripe, una pelea con tu pareja, un niño despierto toda la noche, una fecha límite en el trabajo. Los que se rinden no son perezosos. Son los que trataron de mantener los quince minutos completos durante una semana mala, los perdieron tres días, se sintieron culpables, y al día cuatro abandonaron. Los que continúan no son más disciplinados. Decidieron con anticipación qué hacer en días malos. Bajan de quince minutos a cinco — nunca a cero."
+         data-fr="Tout le monde a des mauvaises semaines. La grippe, une dispute avec votre conjoint, un enfant qui ne dort pas, une échéance au travail. Ceux qui abandonnent ne sont pas paresseux. Ce sont ceux qui ont essayé de tenir leurs quinze minutes pendant une mauvaise semaine, qui en ont raté trois jours, qui se sont sentis coupables, et qui ont abandonné au quatrième jour. Ceux qui restent ne sont pas plus disciplinés. Ils ont décidé à l'avance quoi faire les mauvais jours. Ils passent de quinze minutes à cinq — jamais à zéro.">Everyone has bad weeks. The flu, a fight with your partner, a kid up all night, a deadline at work. The learners who quit aren't lazy. They're the ones who tried to keep their full fifteen minutes through a bad week, missed it three days, felt guilty, and then quit on day four. The learners who stay aren't more disciplined. They pre-decided what to do on bad days. They drop from fifteen minutes to five — never to zero.</p>
+      <p style="font-size:15px; color:var(--charcoal); margin:0 0 14px;"
+         data-en="So write down your bad-day plan today, in one sentence: &quot;On a bad day, I will __________.&quot; Examples: &quot;On a bad day, I will play one BBC clip while I make breakfast.&quot; &quot;On a bad day, I will read one paragraph in English from any sign or label.&quot; &quot;On a bad day, I will say my ten sentence frames out loud while I brush my teeth.&quot; The point is not to be productive on the bad day. The point is to keep the streak alive. Five minutes preserves the habit. Zero minutes breaks it."
+         data-es="Así que escribe hoy tu plan B en una oración: 'En un día malo, voy a __________.' Ejemplos: 'En un día malo, voy a poner un clip de BBC mientras hago el desayuno.' 'En un día malo, voy a leer un párrafo en inglés de cualquier letrero o etiqueta.' 'En un día malo, voy a decir mis diez plantillas en voz alta mientras me lavo los dientes.' El punto no es ser productivo en el día malo. El punto es mantener viva la racha. Cinco minutos preservan el hábito. Cero minutos lo rompen."
+         data-fr="Écrivez donc aujourd'hui votre plan en une phrase : « Un mauvais jour, je vais __________. » Exemples : « Un mauvais jour, j'écouterai un clip BBC en faisant le petit-déjeuner. » « Un mauvais jour, je lirai un paragraphe en anglais sur n'importe quel panneau ou étiquette. » « Un mauvais jour, je dirai mes dix structures à voix haute en me brossant les dents. » L'objectif n'est pas d'être productif les mauvais jours. L'objectif, c'est de garder la série vivante. Cinq minutes préservent l'habitude. Zéro minute la casse.">So write down your bad-day plan today, in one sentence: "On a bad day, I will __________." Examples: "On a bad day, I will play one BBC clip while I make breakfast." "On a bad day, I will read one paragraph in English from any sign or label." "On a bad day, I will say my ten sentence frames out loud while I brush my teeth." The point is not to be productive on the bad day. The point is to keep the streak alive. Five minutes preserves the habit. Zero minutes breaks it.</p>
+
+      <h4 style="font-family:Georgia, serif; color:var(--navy); font-size:21px; margin:24px 0 6px;"
+          data-en="What you'll have at the end of Module 1."
+          data-es="Lo que tendrás al final del Módulo 1."
+          data-fr="Ce que vous aurez à la fin du Module 1.">What you'll have at the end of Module 1.</h4>
+      <p style="font-size:15px; color:var(--charcoal); margin:0 0 0;"
+         data-en="By the time you finish Module 1, three things should be on paper: a 90-day goal that names a real-life situation, a fifteen-minute slot anchored to an existing daily habit, and a one-sentence bad-day backup. That's it. Three lines. No textbook. No app to install. Once those three lines exist, Module 2 is where the actual learning starts — pronunciation, vocabulary, and the ten sentence frames that cover ~80% of what an adult beginner has to say."
+         data-es="Para cuando termines el Módulo 1, tres cosas deben estar en papel: una meta de 90 días que nombra una situación real, un espacio de quince minutos anclado a un hábito diario, y un plan B en una oración. Eso es. Tres líneas. Ningún libro. Ninguna app que instalar. Una vez que esas tres líneas existen, el Módulo 2 es donde empieza el aprendizaje de verdad — pronunciación, vocabulario, y las diez plantillas que cubren ~80% de lo que un adulto principiante tiene que decir."
+         data-fr="Au moment où vous finirez le Module 1, trois choses doivent être sur papier : un objectif de 90 jours qui nomme une situation réelle, un créneau de quinze minutes ancré à une habitude quotidienne existante, et un plan B en une phrase. C'est tout. Trois lignes. Aucun manuel. Aucune appli à installer. Une fois ces trois lignes en place, le Module 2 est là où commence le véritable apprentissage — prononciation, vocabulaire, et les dix structures qui couvrent ~80 % de ce qu'un adulte débutant doit dire.">By the time you finish Module 1, three things should be on paper: a 90-day goal that names a real-life situation, a fifteen-minute slot anchored to an existing daily habit, and a one-sentence bad-day backup. That's it. Three lines. No textbook. No app to install. Once those three lines exist, Module 2 is where the actual learning starts — pronunciation, vocabulary, and the ten sentence frames that cover ~80% of what an adult beginner has to say.</p>
+
+    </div>
+
     <div class="module-complete" data-module="1">
       <span class="label"
             data-en="Finished Module 1?"
@@ -1485,21 +2027,79 @@ understand someone.</pre>
       </tbody>
     </table>
 
-    <h3 data-en="10 Sentence Frames — memorize the frame, swap the word"
-        data-es="10 plantillas — memoriza la plantilla, cambia la palabra"
-        data-fr="10 structures — mémorisez la structure, changez le mot">10 Sentence Frames — memorize the frame, swap the word</h3>
+    <h3 data-en="The 10 sentence frames — memorize the frame, swap the word"
+        data-es="Las 10 plantillas de oraciones — memoriza la plantilla, cambia la palabra"
+        data-fr="Les 10 structures de phrases — mémorisez la structure, changez le mot">The 10 sentence frames — memorize the frame, swap the word</h3>
+    <p style="margin-top:8px; color:var(--charcoal); font-size:15px; line-height:1.6;"
+       data-en="These 10 frames cover ~80% of the things an adult beginner actually needs to say in daily life. Memorize the frame once. Then drop in any new word from your vocabulary bank and you have a complete, grammatical English sentence. Three example variations are listed under each — say all three out loud."
+       data-es="Estas 10 plantillas cubren ~80% de lo que un adulto principiante de verdad necesita decir en la vida diaria. Memoriza la plantilla una vez. Luego mete cualquier palabra nueva de tu banco y ya tienes una oración completa y gramatical en inglés. Bajo cada plantilla hay tres variaciones — dilas las tres en voz alta."
+       data-fr="Ces 10 structures couvrent ~80 % de ce qu'un adulte débutant doit vraiment dire au quotidien. Mémorisez la structure une fois. Insérez ensuite n'importe quel mot de votre banque et vous avez une phrase anglaise complète et correcte. Trois variations sont listées sous chacune — dites-les toutes à voix haute.">These 10 frames cover ~80% of the things an adult beginner actually needs to say in daily life. Memorize the frame once. Then drop in any new word from your vocabulary bank and you have a complete, grammatical English sentence. Three example variations are listed under each — say all three out loud.</p>
     <div class="frames">
-      <div class="frame"><strong>I am ___.</strong><em data-en="e.g., I am tired." data-es="ej., I am tired." data-fr="ex. : I am tired.">e.g., I am tired.</em></div>
-      <div class="frame"><strong>I have ___.</strong><em data-en="e.g., I have two children." data-es="ej., I have two children." data-fr="ex. : I have two children.">e.g., I have two children.</em></div>
-      <div class="frame"><strong>I need ___.</strong><em data-en="e.g., I need water." data-es="ej., I need water." data-fr="ex. : I need water.">e.g., I need water.</em></div>
-      <div class="frame"><strong>I want ___.</strong><em data-en="e.g., I want to learn." data-es="ej., I want to learn." data-fr="ex. : I want to learn.">e.g., I want to learn.</em></div>
-      <div class="frame"><strong>I like ___.</strong><em data-en="e.g., I like coffee." data-es="ej., I like coffee." data-fr="ex. : I like coffee.">e.g., I like coffee.</em></div>
-      <div class="frame"><strong>I can ___.</strong><em data-en="e.g., I can drive." data-es="ej., I can drive." data-fr="ex. : I can drive.">e.g., I can drive.</em></div>
-      <div class="frame"><strong>Can you help me with ___?</strong><em data-en="e.g., Can you help me with this form?" data-es="ej., Can you help me with this form?" data-fr="ex. : Can you help me with this form?">e.g., Can you help me with this form?</em></div>
-      <div class="frame"><strong>Where is ___?</strong><em data-en="e.g., Where is the bathroom?" data-es="ej., Where is the bathroom?" data-fr="ex. : Where is the bathroom?">e.g., Where is the bathroom?</em></div>
-      <div class="frame"><strong>How much is ___?</strong><em data-en="e.g., How much is this?" data-es="ej., How much is this?" data-fr="ex. : How much is this?">e.g., How much is this?</em></div>
-      <div class="frame"><strong>I do not understand ___.</strong><em data-en="e.g., I do not understand this word." data-es="ej., I do not understand this word." data-fr="ex. : I do not understand this word.">e.g., I do not understand this word.</em></div>
+      <div class="frame">
+        <strong>1.  I am ___.</strong>
+        <em data-en="I am tired." data-es="I am tired. (Estoy cansado.)" data-fr="I am tired. (Je suis fatigué.)">I am tired.</em>
+        <em data-en="I am from Cuba." data-es="I am from Cuba. (Soy de Cuba.)" data-fr="I am from Cuba.">I am from Cuba.</em>
+        <em data-en="I am a nurse." data-es="I am a nurse. (Soy enfermero/a.)" data-fr="I am a nurse.">I am a nurse.</em>
+      </div>
+      <div class="frame">
+        <strong>2.  I have ___.</strong>
+        <em data-en="I have two children." data-es="I have two children. (Tengo dos hijos.)" data-fr="I have two children.">I have two children.</em>
+        <em data-en="I have an appointment at three." data-es="I have an appointment at three. (Tengo una cita a las tres.)" data-fr="I have an appointment at three.">I have an appointment at three.</em>
+        <em data-en="I have a question." data-es="I have a question. (Tengo una pregunta.)" data-fr="I have a question.">I have a question.</em>
+      </div>
+      <div class="frame">
+        <strong>3.  I need ___.</strong>
+        <em data-en="I need water, please." data-es="I need water, please. (Necesito agua, por favor.)" data-fr="I need water, please.">I need water, please.</em>
+        <em data-en="I need to call my doctor." data-es="I need to call my doctor. (Necesito llamar a mi doctor.)" data-fr="I need to call my doctor.">I need to call my doctor.</em>
+        <em data-en="I need help with this form." data-es="I need help with this form. (Necesito ayuda con este formulario.)" data-fr="I need help with this form.">I need help with this form.</em>
+      </div>
+      <div class="frame">
+        <strong>4.  I want ___.</strong>
+        <em data-en="I want to learn English." data-es="I want to learn English. (Quiero aprender inglés.)" data-fr="I want to learn English.">I want to learn English.</em>
+        <em data-en="I want a coffee, please." data-es="I want a coffee, please. (Quiero un café, por favor.)" data-fr="I want a coffee, please.">I want a coffee, please.</em>
+        <em data-en="I want to make an appointment." data-es="I want to make an appointment. (Quiero hacer una cita.)" data-fr="I want to make an appointment.">I want to make an appointment.</em>
+      </div>
+      <div class="frame">
+        <strong>5.  I like ___.</strong>
+        <em data-en="I like your music." data-es="I like your music. (Me gusta tu música.)" data-fr="I like your music.">I like your music.</em>
+        <em data-en="I like to walk in the morning." data-es="I like to walk in the morning. (Me gusta caminar en la mañana.)" data-fr="I like to walk in the morning.">I like to walk in the morning.</em>
+        <em data-en="I do not like this medicine." data-es="I do not like this medicine. (No me gusta esta medicina.)" data-fr="I do not like this medicine.">I do not like this medicine.</em>
+      </div>
+      <div class="frame">
+        <strong>6.  I can ___.</strong>
+        <em data-en="I can drive." data-es="I can drive. (Puedo manejar.)" data-fr="I can drive.">I can drive.</em>
+        <em data-en="I cannot understand fast English." data-es="I cannot understand fast English. (No puedo entender el inglés rápido.)" data-fr="I cannot understand fast English.">I cannot understand fast English.</em>
+        <em data-en="I can come tomorrow at nine." data-es="I can come tomorrow at nine. (Puedo venir mañana a las nueve.)" data-fr="I can come tomorrow at nine.">I can come tomorrow at nine.</em>
+      </div>
+      <div class="frame">
+        <strong>7.  Can you help me with ___?</strong>
+        <em data-en="Can you help me with this form?" data-es="Can you help me with this form? (¿Me puede ayudar con este formulario?)" data-fr="Can you help me with this form?">Can you help me with this form?</em>
+        <em data-en="Can you help me with my appointment?" data-es="Can you help me with my appointment? (¿Me puede ayudar con mi cita?)" data-fr="Can you help me with my appointment?">Can you help me with my appointment?</em>
+        <em data-en="Can you help me, please? I do not understand." data-es="Can you help me, please? I do not understand. (¿Puede ayudarme, por favor? No entiendo.)" data-fr="Can you help me, please? I do not understand.">Can you help me, please? I do not understand.</em>
+      </div>
+      <div class="frame">
+        <strong>8.  Where is ___?</strong>
+        <em data-en="Where is the bathroom?" data-es="Where is the bathroom? (¿Dónde está el baño?)" data-fr="Where is the bathroom?">Where is the bathroom?</em>
+        <em data-en="Where is the pharmacy?" data-es="Where is the pharmacy? (¿Dónde está la farmacia?)" data-fr="Where is the pharmacy?">Where is the pharmacy?</em>
+        <em data-en="Where is the bus stop?" data-es="Where is the bus stop? (¿Dónde está la parada del autobús?)" data-fr="Where is the bus stop?">Where is the bus stop?</em>
+      </div>
+      <div class="frame">
+        <strong>9.  How much is ___?</strong>
+        <em data-en="How much is this?" data-es="How much is this? (¿Cuánto cuesta esto?)" data-fr="How much is this?">How much is this?</em>
+        <em data-en="How much is the bus to downtown?" data-es="How much is the bus to downtown? (¿Cuánto cuesta el autobús al centro?)" data-fr="How much is the bus to downtown?">How much is the bus to downtown?</em>
+        <em data-en="How much is the doctor's visit?" data-es="How much is the doctor's visit? (¿Cuánto cuesta la visita al doctor?)" data-fr="How much is the doctor's visit?">How much is the doctor's visit?</em>
+      </div>
+      <div class="frame">
+        <strong>10.  I do not understand ___.</strong>
+        <em data-en="I do not understand this word." data-es="I do not understand this word. (No entiendo esta palabra.)" data-fr="I do not understand this word.">I do not understand this word.</em>
+        <em data-en="I do not understand. Can you say it slowly?" data-es="I do not understand. Can you say it slowly? (No entiendo. ¿Puede decirlo despacio?)" data-fr="I do not understand. Can you say it slowly?">I do not understand. Can you say it slowly?</em>
+        <em data-en="I do not understand. Can you write it down?" data-es="I do not understand. Can you write it down? (No entiendo. ¿Puede escribirlo?)" data-fr="I do not understand. Can you write it down?">I do not understand. Can you write it down?</em>
+      </div>
     </div>
+    <p style="margin-top:14px; font-style:italic; font-size:14px; color:var(--slate);"
+       data-en="One trick: every Sunday, run through all 30 examples out loud while making coffee. Five minutes total. After three Sundays you'll never lose them."
+       data-es="Un truco: cada domingo, di las 30 oraciones en voz alta mientras te haces café. Cinco minutos. Después de tres domingos no las pierdes nunca."
+       data-fr="Une astuce : chaque dimanche, dites les 30 phrases à voix haute en faisant du café. Cinq minutes. Après trois dimanches, vous ne les perdrez jamais.">One trick: every Sunday, run through all 30 examples out loud while making coffee. Five minutes total. After three Sundays you'll never lose them.</p>
 
     <h3 data-en="Try it now — interactive flashcards"
         data-es="Pruébalo ahora — tarjetas interactivas"
@@ -1588,6 +2188,102 @@ understand someone.</pre>
          data-es="El input comprensible es lenguaje que puedes entender en su mayoría. Escuchar audio corto y claro un poco arriba de tu nivel actual es el motor de la adquisición."
          data-fr="L'input compréhensible est une langue que vous comprenez en grande partie. Écouter de l'audio court et clair, légèrement au-dessus de votre niveau actuel, est le moteur de l'acquisition.">Comprehensible input is language you can mostly understand. Listening to short, clear audio just slightly above your current level is the engine of acquisition.</p>
       <cite>Krashen, S. D. (1985) · Swain, M. (1985).</cite>
+    </div>
+
+    <h3 data-en="Doctor's office vocabulary — words you may actually need"
+        data-es="Vocabulario del consultorio — palabras que de verdad puedes necesitar"
+        data-fr="Vocabulaire du cabinet médical — mots dont vous aurez besoin">Doctor's office vocabulary — words you may actually need</h3>
+    <p style="margin-top:8px; color:var(--charcoal); font-size:15px; line-height:1.65;"
+       data-en="A real-life vocabulary list for medical visits. Not a textbook list. These are the words that come up at check-in, in the exam room, and at the pharmacy. Each one has its Spanish translation and a sentence you could actually say."
+       data-es="Una lista de vocabulario para visitas médicas. No es de libro. Son las palabras que aparecen al registrarte, en la sala de examen, y en la farmacia. Cada una tiene su traducción al español y una oración que podrías decir de verdad."
+       data-fr="Une liste de vocabulaire pour les visites médicales. Pas une liste de manuel. Ce sont les mots qui apparaissent à l'accueil, dans la salle d'examen, et à la pharmacie. Chaque mot a sa traduction espagnole et une phrase que vous pourriez vraiment dire.">A real-life vocabulary list for medical visits. Not a textbook list. These are the words that come up at check-in, in the exam room, and at the pharmacy. Each one has its Spanish translation and a sentence you could actually say.</p>
+    <table>
+      <thead><tr>
+        <th data-en="English" data-es="Inglés" data-fr="Anglais">English</th>
+        <th data-en="Spanish" data-es="Español" data-fr="Espagnol">Spanish</th>
+        <th data-en="Use it in" data-es="Úsala en" data-fr="À utiliser dans">Use it in</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>appointment</strong></td>
+          <td>cita</td>
+          <td data-en="I have an appointment at three." data-es="(Tengo una cita a las tres.)" data-fr="(J'ai un rendez-vous à trois heures.)">I have an appointment at three.</td>
+        </tr>
+        <tr>
+          <td><strong>insurance</strong></td>
+          <td>seguro médico</td>
+          <td data-en="Here is my insurance card." data-es="(Aquí está mi tarjeta del seguro.)" data-fr="(Voici ma carte d'assurance.)">Here is my insurance card.</td>
+        </tr>
+        <tr>
+          <td><strong>pain</strong></td>
+          <td>dolor</td>
+          <td data-en="I have pain in my back." data-es="(Tengo dolor en la espalda.)" data-fr="(J'ai mal au dos.)">I have pain in my back.</td>
+        </tr>
+        <tr>
+          <td><strong>prescription</strong></td>
+          <td>receta</td>
+          <td data-en="The doctor gave me a prescription." data-es="(El doctor me dio una receta.)" data-fr="(Le médecin m'a donné une ordonnance.)">The doctor gave me a prescription.</td>
+        </tr>
+        <tr>
+          <td><strong>allergic to</strong></td>
+          <td>alérgico/a a</td>
+          <td data-en="I am allergic to penicillin." data-es="(Soy alérgico/a a la penicilina.)" data-fr="(Je suis allergique à la pénicilline.)">I am allergic to penicillin.</td>
+        </tr>
+        <tr>
+          <td><strong>emergency</strong></td>
+          <td>emergencia</td>
+          <td data-en="This is an emergency. I need help." data-es="(Es una emergencia. Necesito ayuda.)" data-fr="(C'est une urgence. J'ai besoin d'aide.)">This is an emergency. I need help.</td>
+        </tr>
+        <tr>
+          <td><strong>follow-up</strong></td>
+          <td>seguimiento / cita de control</td>
+          <td data-en="I need a follow-up in two weeks." data-es="(Necesito una cita de seguimiento en dos semanas.)" data-fr="(J'ai besoin d'un rendez-vous de suivi dans deux semaines.)">I need a follow-up in two weeks.</td>
+        </tr>
+        <tr>
+          <td><strong>symptom</strong></td>
+          <td>síntoma</td>
+          <td data-en="My symptoms are headache and fever." data-es="(Mis síntomas son dolor de cabeza y fiebre.)" data-fr="(Mes symptômes sont mal de tête et fièvre.)">My symptoms are headache and fever.</td>
+        </tr>
+        <tr>
+          <td><strong>fever</strong></td>
+          <td>fiebre</td>
+          <td data-en="I have a fever since yesterday." data-es="(Tengo fiebre desde ayer.)" data-fr="(J'ai de la fièvre depuis hier.)">I have a fever since yesterday.</td>
+        </tr>
+        <tr>
+          <td><strong>medication / medicine</strong></td>
+          <td>medicamento / medicina</td>
+          <td data-en="I take this medication every day." data-es="(Tomo este medicamento todos los días.)" data-fr="(Je prends ce médicament tous les jours.)">I take this medication every day.</td>
+        </tr>
+        <tr>
+          <td><strong>blood pressure</strong></td>
+          <td>presión arterial</td>
+          <td data-en="My blood pressure is high." data-es="(Mi presión arterial está alta.)" data-fr="(Ma tension artérielle est élevée.)">My blood pressure is high.</td>
+        </tr>
+        <tr>
+          <td><strong>refill</strong></td>
+          <td>resurtir (la receta)</td>
+          <td data-en="I need a refill of my medicine." data-es="(Necesito resurtir mi medicina.)" data-fr="(Je dois renouveler mon ordonnance.)">I need a refill of my medicine.</td>
+        </tr>
+        <tr>
+          <td><strong>side effect</strong></td>
+          <td>efecto secundario</td>
+          <td data-en="Are there any side effects?" data-es="(¿Tiene efectos secundarios?)" data-fr="(Y a-t-il des effets secondaires ?)">Are there any side effects?</td>
+        </tr>
+        <tr>
+          <td><strong>copay</strong></td>
+          <td>copago</td>
+          <td data-en="What is the copay today?" data-es="(¿Cuánto es el copago hoy?)" data-fr="(Quel est le ticket modérateur aujourd'hui ?)">What is the copay today?</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background:var(--research); border-left:4px solid var(--gold); padding:18px 22px; margin:24px 0; border-radius:0 6px 6px 0;">
+      <p style="margin:0 0 8px; font-family:Georgia, serif; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--coral);"
+         data-en="The mini check-in script" data-es="El mini guion de registro" data-fr="Le mini script d'accueil">The mini check-in script</p>
+      <p style="margin:0; font-size:15px; line-height:1.7; color:var(--charcoal);"
+         data-en="The first thirty seconds at the front desk are always the same. Memorize this and you'll never freeze: &quot;Hello. I have an appointment at [time] with Doctor [name]. My name is [your name]. Here is my insurance card. I do not understand fast English — can you speak slowly, please?&quot;"
+         data-es="Los primeros treinta segundos en la recepción son siempre iguales. Memoriza esto y no te bloquearás nunca: 'Hello. I have an appointment at [hora] with Doctor [nombre]. My name is [tu nombre]. Here is my insurance card. I do not understand fast English — can you speak slowly, please?'"
+         data-fr="Les trente premières secondes à l'accueil sont toujours les mêmes. Mémorisez ceci et vous ne resterez jamais bloqué : « Hello. I have an appointment at [heure] with Doctor [nom]. My name is [votre nom]. Here is my insurance card. I do not understand fast English — can you speak slowly, please? »">The first thirty seconds at the front desk are always the same. Memorize this and you'll never freeze: "Hello. I have an appointment at [time] with Doctor [name]. My name is [your name]. Here is my insurance card. I do not understand fast English — can you speak slowly, please?"</p>
     </div>
 
     <h3 data-en="Your first 30-second recording"
