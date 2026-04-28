@@ -94,6 +94,26 @@
   h3 { font-family: Georgia, serif; font-size: 26px; color: var(--navy); margin: 32px 0 12px; }
   .lead { font-size: 20px; color: var(--slate); font-style: italic; max-width: 760px; margin-bottom: 32px; }
 
+  /* DOWNLOADS */
+  .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px; }
+  .download-card {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+    border-left: 5px solid var(--navy);
+    padding: 18px 22px; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+    text-decoration: none; color: var(--charcoal); display: block;
+  }
+  .download-card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(15,76,92,0.10); border-left-color: var(--coral); }
+  .download-card .badge {
+    display: inline-block; font-family: Georgia, serif; font-size: 11px;
+    font-weight: 700; color: var(--coral); letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .download-card h4 { font-family: Georgia, serif; color: var(--navy); font-size: 18px; margin-bottom: 6px; line-height: 1.3; }
+  .download-card p { color: var(--slate); font-size: 14px; margin-bottom: 10px; line-height: 1.45; }
+  .download-card .meta { color: var(--muted); font-size: 12px; }
+  .download-card .meta::before { content: "↓ "; color: var(--coral); font-weight: 700; }
+  .download-section h3 { font-family: Georgia, serif; color: var(--navy); font-size: 22px; margin: 32px 0 8px; padding-left: 14px; border-left: 4px solid var(--gold); }
+
   /* AUDIO — sectioned layout */
   .lang-hint {
     background: var(--gold); color: var(--navy);
@@ -332,6 +352,7 @@
     <a href="#module-2" data-en="Module 2" data-es="Módulo 2" data-fr="Module 2">Module 2</a>
     <a href="#module-3" data-en="Module 3" data-es="Módulo 3" data-fr="Module 3">Module 3</a>
     <a href="#listen" data-en="Listen" data-es="Escuchar" data-fr="Écouter">Listen</a>
+    <a href="#downloads" data-en="Downloads" data-es="Descargas" data-fr="Téléchargements">Downloads</a>
     <a href="#resources" data-en="Resources" data-es="Recursos" data-fr="Ressources">Resources</a>
     <a href="#plan" data-en="90-Day Plan" data-es="Plan de 90 días" data-fr="Plan 90 jours">90-Day Plan</a>
     <div class="lang-toggle" role="tablist" aria-label="Language">
@@ -695,6 +716,158 @@
          data-en="Audio is being recorded — check back soon."
          data-es="Estamos grabando los audios — vuelve pronto."
          data-fr="Les audios sont en cours d'enregistrement — revenez bientôt.">Audio is being recorded — check back soon.</div>
+  </div>
+</section>
+
+<section id="downloads">
+  <div class="container download-section">
+    <p class="eyebrow"
+       data-en="Downloads — take it offline"
+       data-es="Descargas — llévatelo offline"
+       data-fr="Téléchargements — emportez-le hors ligne">Downloads — take it offline</p>
+    <h2 data-en="Print, save, share — every document is bilingual."
+        data-es="Imprime, guarda, comparte — cada documento es bilingüe."
+        data-fr="Imprimez, sauvegardez, partagez — chaque document est bilingue.">Print, save, share — every document is bilingual.</h2>
+    <p class="lead"
+       data-en="Click any card to download. Word format, opens in Pages or Microsoft Word. Every document has English with Spanish translations underneath each explanation, and is signed: Material by Jonathan Michael Miljus."
+       data-es="Haz clic en cualquier tarjeta para descargar. Formato Word, abre en Pages o Microsoft Word. Cada documento tiene inglés con traducciones al español debajo de cada explicación, y va firmado: Material by Jonathan Michael Miljus."
+       data-fr="Cliquez sur une carte pour télécharger. Format Word, s'ouvre dans Pages ou Microsoft Word. Chaque document a l'anglais avec des traductions espagnoles, signé : Material by Jonathan Michael Miljus.">Click any card to download. Word format, opens in Pages or Microsoft Word. Every document has English with Spanish translations underneath each explanation, and is signed: Material by Jonathan Michael Miljus.</p>
+
+    <h3 data-en="The complete method (start here)"
+        data-es="El método completo (empieza aquí)"
+        data-fr="La méthode complète (commencez ici)">The complete method (start here)</h3>
+    <div class="download-grid">
+      <a href="docs/The_Method_Science_Backed_DIY_Guide.docx" class="download-card" download>
+        <span class="badge"
+              data-en="Field Guide · 30+ pages"
+              data-es="Guía completa · 30+ páginas"
+              data-fr="Guide complet · 30+ pages">Field Guide · 30+ pages</span>
+        <h4 data-en="The Method — Science-Backed DIY Guide"
+            data-es="El Método — Guía DIY respaldada por la ciencia"
+            data-fr="La Méthode — Guide DIY fondé sur la science">The Method — Science-Backed DIY Guide</h4>
+        <p data-en="10 chapters covering goals, phonology, smart encoding, Anki, chunking, comprehensible input, output, AI tools, and quarterly review. Real peer-reviewed citations only."
+           data-es="10 capítulos sobre metas, fonología, codificación inteligente, Anki, chunking, input comprensible, producción, herramientas de IA, y revisión trimestral. Solo citas reales."
+           data-fr="10 chapitres : objectifs, phonologie, encodage intelligent, Anki, chunking, input compréhensible, production, IA, et bilan trimestriel.">10 chapters covering goals, phonology, smart encoding, Anki, chunking, comprehensible input, output, AI tools, and quarterly review. Real peer-reviewed citations only.</p>
+        <span class="meta"
+              data-en="Download · Word doc"
+              data-es="Descargar · documento Word"
+              data-fr="Télécharger · document Word">Download · Word doc</span>
+      </a>
+      <a href="docs/Course_Syllabus_Independent_English_Learning.docx" class="download-card" download>
+        <span class="badge"
+              data-en="Syllabus"
+              data-es="Programa"
+              data-fr="Syllabus">Syllabus</span>
+        <h4 data-en="Course Syllabus"
+            data-es="Programa del curso"
+            data-fr="Syllabus du cours">Course Syllabus</h4>
+        <p data-en="One-page syllabus with SMART objectives, schedule, grading, and accessibility supports."
+           data-es="Programa de una página con metas SMART, calendario, calificación, y apoyos de accesibilidad."
+           data-fr="Syllabus d'une page avec objectifs SMART, calendrier, notation et accessibilité.">One-page syllabus with SMART objectives, schedule, grading, and accessibility supports.</p>
+        <span class="meta"
+              data-en="Download · Word doc"
+              data-es="Descargar · Word"
+              data-fr="Télécharger · Word">Download · Word doc</span>
+      </a>
+    </div>
+
+    <h3 data-en="Module handouts (bilingual)"
+        data-es="Materiales de los módulos (bilingüe)"
+        data-fr="Manuels des modules (bilingue)">Module handouts (bilingual)</h3>
+    <div class="download-grid">
+      <a href="docs/Module1_Set_Your_Goal_and_Routine.docx" class="download-card" download>
+        <span class="badge">Module 1</span>
+        <h4 data-en="Set Your Goal &amp; Build Your Routine"
+            data-es="Define tu meta y crea tu rutina"
+            data-fr="Définir votre objectif et bâtir votre routine">Set Your Goal &amp; Build Your Routine</h4>
+        <p data-en="Find your real reason, match English to your life, pick your 15-minute slot, build your backup plan."
+           data-es="Encuentra tu razón real, adapta el inglés a tu vida, elige tu espacio de 15 min, crea tu plan B."
+           data-fr="Trouvez votre raison, adaptez l'anglais à votre vie, choisissez votre créneau de 15 min, plan de secours.">Find your real reason, match English to your life, pick your 15-minute slot, build your backup plan.</p>
+        <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
+      </a>
+      <a href="docs/Module2_Learn_and_Remember_Useful_English.docx" class="download-card" download>
+        <span class="badge">Module 2</span>
+        <h4 data-en="Learn &amp; Remember Useful English"
+            data-es="Aprende y recuerda inglés útil"
+            data-fr="Apprendre et retenir l'anglais utile">Learn &amp; Remember Useful English</h4>
+        <p data-en="Pronunciation basics, free cognates, your personal vocabulary bank, and 10 reusable sentence frames."
+           data-es="Pronunciación, cognados gratis, tu banco de vocabulario, y 10 plantillas reutilizables."
+           data-fr="Bases de prononciation, cognats gratuits, banque de vocabulaire, et 10 structures réutilisables.">Pronunciation basics, free cognates, your personal vocabulary bank, and 10 reusable sentence frames.</p>
+        <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
+      </a>
+      <a href="docs/Module3_Use_English_in_Real_Life.docx" class="download-card" download>
+        <span class="badge">Module 3</span>
+        <h4 data-en="Use English in Real Life"
+            data-es="Usa el inglés en la vida real"
+            data-fr="Utiliser l'anglais dans la vie réelle">Use English in Real Life</h4>
+        <p data-en="Comprehensible input ladder, your first 30-second self-recording, and your 90-Day Growth Plan."
+           data-es="Escalera de input comprensible, tu primera grabación de 30 segundos, y tu Plan de 90 Días."
+           data-fr="Échelle d'input compréhensible, votre premier enregistrement, et votre plan 90 jours.">Comprehensible input ladder, your first 30-second self-recording, and your 90-Day Growth Plan.</p>
+        <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
+      </a>
+    </div>
+
+    <h3 data-en="Assignment packets (full instructions + worksheets + rubrics + exemplars)"
+        data-es="Paquetes de tareas (instrucciones + hojas + rúbricas + ejemplos)"
+        data-fr="Dossiers de devoirs (instructions + feuilles + grilles + exemples)">Assignment packets (full instructions + worksheets + rubrics + exemplars)</h3>
+    <div class="download-grid">
+      <a href="docs/Assignment1_Goal_and_7Day_Plan_PACKET.docx" class="download-card" download>
+        <span class="badge">Assignment 1 · 30 pts</span>
+        <h4 data-en="English Goal &amp; 7-Day Practice Plan"
+            data-es="Meta de inglés y plan de 7 días"
+            data-fr="Objectif d'anglais et plan 7 jours">English Goal &amp; 7-Day Practice Plan</h4>
+        <p data-en="Branded cover, full rubric, María's exemplar, 4 worksheet sections, and a backup-plan worksheet."
+           data-es="Portada con marca, rúbrica completa, ejemplo de María, 4 hojas de trabajo, plan B."
+           data-fr="Couverture, grille complète, exemple de María, 4 feuilles, plan de secours.">Branded cover, full rubric, María's exemplar, 4 worksheet sections, and a backup-plan worksheet.</p>
+        <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
+      </a>
+      <a href="docs/Assignment2_Vocabulary_and_Sentence_Frames_PACKET.docx" class="download-card" download>
+        <span class="badge">Assignment 2 · 40 pts</span>
+        <h4 data-en="Vocabulary Bank + Sentence Frames"
+            data-es="Banco de vocabulario y plantillas"
+            data-fr="Banque de vocabulaire + structures">Vocabulary Bank + Sentence Frames</h4>
+        <p data-en="20-word bank with exemplar rows, 1-3-7-21 spaced-review schedule, and full sentence-frame worksheet."
+           data-es="Banco de 20 palabras con ejemplos, calendario 1-3-7-21, hoja completa de plantillas."
+           data-fr="Banque de 20 mots avec exemples, calendrier 1-3-7-21, feuille complète de structures.">20-word bank with exemplar rows, 1-3-7-21 spaced-review schedule, and full sentence-frame worksheet.</p>
+        <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
+      </a>
+      <a href="docs/Assignment3_30Sec_Recording_and_90Day_Plan_PACKET.docx" class="download-card" download>
+        <span class="badge">Assignment 3 · 30 pts</span>
+        <h4 data-en="30-Second Recording + 90-Day Growth Plan"
+            data-es="Grabación 30 seg + Plan 90 días"
+            data-fr="Enregistrement 30 sec + Plan 90 jours">30-Second Recording + 90-Day Growth Plan</h4>
+        <p data-en="Daniel and Carmen exemplars, sentence starters for the recording, and a habit-anchor table."
+           data-es="Ejemplos de Daniel y Carmen, arranques para la grabación, y una tabla de anclas de hábito."
+           data-fr="Exemples de Daniel et Carmen, amorces pour l'enregistrement, et une table d'ancres d'habitudes.">Daniel and Carmen exemplars, sentence starters for the recording, and a habit-anchor table.</p>
+        <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
+      </a>
+    </div>
+
+    <h3 data-en="Tools and methods"
+        data-es="Herramientas y métodos"
+        data-fr="Outils et méthodes">Tools and methods</h3>
+    <div class="download-grid">
+      <a href="docs/Anki_Quick_Start_Guide.docx" class="download-card" download>
+        <span class="badge">Anki · Tool guide</span>
+        <h4 data-en="Anki Quick Start"
+            data-es="Inicio Rápido con Anki"
+            data-fr="Démarrage rapide Anki">Anki Quick Start</h4>
+        <p data-en="Install → first 5 cards → settings → daily routine → CSV batch import → reading the stats."
+           data-es="Instalar → 5 tarjetas → configuración → rutina diaria → import CSV → leer estadísticas."
+           data-fr="Installer → 5 cartes → réglages → routine quotidienne → import CSV → statistiques.">Install → first 5 cards → settings → daily routine → CSV batch import → reading the stats.</p>
+        <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
+      </a>
+      <a href="docs/AI_Prompt_Library_for_Language_Learning.docx" class="download-card" download>
+        <span class="badge">AI · Prompt library</span>
+        <h4 data-en="AI Prompt Library"
+            data-es="Biblioteca de Prompts de IA"
+            data-fr="Bibliothèque de prompts IA">AI Prompt Library</h4>
+        <p data-en="10 copy-paste prompts that turn ChatGPT/Claude/Gemini into an Anki deck factory + drill generator."
+           data-es="10 prompts listos para copiar que convierten a la IA en una fábrica de tarjetas Anki y ejercicios."
+           data-fr="10 prompts à copier-coller pour transformer l'IA en générateur de decks Anki et d'exercices.">10 copy-paste prompts that turn ChatGPT/Claude/Gemini into an Anki deck factory + drill generator.</p>
+        <span class="meta" data-en="Download" data-es="Descargar" data-fr="Télécharger">Download</span>
+      </a>
+    </div>
   </div>
 </section>
 
