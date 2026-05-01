@@ -15,12 +15,15 @@ No build step. No frameworks. No tracking. Pure HTML / CSS / vanilla JavaScript.
 
 ## Files in this repo
 
-| File | Purpose |
+| Path | Purpose |
 |------|---------|
-| `index.html` | The complete site — open this in any browser. |
+| `index.html` | The complete site, open this in any browser. |
+| `assets/` | Per-language infographic PNGs used by the site. |
+| `audio/` | 30 ElevenLabs audio drills (mp3) referenced from the Listen section. |
+| `docs/` | Downloadable bilingual handouts, module lessons, syllabus, and instructor materials. |
 | `README.md` | This file. |
 
-That's it. One HTML file. One readme.
+The site is a single HTML page; the asset folders are referenced by it.
 
 ## Hosting on GitHub Pages (3 minutes)
 
