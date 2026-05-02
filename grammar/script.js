@@ -45,28 +45,30 @@
   var langButtons = document.querySelectorAll('.lang-toggle button[data-lang]');
   var currentLang = 'en';
 
-  function setLang(lang) {
-    currentLang = lang;
-    html.setAttribute('lang', lang);
-    document.querySelectorAll('[data-en]').forEach(function (el) {
+  function applyLangToTree(root, lang) {
+    if (!root) return;
+    root.querySelectorAll('[data-en]').forEach(function (el) {
       var v = el.getAttribute('data-' + lang);
       if (v) el.innerHTML = v;
     });
-    document.querySelectorAll('[data-en-placeholder]').forEach(function (el) {
+    root.querySelectorAll('[data-en-placeholder]').forEach(function (el) {
       var v = el.getAttribute('data-' + lang + '-placeholder');
       if (v) el.setAttribute('placeholder', v);
     });
+  }
+
+  function setLang(lang) {
+    currentLang = lang;
+    html.setAttribute('lang', lang);
+    applyLangToTree(document, lang);
     langButtons.forEach(function (b) {
       b.classList.toggle('active', b.getAttribute('data-lang') === lang);
     });
-    // Refresh chapter counter and chapter-header number if a chapter is open
-    if (currentNum != null && readerCounter) {
-      readerCounter.textContent = (lang === 'es' ? 'Capítulo ' : (lang === 'fr' ? 'Chapitre ' : 'Chapter '))
-        + currentNum + (lang === 'es' ? ' de ' : (lang === 'fr' ? ' sur ' : ' of '))
-        + DATA.length;
-      if (typeof translateChapterHeader === 'function' && readerContent) {
-        translateChapterHeader(readerContent, lang);
-      }
+    // Re-render the open chapter with the language-appropriate HTML, then
+    // refresh counter and header number.
+    if (currentNum != null && readerCounter && typeof showChapter === 'function') {
+      var savedNum = currentNum;
+      showChapter(savedNum, false);
     }
     try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
   }
@@ -106,7 +108,7 @@
         + '</span>'
         + '</article>';
     }).join('');
-    setLang(currentLang);
+    applyLangToTree(grid, currentLang);
   }
   renderGrid();
 
@@ -211,7 +213,11 @@
     var ch = DATA.find(function (c) { return c.num === num; });
     if (!ch) return;
     currentNum = num;
-    readerContent.innerHTML = ch.html;
+    // Pick the language-specific HTML if available; otherwise fall back to English.
+    var html = ch.html;
+    if (currentLang === 'es' && ch.html_es) html = ch.html_es;
+    else if (currentLang === 'fr' && ch.html_fr) html = ch.html_fr;
+    readerContent.innerHTML = html;
     tagTranslatableLabels(readerContent);
     translateChapterHeader(readerContent, currentLang);
     var counterText = (currentLang === 'es' ? 'Capítulo ' : (currentLang === 'fr' ? 'Chapitre ' : 'Chapter '))
@@ -224,7 +230,7 @@
     [nextBtn, nextBtn2].forEach(function (b) { if (b) b.disabled = last; });
     reader.hidden = false;
     if (readerEmpty) readerEmpty.style.display = 'none';
-    setLang(currentLang);
+    applyLangToTree(readerContent, currentLang);
     if (scroll !== false) {
       window.scrollTo({ top: reader.offsetTop - 80, behavior: 'smooth' });
     }
