@@ -694,6 +694,51 @@
  .audio-card.dialogue { border-left-color: var(--gold); }
  .audio-card.dialogue .badge { color: #A57014; }
 
+ /* Module-inline audio block (intro + podcasts beside each module) */
+ .module-audio {
+   background: var(--soft); border-radius: 8px; padding: 20px 22px;
+   margin: 24px 0 32px; border-left: 5px solid var(--navy);
+ }
+ .module-audio .label {
+   display: block; font-family: Georgia, serif; font-size: 11px; font-weight: 700;
+   color: var(--coral); letter-spacing: 0.16em; text-transform: uppercase;
+   margin-bottom: 12px;
+ }
+ .module-audio-grid {
+   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 14px;
+ }
+ .module-audio-item {
+   background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+   padding: 14px 18px 12px; border-left: 4px solid var(--navy);
+ }
+ .module-audio-item.es { border-left-color: #B65C2A; }
+ .module-audio-item.en { border-left-color: var(--navy); }
+ .module-audio-item.intro { border-left-color: var(--gold); }
+ .module-audio-item h5 {
+   font-family: Georgia, serif; color: var(--navy); font-size: 15px;
+   margin: 0 0 4px; line-height: 1.3;
+ }
+ .module-audio-item .lang {
+   font-family: Georgia, serif; font-size: 10px; font-weight: 700;
+   letter-spacing: 0.16em; text-transform: uppercase; color: var(--coral);
+   margin-bottom: 4px; display: block;
+ }
+ .module-audio-item.es .lang { color: #B65C2A; }
+ .module-audio-item.intro .lang { color: #A57014; }
+ .module-audio-item p {
+   color: var(--slate); font-size: 13px; margin: 0 0 8px; line-height: 1.4;
+ }
+ .module-audio-item audio {
+   width: 100%; height: 36px; border-radius: 4px;
+ }
+ .module-audio-item.missing {
+   background: #FAF6E8; border-left-color: var(--muted); border-style: dashed;
+ }
+ .module-audio-item.missing .placeholder {
+   font-size: 12px; color: var(--muted); font-style: italic; padding: 6px 0;
+ }
+
  .audio-empty {
  text-align: center; color: var(--muted); font-style: italic;
  font-size: 15px; padding: 32px 0;
@@ -962,6 +1007,48 @@
  <span class="checkin-done" id="checkin-done" hidden>✓ <span id="checkin-msg"></span></span>
  </div>
  </div>
+ </div>
+</section>
+
+<section class="alt" id="course-overview-audio">
+ <div class="container">
+   <p class="eyebrow"
+      data-en="Start by listening · 8 minutes" data-es="Empieza escuchando · 8 minutos"
+      data-fr="Commencez en écoutant · 8 minutes">Start by listening · 8 minutes</p>
+   <h2 data-en="The whole course in one podcast"
+       data-es="Todo el curso en un podcast"
+       data-fr="Le cours entier en un podcast">The whole course in one podcast</h2>
+   <p class="lead"
+      data-en="Before you scroll the rest of the page, press play. This 8-minute episode gives you the full method, the science, and the action you can take today, in either English or Spanish. Pick the language that's easier for you right now."
+      data-es="Antes de desplazarte por el resto de la página, presiona play. Este episodio de 8 minutos te da el método completo, la ciencia, y la acción que puedes hacer hoy, en inglés o en español. Elige el idioma que te resulte más fácil ahora mismo."
+      data-fr="Avant de faire défiler le reste de la page, appuyez sur lecture. Cet épisode de 8 minutes donne la méthode complète, la science, et l'action que vous pouvez faire aujourd'hui, en anglais ou en espagnol.">Before you scroll the rest of the page, press play. This 8-minute episode gives you the full method, the science, and the action you can take today, in either English or Spanish. Pick the language that's easier for you right now.</p>
+   <div class="module-audio">
+     <span class="label" data-en="🎧 Listen, course overview"
+           data-es="🎧 Escucha, vista general del curso"
+           data-fr="🎧 Écoutez, vue d'ensemble du cours">🎧 Listen, course overview</span>
+     <div class="module-audio-grid">
+       <div class="module-audio-item en" data-audio-file="audio/the_method_overview_en.mp3">
+         <span class="lang" data-en="English · 8 minutes" data-es="Inglés · 8 minutos" data-fr="Anglais · 8 minutes">English · 8 minutes</span>
+         <h5 data-en="The Method, course overview (English)"
+             data-es="The Method, vista general (inglés)"
+             data-fr="The Method, aperçu du cours (anglais)">The Method, course overview (English)</h5>
+         <p data-en="Slow, clear English. The full method in 8 minutes."
+            data-es="Inglés lento y claro. El método completo en 8 minutos."
+            data-fr="Anglais lent et clair. La méthode complète en 8 minutes.">Slow, clear English. The full method in 8 minutes.</p>
+         <audio controls preload="none"><source src="audio/the_method_overview_en.mp3" type="audio/mpeg"></audio>
+       </div>
+       <div class="module-audio-item es" data-audio-file="audio/the_method_overview_es.mp3">
+         <span class="lang" data-en="Spanish · 8 minutes" data-es="Español · 8 minutos" data-fr="Espagnol · 8 minutes">Spanish · 8 minutes</span>
+         <h5 data-en="El Método, vista general (Spanish)"
+             data-es="El Método, vista general (español)"
+             data-fr="El Método, aperçu du cours (espagnol)">El Método, vista general (Spanish)</h5>
+         <p data-en="Same content, fully in Spanish. The fastest path in."
+            data-es="El mismo contenido, completamente en español. El camino más rápido."
+            data-fr="Le même contenu, entièrement en espagnol. Le chemin le plus rapide.">Same content, fully in Spanish. The fastest path in.</p>
+         <audio controls preload="none"><source src="audio/the_method_overview_es.mp3" type="audio/mpeg"></audio>
+       </div>
+     </div>
+   </div>
  </div>
 </section>
 
@@ -2164,6 +2251,30 @@ work, and daily conversation.</pre>
  data-es="La base. Primero planeas, después practicas. La mayoría se salta la planeación, y por eso la mayoría abandona en la tercera semana."
  data-fr="Le fondement. D'abord planifier, ensuite pratiquer. La plupart des apprenants sautent la planification, et c'est pourquoi la plupart abandonnent à la troisième semaine.">The foundation. Plan first, practice second. Most learners skip the planning, and that's why most learners quit by week three.</p>
 
+ <div class="module-audio">
+   <span class="label" data-en="🎧 Listen to Module 1" data-es="🎧 Escucha el Módulo 1" data-fr="🎧 Écoutez le Module 1">🎧 Listen to Module 1</span>
+   <div class="module-audio-grid">
+     <div class="module-audio-item intro" data-audio-file="audio/module1_intro.mp3">
+       <span class="lang" data-en="English · Intro · 90 sec" data-es="Inglés · Intro · 90 seg" data-fr="Anglais · Intro · 90 s">English · Intro · 90 sec</span>
+       <h5 data-en="Module 1 quick intro" data-es="Intro rápida del Módulo 1" data-fr="Intro rapide du Module 1">Module 1 quick intro</h5>
+       <p data-en="Short native-speaker intro to the module's three steps." data-es="Intro corta con voz nativa de los tres pasos." data-fr="Courte intro native sur les trois étapes.">Short native-speaker intro to the module's three steps.</p>
+       <audio controls preload="none"><source src="audio/module1_intro.mp3" type="audio/mpeg"></audio>
+     </div>
+     <div class="module-audio-item en" data-audio-file="audio/module1_podcast_en.mp3">
+       <span class="lang" data-en="English · Full episode · 7 min" data-es="Inglés · Episodio completo · 7 min" data-fr="Anglais · Épisode complet · 7 min">English · Full episode · 7 min</span>
+       <h5 data-en="Module 1 podcast (English)" data-es="Podcast del Módulo 1 (inglés)" data-fr="Podcast du Module 1 (anglais)">Module 1 podcast (English)</h5>
+       <p data-en="Goals, the 15-minute slot, the bad-day plan, in slow clear English." data-es="Metas, los 15 minutos, plan B, en inglés lento y claro." data-fr="Objectifs, les 15 minutes, plan B, en anglais clair et lent.">Goals, the 15-minute slot, the bad-day plan, in slow clear English.</p>
+       <audio controls preload="none"><source src="audio/module1_podcast_en.mp3" type="audio/mpeg"></audio>
+     </div>
+     <div class="module-audio-item es" data-audio-file="audio/module1_podcast_es.mp3">
+       <span class="lang" data-en="Spanish · Full episode · 7 min" data-es="Español · Episodio completo · 7 min" data-fr="Espagnol · Épisode complet · 7 min">Spanish · Full episode · 7 min</span>
+       <h5 data-en="Módulo 1 podcast (Spanish)" data-es="Podcast del Módulo 1 (español)" data-fr="Podcast du Module 1 (espagnol)">Módulo 1 podcast (Spanish)</h5>
+       <p data-en="Same content, fully in Spanish for listeners who prefer it." data-es="El mismo contenido, completamente en español." data-fr="Le même contenu, entièrement en espagnol.">Same content, fully in Spanish for listeners who prefer it.</p>
+       <audio controls preload="none"><source src="audio/module1_podcast_es.mp3" type="audio/mpeg"></audio>
+     </div>
+   </div>
+ </div>
+
  <div class="callout">
  <p class="label" data-en="Research behind this" data-es="Investigación detrás" data-fr="La recherche derrière">Research behind this</p>
  <h4 data-en="Self-regulation predicts learning success more than IQ."
@@ -2297,6 +2408,30 @@ work, and daily conversation.</pre>
  data-en="Three pronunciation sounds, free cognates, your personal vocabulary bank, and 10 sentence frames you reuse for the rest of your life."
  data-es="Tres sonidos de pronunciación, cognados gratis, tu banco personal de vocabulario, y 10 plantillas de oraciones que reutilizas el resto de tu vida."
  data-fr="Trois sons de prononciation, des cognats gratuits, votre banque personnelle de vocabulaire, et 10 structures de phrases que vous réutiliserez toute votre vie.">Three pronunciation sounds, free cognates, your personal vocabulary bank, and 10 sentence frames you reuse for the rest of your life.</p>
+
+ <div class="module-audio">
+   <span class="label" data-en="🎧 Listen to Module 2" data-es="🎧 Escucha el Módulo 2" data-fr="🎧 Écoutez le Module 2">🎧 Listen to Module 2</span>
+   <div class="module-audio-grid">
+     <div class="module-audio-item intro" data-audio-file="audio/module2_intro.mp3">
+       <span class="lang" data-en="English · Intro · 90 sec" data-es="Inglés · Intro · 90 seg" data-fr="Anglais · Intro · 90 s">English · Intro · 90 sec</span>
+       <h5 data-en="Module 2 quick intro" data-es="Intro rápida del Módulo 2" data-fr="Intro rapide du Module 2">Module 2 quick intro</h5>
+       <p data-en="Native-speaker intro to vocabulary, frames, and the 4-image method." data-es="Intro nativa al vocabulario, plantillas, y método de las 4 imágenes." data-fr="Intro native au vocabulaire, structures, méthode des 4 images.">Native-speaker intro to vocabulary, frames, and the 4-image method.</p>
+       <audio controls preload="none"><source src="audio/module2_intro.mp3" type="audio/mpeg"></audio>
+     </div>
+     <div class="module-audio-item en" data-audio-file="audio/module2_podcast_en.mp3">
+       <span class="lang" data-en="English · Full episode · 7 min" data-es="Inglés · Episodio completo · 7 min" data-fr="Anglais · Épisode complet · 7 min">English · Full episode · 7 min</span>
+       <h5 data-en="Module 2 podcast (English)" data-es="Podcast del Módulo 2 (inglés)" data-fr="Podcast du Module 2 (anglais)">Module 2 podcast (English)</h5>
+       <p data-en="Vocabulary that sticks: dual coding, Anki, the 10 sentence frames." data-es="Vocabulario que se queda: codificación dual, Anki, las 10 plantillas." data-fr="Vocabulaire qui reste : double codage, Anki, les 10 structures.">Vocabulary that sticks: dual coding, Anki, the 10 sentence frames.</p>
+       <audio controls preload="none"><source src="audio/module2_podcast_en.mp3" type="audio/mpeg"></audio>
+     </div>
+     <div class="module-audio-item es" data-audio-file="audio/module2_podcast_es.mp3">
+       <span class="lang" data-en="Spanish · Full episode · 7 min" data-es="Español · Episodio completo · 7 min" data-fr="Espagnol · Épisode complet · 7 min">Spanish · Full episode · 7 min</span>
+       <h5 data-en="Módulo 2 podcast (Spanish)" data-es="Podcast del Módulo 2 (español)" data-fr="Podcast du Module 2 (espagnol)">Módulo 2 podcast (Spanish)</h5>
+       <p data-en="Same content, fully in Spanish for listeners who prefer it." data-es="El mismo contenido, completamente en español." data-fr="Le même contenu, entièrement en espagnol.">Same content, fully in Spanish for listeners who prefer it.</p>
+       <audio controls preload="none"><source src="audio/module2_podcast_es.mp3" type="audio/mpeg"></audio>
+     </div>
+   </div>
+ </div>
 
  <h3 data-en="Pronunciation, the 3 sounds Spanish speakers miss"
  data-es="Pronunciación, los 3 sonidos que los hispanohablantes pierden"
@@ -2502,6 +2637,30 @@ work, and daily conversation.</pre>
  data-en="Stop preparing. Start using. Real listening, real speaking, real plan. Three weeks in, this is where everything you've built starts paying off."
  data-es="Deja de prepararte. Empieza a usarlo. Escucha real, habla real, plan real. Tres semanas adentro, aquí es donde todo lo que has construido empieza a rendir."
  data-fr="Arrêtez de préparer. Commencez à utiliser. Écoute réelle, parole réelle, plan réel. Trois semaines plus tard, c'est ici que tout ce que vous avez bâti commence à payer.">Stop preparing. Start using. Real listening, real speaking, real plan. Three weeks in, this is where everything you've built starts paying off.</p>
+
+ <div class="module-audio">
+   <span class="label" data-en="🎧 Listen to Module 3" data-es="🎧 Escucha el Módulo 3" data-fr="🎧 Écoutez le Module 3">🎧 Listen to Module 3</span>
+   <div class="module-audio-grid">
+     <div class="module-audio-item intro" data-audio-file="audio/module3_intro.mp3">
+       <span class="lang" data-en="English · Intro · 90 sec" data-es="Inglés · Intro · 90 seg" data-fr="Anglais · Intro · 90 s">English · Intro · 90 sec</span>
+       <h5 data-en="Module 3 quick intro" data-es="Intro rápida del Módulo 3" data-fr="Intro rapide du Module 3">Module 3 quick intro</h5>
+       <p data-en="Native-speaker intro to output theory, the 30-second recording, and the doctor's vocabulary." data-es="Intro nativa: teoría del output, la grabación de 30 segundos, vocabulario del consultorio." data-fr="Intro native : théorie de l'output, l'enregistrement de 30 secondes.">Native-speaker intro to output theory, the 30-second recording, and the doctor's vocabulary.</p>
+       <audio controls preload="none"><source src="audio/module3_intro.mp3" type="audio/mpeg"></audio>
+     </div>
+     <div class="module-audio-item en" data-audio-file="audio/module3_podcast_en.mp3">
+       <span class="lang" data-en="English · Full episode · 8 min" data-es="Inglés · Episodio completo · 8 min" data-fr="Anglais · Épisode complet · 8 min">English · Full episode · 8 min</span>
+       <h5 data-en="Module 3 podcast (English)" data-es="Podcast del Módulo 3 (inglés)" data-fr="Podcast du Module 3 (anglais)">Module 3 podcast (English)</h5>
+       <p data-en="Comprehensible input, output, the doctor's office, and the 90-day plan." data-es="Input comprensible, output, vocabulario del consultorio, y el plan de 90 días." data-fr="Input compréhensible, output, vocabulaire médical, et le plan de 90 jours.">Comprehensible input, output, the doctor's office, and the 90-day plan.</p>
+       <audio controls preload="none"><source src="audio/module3_podcast_en.mp3" type="audio/mpeg"></audio>
+     </div>
+     <div class="module-audio-item es" data-audio-file="audio/module3_podcast_es.mp3">
+       <span class="lang" data-en="Spanish · Full episode · 8 min" data-es="Español · Episodio completo · 8 min" data-fr="Espagnol · Épisode complet · 8 min">Spanish · Full episode · 8 min</span>
+       <h5 data-en="Módulo 3 podcast (Spanish)" data-es="Podcast del Módulo 3 (español)" data-fr="Podcast du Module 3 (espagnol)">Módulo 3 podcast (Spanish)</h5>
+       <p data-en="Same content, fully in Spanish for listeners who prefer it." data-es="El mismo contenido, completamente en español." data-fr="Le même contenu, entièrement en espagnol.">Same content, fully in Spanish for listeners who prefer it.</p>
+       <audio controls preload="none"><source src="audio/module3_podcast_es.mp3" type="audio/mpeg"></audio>
+     </div>
+   </div>
+ </div>
 
  <div class="callout">
  <p class="label" data-en="Research behind this" data-es="Investigación detrás" data-fr="La recherche derrière">Research behind this</p>
@@ -3995,6 +4154,27 @@ work, and daily conversation.</pre>
  if (nav === 'es' || nav === 'fr') setLang(nav);
  }
  })();
+
+// HEAD-check the inline module-audio-items. Hide any that point at a missing
+// audio file so we never show a broken player.
+(function () {
+  var items = document.querySelectorAll('.module-audio-item[data-audio-file]');
+  items.forEach(function (item) {
+    var url = item.getAttribute('data-audio-file');
+    if (!url) return;
+    item.style.display = 'none'; // hidden until proven present
+    fetch(url, { method: 'HEAD' })
+      .then(function (r) { if (r.ok) item.style.display = ''; })
+      .catch(function () { /* missing, leave hidden */ });
+  });
+  // After ~2 seconds, hide any .module-audio block that has zero visible items
+  setTimeout(function () {
+    document.querySelectorAll('.module-audio').forEach(function (block) {
+      var visible = block.querySelectorAll('.module-audio-item:not([style*="display: none"])');
+      if (visible.length === 0) block.style.display = 'none';
+    });
+  }, 2500);
+})();
 </script>
 
 </body>
