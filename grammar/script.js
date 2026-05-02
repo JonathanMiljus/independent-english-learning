@@ -1,213 +1,202 @@
+// English Grammar for Spanish Speakers, interactive web book script
 (function () {
-  const root = document.documentElement;
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  'use strict';
 
-  const themeStorageKey = "grammar-theme-v2";
-  const storedTheme = localStorage.getItem(themeStorageKey);
-  if (storedTheme === "dark" || storedTheme === "light") {
-    root.dataset.theme = storedTheme;
+  // ---------- Data: load chapters.json then init ----------
+  var DATA = [];
+  var __initRan = false;
+  function __init() {
+    if (__initRan) return;
+    __initRan = true;
+    initApp();
+  }
+  fetch('chapters.json', { cache: 'no-cache' })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { DATA = d; __init(); })
+    .catch(function (err) {
+      console.error('Failed to load chapters.json', err);
+      var grid = document.getElementById('lesson-grid');
+      if (grid) grid.innerHTML = '<p style="padding:24px;color:#C75146;font-style:italic;">Could not load the chapter library. Please refresh the page.</p>';
+    });
+
+  function initApp() {
+
+  // ---------- Theme ----------
+  var THEME_KEY = 'gram-theme';
+  var html = document.documentElement;
+  var themeToggle = document.getElementById('theme-toggle');
+  var themeLabel = document.getElementById('theme-label');
+
+  function applyTheme(theme) {
+    if (theme === 'dark') html.setAttribute('data-theme', 'dark');
+    else html.removeAttribute('data-theme');
+    if (themeLabel) themeLabel.textContent = (theme === 'dark') ? 'Light' : 'Dark';
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  }
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem(THEME_KEY); } catch (e) {}
+  if (savedTheme === 'dark' || savedTheme === 'light') applyTheme(savedTheme);
+  if (themeToggle) themeToggle.addEventListener('click', function () {
+    applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // ---------- Language ----------
+  var LANG_KEY = 'gram-lang';
+  var langButtons = document.querySelectorAll('.lang-toggle button[data-lang]');
+  var currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    html.setAttribute('lang', lang);
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      var v = el.getAttribute('data-' + lang);
+      if (v) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-en-placeholder]').forEach(function (el) {
+      var v = el.getAttribute('data-' + lang + '-placeholder');
+      if (v) el.setAttribute('placeholder', v);
+    });
+    langButtons.forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  }
+  langButtons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+  });
+  var savedLang = null;
+  try { savedLang = localStorage.getItem(LANG_KEY); } catch (e) {}
+  if (savedLang === 'es' || savedLang === 'fr') setLang(savedLang);
+  else {
+    var nav = (navigator.language || 'en').slice(0, 2);
+    if (nav === 'es' || nav === 'fr') setLang(nav);
   }
 
-  const themeToggle = document.querySelector("[data-theme-toggle]");
-  const themeLabel = document.querySelector("[data-theme-label]");
+  // ---------- Categories chips ----------
+  var categories = ['All'];
+  DATA.forEach(function (ch) {
+    if (categories.indexOf(ch.category) < 0) categories.push(ch.category);
+  });
+  var chipRow = document.getElementById('chip-row');
+  if (chipRow) {
+    chipRow.innerHTML = categories.map(function (cat, i) {
+      return '<button type="button" class="chip' + (i === 0 ? ' is-active' : '') + '" data-category="' + cat + '">' + cat + '</button>';
+    }).join('');
+  }
 
-  function updateThemeButton() {
-    const isDark = root.dataset.theme === "dark";
-    if (themeLabel) {
-      themeLabel.textContent = isDark ? "Light" : "Dark";
+  // ---------- Lesson grid ----------
+  var grid = document.getElementById('lesson-grid');
+  function renderGrid() {
+    grid.innerHTML = DATA.map(function (ch) {
+      return '<article class="lesson-card" data-num="' + ch.num + '" data-category="' + ch.category + '" data-keywords="' + ch.keywords + '" data-title="' + ch.title.replace(/"/g, '&quot;') + '">'
+        + '<span class="lesson-index">CH ' + String(ch.num).padStart(2, '0') + '</span>'
+        + '<span class="lesson-cat">' + ch.category + '</span>'
+        + '<h3>' + ch.title + '</h3>'
+        + '<span class="lesson-cta">'
+          + '<span data-en="Read chapter →" data-es="Leer capítulo →" data-fr="Lire le chapitre →">Read chapter →</span>'
+        + '</span>'
+        + '</article>';
+    }).join('');
+    setLang(currentLang);
+  }
+  renderGrid();
+
+  // ---------- Filtering ----------
+  var searchInput = document.getElementById('lesson-search');
+  var emptyState = document.getElementById('empty-state');
+  var activeCategory = 'All';
+
+  function applyFilters() {
+    var q = (searchInput.value || '').trim().toLowerCase();
+    var cards = grid.querySelectorAll('.lesson-card');
+    var visible = 0;
+    cards.forEach(function (card) {
+      var matchesCat = (activeCategory === 'All') || (card.getAttribute('data-category') === activeCategory);
+      var keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+      var title = (card.getAttribute('data-title') || '').toLowerCase();
+      var matchesQ = !q || keywords.indexOf(q) >= 0 || title.indexOf(q) >= 0;
+      var show = matchesCat && matchesQ;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (emptyState) emptyState.hidden = visible > 0;
+  }
+
+  if (searchInput) searchInput.addEventListener('input', applyFilters);
+  if (chipRow) chipRow.addEventListener('click', function (e) {
+    var btn = e.target.closest('button.chip');
+    if (!btn) return;
+    chipRow.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('is-active'); });
+    btn.classList.add('is-active');
+    activeCategory = btn.getAttribute('data-category');
+    applyFilters();
+  });
+
+  // ---------- Reader ----------
+  var reader = document.getElementById('reader');
+  var readerEmpty = document.getElementById('reader-empty');
+  var readerContent = document.getElementById('reader-content');
+  var readerCounter = document.getElementById('reader-counter');
+  var prevBtn = document.getElementById('prev-btn');
+  var nextBtn = document.getElementById('next-btn');
+  var prevBtn2 = document.getElementById('prev-btn-2');
+  var nextBtn2 = document.getElementById('next-btn-2');
+  var closeBtn = document.getElementById('close-btn');
+  var currentNum = null;
+
+  function showChapter(num, scroll) {
+    var ch = DATA.find(function (c) { return c.num === num; });
+    if (!ch) return;
+    currentNum = num;
+    readerContent.innerHTML = ch.html;
+    var counterText = (currentLang === 'es' ? 'Capítulo ' : (currentLang === 'fr' ? 'Chapitre ' : 'Chapter '))
+                    + num + (currentLang === 'es' ? ' de ' : (currentLang === 'fr' ? ' sur ' : ' of '))
+                    + DATA.length;
+    readerCounter.textContent = counterText;
+    var first = (num === DATA[0].num);
+    var last = (num === DATA[DATA.length - 1].num);
+    [prevBtn, prevBtn2].forEach(function (b) { if (b) b.disabled = first; });
+    [nextBtn, nextBtn2].forEach(function (b) { if (b) b.disabled = last; });
+    reader.hidden = false;
+    if (readerEmpty) readerEmpty.style.display = 'none';
+    setLang(currentLang);
+    if (scroll !== false) {
+      window.scrollTo({ top: reader.offsetTop - 80, behavior: 'smooth' });
     }
-    if (themeToggle) {
-      themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+  }
+
+  function closeReader() {
+    reader.hidden = true;
+    if (readerEmpty) readerEmpty.style.display = '';
+    currentNum = null;
+  }
+
+  function nextChapter() {
+    if (currentNum && currentNum < DATA[DATA.length - 1].num) showChapter(currentNum + 1);
+  }
+  function prevChapter() {
+    if (currentNum && currentNum > DATA[0].num) showChapter(currentNum - 1);
+  }
+
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('.lesson-card');
+    if (card && card.dataset.num) {
+      showChapter(parseInt(card.dataset.num, 10));
     }
-  }
+  });
+  if (prevBtn) prevBtn.addEventListener('click', prevChapter);
+  if (prevBtn2) prevBtn2.addEventListener('click', prevChapter);
+  if (nextBtn) nextBtn.addEventListener('click', nextChapter);
+  if (nextBtn2) nextBtn2.addEventListener('click', nextChapter);
+  if (closeBtn) closeBtn.addEventListener('click', closeReader);
 
-  if (themeToggle) {
-    updateThemeButton();
-    themeToggle.addEventListener("click", () => {
-      const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
-      root.dataset.theme = nextTheme;
-      localStorage.setItem(themeStorageKey, nextTheme);
-      updateThemeButton();
-    });
-  }
-
-  const mobileToggle = document.querySelector(".mobile-toggle");
-  const navMenu = document.querySelector("#primary-nav");
-
-  function closeMobileMenu() {
-    if (!mobileToggle || !navMenu) return;
-    mobileToggle.setAttribute("aria-expanded", "false");
-    navMenu.classList.remove("is-open");
-  }
-
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener("click", () => {
-      const isOpen = mobileToggle.getAttribute("aria-expanded") === "true";
-      mobileToggle.setAttribute("aria-expanded", String(!isOpen));
-      navMenu.classList.toggle("is-open", !isOpen);
-    });
-
-    document.addEventListener("click", (event) => {
-      const target = event.target;
-      if (!(target instanceof Element)) return;
-      if (!target.closest(".nav-shell")) {
-        closeMobileMenu();
-      }
-    });
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const targetId = link.getAttribute("href");
-      if (!targetId || targetId === "#") return;
-
-      const target = document.querySelector(targetId);
-      if (!target) return;
-
-      event.preventDefault();
-      target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
-      closeMobileMenu();
-      history.pushState(null, "", targetId);
-    });
+  // Keyboard nav inside reader
+  document.addEventListener('keydown', function (e) {
+    if (reader.hidden || !currentNum) return;
+    if (e.key === 'ArrowLeft') prevChapter();
+    if (e.key === 'ArrowRight') nextChapter();
+    if (e.key === 'Escape') closeReader();
   });
 
-  const sectionLinks = Array.from(document.querySelectorAll(".nav-menu a[href^='#']"));
-  const pageSections = Array.from(document.querySelectorAll("main section[id]"));
-
-  function setCurrentSection(sectionId) {
-    sectionLinks.forEach((link) => {
-      if (link.getAttribute("href") === `#${sectionId}`) {
-        link.setAttribute("aria-current", "true");
-      } else {
-        link.removeAttribute("aria-current");
-      }
-    });
-  }
-
-  if (sectionLinks.length && pageSections.length && "IntersectionObserver" in window) {
-    const navObserver = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible && visible.target.id) {
-          setCurrentSection(visible.target.id);
-        }
-      },
-      {
-        rootMargin: "-28% 0px -58% 0px",
-        threshold: [0.12, 0.24, 0.4]
-      }
-    );
-
-    pageSections.forEach((section) => navObserver.observe(section));
-  }
-
-  if (window.location.hash) {
-    setCurrentSection(window.location.hash.slice(1));
-    window.requestAnimationFrame(() => {
-      const target = document.querySelector(window.location.hash);
-      if (target) {
-        target.scrollIntoView({ behavior: "auto", block: "start" });
-      }
-    });
-  } else {
-    setCurrentSection("home");
-  }
-
-  const searchInput = document.querySelector("#lesson-search");
-  const chips = Array.from(document.querySelectorAll("[data-category-filter]"));
-  const lessonCards = Array.from(document.querySelectorAll(".lesson-card"));
-  const emptyState = document.querySelector("#empty-state");
-  let activeCategory = "All";
-
-  function filterLessons() {
-    const query = searchInput ? searchInput.value.trim().toLowerCase() : "";
-    let visibleCount = 0;
-
-    lessonCards.forEach((card) => {
-      const category = card.dataset.category || "";
-      const haystack = [
-        card.dataset.title,
-        card.dataset.keywords,
-        card.textContent
-      ].join(" ").toLowerCase();
-
-      const matchesCategory = activeCategory === "All" || category === activeCategory;
-      const matchesSearch = !query || haystack.includes(query);
-      const shouldShow = matchesCategory && matchesSearch;
-
-      card.hidden = !shouldShow;
-      if (shouldShow) visibleCount += 1;
-    });
-
-    if (emptyState) {
-      emptyState.hidden = visibleCount !== 0;
-    }
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener("input", filterLessons);
-  }
-
-  chips.forEach((chip) => {
-    chip.addEventListener("click", () => {
-      activeCategory = chip.dataset.categoryFilter || "All";
-      chips.forEach((item) => {
-        item.classList.toggle("is-active", item === chip);
-      });
-      filterLessons();
-    });
-  });
-
-  document.querySelectorAll("[data-answer-target]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const targetId = button.getAttribute("data-answer-target");
-      const answer = targetId ? document.getElementById(targetId) : null;
-      if (!answer) return;
-
-      const willShow = answer.hidden;
-      answer.hidden = !willShow;
-      button.textContent = willShow ? "Hide Answer" : "Show Answer";
-    });
-  });
-
-  document.querySelectorAll("[data-collapse-target]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const targetId = button.getAttribute("data-collapse-target");
-      const panel = targetId ? document.getElementById(targetId) : null;
-      if (!panel) return;
-
-      const willShow = panel.hidden;
-      const label = button.querySelector("span");
-      panel.hidden = !willShow;
-      button.setAttribute("aria-expanded", String(willShow));
-
-      if (label) {
-        label.textContent = willShow
-          ? button.dataset.openLabel || "Hide Note"
-          : button.dataset.closedLabel || "Show Note";
-      }
-    });
-  });
-
-  const revealItems = Array.from(document.querySelectorAll(".reveal"));
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-  } else {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-
-    revealItems.forEach((item) => observer.observe(item));
-  }
+  } // end initApp
 })();
