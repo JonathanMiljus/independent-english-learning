@@ -82,9 +82,14 @@ a:hover { color: var(--navy); }
   flex-shrink: 0;
 }
 .brand-mark-img {
-  height: 56px; width: auto; display: block; flex-shrink: 0;
+  height: 92px; width: auto; display: block; flex-shrink: 0;
+  background: #fff; border-radius: 8px; padding: 4px;
 }
-.site-footer .brand-mark-img { height: 64px; }
+.site-footer .brand-mark-img { height: 112px; }
+@media (max-width: 800px) {
+  .brand-mark-img { height: 70px; }
+  .site-footer .brand-mark-img { height: 92px; }
+}
 .brand-copy { display: flex; flex-direction: column; line-height: 1.05; }
 .brand-title { font-family: Georgia, serif; font-weight: 700; font-size: 16px; color: var(--navy); }
 [data-theme="dark"] .brand-title { color: var(--gold); }
