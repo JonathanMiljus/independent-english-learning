@@ -69,6 +69,30 @@
    font-family: Georgia, serif;
  }
  .nav a.nav-grammar:hover { background: var(--coral); color: var(--cream); border-bottom-color: transparent; }
+ .ref-list {
+   list-style: none; padding: 0; margin: 0;
+   counter-reset: ref;
+ }
+ .ref-list li {
+   counter-increment: ref;
+   background: var(--white); border: 1px solid var(--rule);
+   border-left: 3px solid var(--gold);
+   border-radius: 6px;
+   padding: 14px 18px 14px 52px;
+   margin-bottom: 10px;
+   font-size: 14.5px; line-height: 1.6;
+   position: relative;
+   color: var(--charcoal);
+ }
+ .ref-list li::before {
+   content: counter(ref) ".";
+   position: absolute; left: 18px; top: 14px;
+   font-family: Georgia, serif; font-weight: 700;
+   color: var(--coral); font-size: 14.5px;
+ }
+ .ref-list li em { font-style: italic; }
+ .ref-list li a { color: var(--coral); word-break: break-word; }
+ .ref-list li a:hover { color: var(--navy); }
  .nav .brand {
  font-family: Georgia, serif; font-style: italic; color: var(--coral);
  margin-right: auto; font-size: 16px;
@@ -924,6 +948,7 @@
  <a href="#downloads" data-en="Downloads" data-es="Descargas" data-fr="Téléchargements">Downloads</a>
  <a href="#resources" data-en="Resources" data-es="Recursos" data-fr="Ressources">Resources</a>
  <a href="#plan" data-en="90-Day Plan" data-es="Plan de 90 días" data-fr="Plan 90 jours">90-Day Plan</a>
+ <a href="#references" data-en="References" data-es="Referencias" data-fr="Références">References</a>
  <span id="streak-badge" class="streak-badge zero" title="Daily check-in streak">
  🔥 <span id="streak-count">0</span>
  </span>
@@ -3335,6 +3360,43 @@ work, and daily conversation.</pre>
  data-es="15 minutos al día durante 90 días son 22 horas de práctica enfocada. Eso te cambia. La parte más difícil es empezar, y ya empezaste."
  data-fr="15 minutes par jour pendant 90 jours, c'est 22 heures de pratique ciblée. Cela vous change. Le plus dur est de commencer, et vous avez déjà commencé.">15 minutes a day for 90 days is 22 hours of focused English practice. That changes you. The hardest part is starting, and you've already started.</p>
  <a class="btn" href="#module-1" data-en="Start Module 1 →" data-es="Empieza el Módulo 1 →" data-fr="Commencer le Module 1 →">Start Module 1 →</a>
+ </div>
+</section>
+
+<section class="alt" id="references">
+ <div class="container">
+   <p class="eyebrow"
+      data-en="Research grounding"
+      data-es="Base de investigación"
+      data-fr="Base de recherche">Research grounding</p>
+   <h2 data-en="References"
+       data-es="Referencias"
+       data-fr="Références">References</h2>
+   <p style="color:var(--slate); font-size:15px; line-height:1.6; max-width:760px; margin-bottom:24px;"
+      data-en="Every design choice on this site is grounded in published research on second-language acquisition, cognitive psychology, and instructional design. Below is the full APA reference list."
+      data-es="Cada decisión de diseño en este sitio se basa en investigación publicada sobre adquisición de segundas lenguas, psicología cognitiva y diseño instruccional. Aquí está la lista completa en APA."
+      data-fr="Chaque choix de conception sur ce site s'appuie sur des recherches publiées en acquisition d'une seconde langue, psychologie cognitive et conception pédagogique. Voici la liste APA complète.">Every design choice on this site is grounded in published research on second-language acquisition, cognitive psychology, and instructional design. Below is the full APA reference list.</p>
+   <ol class="ref-list">
+     <li>Bjork, R. A., &amp; Bjork, E. L. (2011). Making things hard on yourself, but in a good way: Creating desirable difficulties to enhance learning. In M. A. Gernsbacher, R. W. Pew, L. M. Hough, &amp; J. R. Pomerantz (Eds.), <em>Psychology and the real world: Essays illustrating fundamental contributions to society</em> (pp. 56–64). Worth Publishers.</li>
+     <li>Cahill, L., &amp; McGaugh, J. L. (1995). A novel demonstration of enhanced memory associated with emotional arousal. <em>Consciousness and Cognition, 4</em>(4), 410–421. <a href="https://doi.org/10.1006/ccog.1995.1048" target="_blank" rel="noopener">https://doi.org/10.1006/ccog.1995.1048</a></li>
+     <li>CAST. (2024). <em>Universal design for learning guidelines version 3.0</em> [graphic organizer]. <a href="https://udlguidelines.cast.org" target="_blank" rel="noopener">https://udlguidelines.cast.org</a></li>
+     <li>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., &amp; Rohrer, D. (2006). Distributed practice in verbal recall tasks: A review and quantitative synthesis. <em>Psychological Bulletin, 132</em>(3), 354–380. <a href="https://doi.org/10.1037/0033-2909.132.3.354" target="_blank" rel="noopener">https://doi.org/10.1037/0033-2909.132.3.354</a></li>
+     <li>Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., &amp; Willingham, D. T. (2013). Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. <em>Psychological Science in the Public Interest, 14</em>(1), 4–58. <a href="https://doi.org/10.1177/1529100612453266" target="_blank" rel="noopener">https://doi.org/10.1177/1529100612453266</a></li>
+     <li>Karpicke, J. D., &amp; Blunt, J. R. (2011). Retrieval practice produces more learning than elaborative studying with concept mapping. <em>Science, 331</em>(6018), 772–775. <a href="https://doi.org/10.1126/science.1199327" target="_blank" rel="noopener">https://doi.org/10.1126/science.1199327</a></li>
+     <li>Kim, S. K., &amp; Webb, S. (2022). The effects of spaced practice on second language learning: A meta-analysis. <em>Language Learning, 72</em>(1), 269–319. <a href="https://doi.org/10.1111/lang.12479" target="_blank" rel="noopener">https://doi.org/10.1111/lang.12479</a></li>
+     <li>Krashen, S. D. (1985). <em>The input hypothesis: Issues and implications</em>. Longman.</li>
+     <li>Legge, E. L. G., Madan, C. R., Ng, E. T., &amp; Caplan, J. B. (2012). Building a memory palace in minutes: Equivalent memory performance using virtual versus conventional environments with the method of loci. <em>Acta Psychologica, 141</em>(3), 380–390. <a href="https://doi.org/10.1016/j.actpsy.2012.09.002" target="_blank" rel="noopener">https://doi.org/10.1016/j.actpsy.2012.09.002</a></li>
+     <li>Leitner, S. (1972). <em>So lernt man lernen: Der Weg zum Erfolg</em> [How to learn to learn: The path to success]. Herder.</li>
+     <li>Mayer, R. E. (2009). <em>Multimedia learning</em> (2nd ed.). Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511811678" target="_blank" rel="noopener">https://doi.org/10.1017/CBO9780511811678</a></li>
+     <li>Nation, I. S. P. (2013). <em>Learning vocabulary in another language</em> (2nd ed.). Cambridge University Press.</li>
+     <li>Paivio, A. (1990). <em>Mental representations: A dual coding approach</em>. Oxford University Press.</li>
+     <li>Pressley, M., Levin, J. R., &amp; Delaney, H. D. (1982). The mnemonic keyword method. <em>Review of Educational Research, 52</em>(1), 61–91. <a href="https://doi.org/10.3102/00346543052001061" target="_blank" rel="noopener">https://doi.org/10.3102/00346543052001061</a></li>
+     <li>Roediger, H. L., III, &amp; Karpicke, J. D. (2006). Test-enhanced learning: Taking memory tests improves long-term retention. <em>Psychological Science, 17</em>(3), 249–255. <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x" target="_blank" rel="noopener">https://doi.org/10.1111/j.1467-9280.2006.01693.x</a></li>
+     <li>Swain, M. (1985). Communicative competence: Some roles of comprehensible input and comprehensible output in its development. In S. Gass &amp; C. Madden (Eds.), <em>Input in second language acquisition</em> (pp. 235–253). Newbury House.</li>
+     <li>Walker, M. P., &amp; Stickgold, R. (2004). Sleep-dependent learning and memory consolidation. <em>Neuron, 44</em>(1), 121–133. <a href="https://doi.org/10.1016/j.neuron.2004.08.031" target="_blank" rel="noopener">https://doi.org/10.1016/j.neuron.2004.08.031</a></li>
+     <li>Yates, F. A. (1966). <em>The art of memory</em>. University of Chicago Press.</li>
+     <li>Zimmerman, B. J. (2002). Becoming a self-regulated learner: An overview. <em>Theory Into Practice, 41</em>(2), 64–70. <a href="https://doi.org/10.1207/s15430421tip4102_2" target="_blank" rel="noopener">https://doi.org/10.1207/s15430421tip4102_2</a></li>
+   </ol>
  </div>
 </section>
 
