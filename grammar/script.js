@@ -59,6 +59,15 @@
     langButtons.forEach(function (b) {
       b.classList.toggle('active', b.getAttribute('data-lang') === lang);
     });
+    // Refresh chapter counter and chapter-header number if a chapter is open
+    if (currentNum != null && readerCounter) {
+      readerCounter.textContent = (lang === 'es' ? 'Capítulo ' : (lang === 'fr' ? 'Chapitre ' : 'Chapter '))
+        + currentNum + (lang === 'es' ? ' de ' : (lang === 'fr' ? ' sur ' : ' of '))
+        + DATA.length;
+      if (typeof translateChapterHeader === 'function' && readerContent) {
+        translateChapterHeader(readerContent, lang);
+      }
+    }
     try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
   }
   langButtons.forEach(function (b) {
@@ -144,11 +153,67 @@
   var closeBtn = document.getElementById('close-btn');
   var currentNum = null;
 
+  // Translation map for hardcoded English labels inside rendered chapter HTML.
+  // Adds data-en/es/fr attributes so setLang() can swap them on the fly.
+  var LABEL_TRANSLATIONS = {
+    'Big Idea':              { es: 'Idea Principal',           fr: 'Idée Centrale' },
+    'Simple Rule':           { es: 'Regla Simple',             fr: 'Règle Simple' },
+    'Spanish Comparison':    { es: 'Comparación con Español',  fr: 'Comparaison Espagnole' },
+    'Common Mistake':        { es: 'Error Común',              fr: 'Erreur Courante' },
+    'Why This Happens':      { es: 'Por Qué Pasa Esto',        fr: 'Pourquoi Cela Arrive' },
+    'Real English Examples': { es: 'Ejemplos Reales en Inglés',fr: 'Exemples Réels en Anglais' },
+    'Practice':              { es: 'Práctica',                 fr: 'Pratique' },
+    'Quick Review':          { es: 'Repaso Rápido',            fr: 'Récapitulatif' },
+    'Contrast box':          { es: 'Caja de contraste',        fr: 'Encadré de contraste' },
+    'Show answers':          { es: 'Ver respuestas',           fr: 'Voir les réponses' },
+    'Show answer':           { es: 'Ver respuesta',            fr: 'Voir la réponse' },
+    'Teacher / Academic Note': { es: 'Nota para el Profesor / Académica', fr: 'Note Enseignante / Académique' },
+    'Sources and Further Reading': { es: 'Fuentes y Lecturas Adicionales', fr: 'Sources et Lectures Complémentaires' }
+  };
+
+  // Also translate the chapter-header pieces that are baked into ch.html
+  function translateChapterHeader(root, lang) {
+    if (!root) return;
+    var chNum = root.querySelector('.ch-num');
+    if (chNum && !chNum.hasAttribute('data-num-en')) {
+      var t = (chNum.textContent || '').trim();
+      var m = t.match(/^Chapter\s+(\d+)/i);
+      if (m) {
+        var n = m[1];
+        chNum.setAttribute('data-num-en', 'Chapter ' + n);
+        chNum.setAttribute('data-num-es', 'Capítulo ' + n);
+        chNum.setAttribute('data-num-fr', 'Chapitre ' + n);
+      }
+    }
+    if (chNum) {
+      var attr = chNum.getAttribute('data-num-' + lang);
+      if (attr) chNum.textContent = attr;
+    }
+  }
+
+  function tagTranslatableLabels(root) {
+    if (!root) return;
+    var selectors = ['.box-label', '.ans-details > summary', '.ch-teacher > summary', '.ch-sources > summary', '.contrast-label'];
+    var nodes = root.querySelectorAll(selectors.join(','));
+    nodes.forEach(function (el) {
+      if (el.hasAttribute('data-en')) return; // already tagged
+      var text = (el.textContent || '').trim();
+      var t = LABEL_TRANSLATIONS[text];
+      if (t) {
+        el.setAttribute('data-en', text);
+        if (t.es) el.setAttribute('data-es', t.es);
+        if (t.fr) el.setAttribute('data-fr', t.fr);
+      }
+    });
+  }
+
   function showChapter(num, scroll) {
     var ch = DATA.find(function (c) { return c.num === num; });
     if (!ch) return;
     currentNum = num;
     readerContent.innerHTML = ch.html;
+    tagTranslatableLabels(readerContent);
+    translateChapterHeader(readerContent, currentLang);
     var counterText = (currentLang === 'es' ? 'Capítulo ' : (currentLang === 'fr' ? 'Chapitre ' : 'Chapter '))
                     + num + (currentLang === 'es' ? ' de ' : (currentLang === 'fr' ? ' sur ' : ' of '))
                     + DATA.length;
